@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 Color backgroudOpacity1 = const Color.fromRGBO(0, 0, 0, 0);
 Color backgroudOpacity2 =
-    const Color.fromRGBO(102, 100, 100, 0.75);
-Color backgroudBrandItem =  const Color.fromRGBO(142, 141, 141, 1.0);
+    const Color.fromRGBO(196, 196, 196, 0.6980392156862745);
+Color backgroudBrandItem = const Color.fromRGBO(142, 141, 141, 1.0);
 Color colorText = const Color.fromRGBO(97, 97, 97, 0.65);
 Color colorTextBt = const Color.fromRGBO(255, 255, 255, 1);
 Color blackGradientColorTop = const Color.fromRGBO(95, 95, 95, 1);

@@ -37,6 +37,7 @@ dependencies:
   keyboard_dismisser: ^3.0.0
 #  getx
   get: ^4.6.5
+  get_storage: ^2.0.3
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -79,7 +80,27 @@ flutter:
     - images/icon_chat.png
     - images/icon_download.png
     - images/icon_ping_map.png
+    - images/icon_ping_map_outline.png
     - images/icon_reverse.png
+    - images/icon_artish.png
+    - images/icon_sale_job.png
+    - images/icon_it_job.png
+    - images/icon_search.png
+    - images/icon_next_arrrow.png
+    - images/icon_wallet.png
+    - images/icon_calendar.png
+    - images/icon_popup_arrow.png
+    - images/icon_pencil.png
+    - images/icon_check_list.png
+    - images/icon_iq.png
+    - images/icon_education.png
+    - images/icon_disc.png
+    - images/icon_doc.png
+    - images/icon_logout.png
+    - images/icon_send_mess.png
+    - images/icon_image.png
+    - images/icon_camera.png
+    - images/logo_job.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -12,6 +12,27 @@ class ProposeScreen extends StatefulWidget {
 class _ProposeScreenState extends State<ProposeScreen> {
   List<String> listBranch = ["Ui-Ux Designer", "Graphic Designer"];
 
+  Widget circleIcon(List<Color> colors, String patch) {
+    return Container(
+      //margin: EdgeInsets.only(right: 25),
+      width: 50,
+      height: 50,
+      decoration: BoxDecoration(
+          color: backgroudOpacity2,
+          borderRadius: BorderRadius.circular(1000),
+          border: Border.all(width: 2, color: Colors.white)),
+      child: Center(
+          child: GradientWidget(
+              colors: colors,
+              child: Image.asset(
+                patch,
+                width: 25,
+                height: 25,
+                fit: BoxFit.contain,
+              ))),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final widths = MediaQuery.of(context).size.width;
@@ -39,64 +60,15 @@ class _ProposeScreenState extends State<ProposeScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Container(
-                            //margin: EdgeInsets.only(right: 25),
-                            width: 50,
-                            height: 50,
-                            decoration: BoxDecoration(
-                                color: backgroudOpacity2,
-                                borderRadius: BorderRadius.circular(1000),
-                                border:
-                                    Border.all(width: 2, color: Colors.white)),
-                            child: Center(
-                                child: GradientWidget(colors: [
-                              yellowGradientColorTop,
-                              yellowGradientColorBot
-                            ], child: const Icon(Icons.lightbulb, size: 25))),
-                          ),
-                          Container(
-                            //margin: EdgeInsets.only(right: 25),
-                            width: 50,
-                            height: 50,
-                            decoration: BoxDecoration(
-                                color: backgroudOpacity2,
-                                borderRadius: BorderRadius.circular(1000),
-                                border:
-                                    Border.all(width: 2, color: Colors.white)),
-                            child: Center(
-                                child: GradientWidget(
-                                    colors: [
-                                  purpleGradientColorTop,
-                                  purpleGradientColorBot
-                                ],
-                                    child: Image.asset(
-                                      "images/icon_add_user.png",
-                                      width: 25,
-                                      height: 25,
-                                      fit: BoxFit.contain,
-                                    ))),
-                          ),
-                          Container(
-                            width: 50,
-                            height: 50,
-                            decoration: BoxDecoration(
-                                color: backgroudOpacity2,
-                                borderRadius: BorderRadius.circular(1000),
-                                border:
-                                    Border.all(width: 2, color: Colors.white)),
-                            child: Center(
-                                child: GradientWidget(
-                                    colors: [
-                                  pinkGradientColorTop,
-                                  pinkGradientColorBot
-                                ],
-                                    child: Image.asset(
-                                      "images/icon_settings.png",
-                                      width: 25,
-                                      height: 25,
-                                      fit: BoxFit.contain,
-                                    ))),
-                          ),
+                          circleIcon(
+                              [yellowGradientColorTop, yellowGradientColorBot],
+                              "images/icon_idea.png"),
+                          circleIcon(
+                              [purpleGradientColorTop, pinkGradientColorBot],
+                              "images/icon_add_user.png"),
+                          circleIcon(
+                              [pinkGradientColorTop, pinkGradientColorBot],
+                              "images/icon_settings.png"),
                         ],
                       ),
                     ),
@@ -201,27 +173,8 @@ class _ProposeScreenState extends State<ProposeScreen> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Container(
-                        margin: const EdgeInsets.only(bottom: 5),
-                        width: 50,
-                        height: 50,
-                        decoration: BoxDecoration(
-                            color: backgroudOpacity2,
-                            borderRadius: BorderRadius.circular(1000),
-                            border: Border.all(width: 2, color: Colors.white)),
-                        child: Center(
-                            child: GradientWidget(
-                                colors: [
-                              pinkGradientColorTop,
-                              pinkGradientColorBot
-                            ],
-                                child: Image.asset(
-                                  "images/icon_favorite.png",
-                                  width: 25,
-                                  height: 25,
-                                  fit: BoxFit.contain,
-                                ))),
-                      ),
+                      circleIcon([pinkGradientColorTop, pinkGradientColorBot],
+                          "images/icon_favorite.png"),
                       Container(
                         margin: const EdgeInsets.only(bottom: 10),
                         child: Text(
@@ -229,27 +182,8 @@ class _ProposeScreenState extends State<ProposeScreen> {
                           style: TextStyle(fontSize: 10, color: colorTextBt),
                         ),
                       ),
-                      Container(
-                        margin: const EdgeInsets.only(bottom: 15),
-                        width: 50,
-                        height: 50,
-                        decoration: BoxDecoration(
-                            color: backgroudOpacity2,
-                            borderRadius: BorderRadius.circular(1000),
-                            border: Border.all(width: 2, color: Colors.white)),
-                        child: Center(
-                            child: GradientWidget(
-                                colors: [
-                              greenGradientColorTop,
-                              greenGradientColorBot
-                            ],
-                                child: Image.asset(
-                                  "images/icon_chat.png",
-                                  width: 25,
-                                  height: 25,
-                                  fit: BoxFit.contain,
-                                ))),
-                      ),
+                      circleIcon([greenGradientColorTop, greenGradientColorBot],
+                          "images/icon_chat.png"),
                       Container(
                         margin: const EdgeInsets.only(bottom: 10),
                         child: Text(

@@ -1,7 +1,7 @@
 import 'package:acs_project_example/screen/main_screen/main_screen.dart';
+import 'package:acs_project_example/state_manager/controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 
 import '../../value/colors.dart';
@@ -13,6 +13,7 @@ class SecondSplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final widths = MediaQuery.of(context).size.width;
+    final Controller c = Get.put(Controller());
     return KeyboardDismisser(
       child: Scaffold(
         body: Container(
@@ -67,7 +68,7 @@ class SecondSplashScreen extends StatelessWidget {
                   keyboardType: TextInputType.number,
                 ),
               ),
-              Text(descriptionSplashText,
+              const Text(descriptionSplashText,
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 15, height: 2)),
               Expanded(
@@ -78,10 +79,12 @@ class SecondSplashScreen extends StatelessWidget {
                   child: GestureDetector(
                     onTap: () {
                       print("Next");
-                      Get.off(MainScreen());
+                      Get.off(const MainScreen(),
+                          transition: Transition.leftToRight,
+                          duration: const Duration(seconds: 2));
                     },
                     child: Container(
-                      margin: EdgeInsets.all(20),
+                      margin: const EdgeInsets.all(20),
                       width: double.infinity,
                       height: 50,
                       decoration: BoxDecoration(
@@ -89,7 +92,10 @@ class SecondSplashScreen extends StatelessWidget {
                           gradient: LinearGradient(
                             begin: Alignment.topCenter,
                             end: Alignment.bottomCenter,
-                            colors: [blackGradientColorTop, blackGradientColorBot],
+                            colors: [
+                              blackGradientColorTop,
+                              blackGradientColorBot
+                            ],
                           )),
                       child: Center(
                         child: Text(nextBtText,
@@ -102,7 +108,7 @@ class SecondSplashScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),

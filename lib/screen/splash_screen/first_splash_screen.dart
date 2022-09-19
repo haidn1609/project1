@@ -1,23 +1,32 @@
 import 'package:acs_project_example/screen/splash_screen/second_splash_screen.dart';
+import 'package:acs_project_example/state_manager/controller.dart';
 import 'package:acs_project_example/value/colors.dart';
 import 'package:acs_project_example/value/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class FirstSplashScreen extends StatelessWidget {
-  const FirstSplashScreen({Key? key}) : super(key: key);
+  FirstSplashScreen({Key? key}) : super(key: key);
+  final box = GetStorage();
+
+  void setFirstInstall() {
+    box.write("FistInstall", true);
+  }
 
   @override
   Widget build(BuildContext context) {
     final widths = MediaQuery.of(context).size.width;
+    final Controller c = Get.put(Controller());
+    setFirstInstall();
     return Scaffold(
       body: Container(
         width: widths,
         decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("images/splash_screen_background.png"),
-              fit: BoxFit.fill,
-            )),
+          image: AssetImage("images/splash_screen_background.png"),
+          fit: BoxFit.fill,
+        )),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
@@ -48,7 +57,10 @@ class FirstSplashScreen extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 print("Ứng viên");
-                Get.off(const SecondSplashScreen());
+                c.setRule(candidateBtText);
+                Get.to(const SecondSplashScreen(),
+                    transition: Transition.leftToRight,
+                    duration: Duration(seconds: 1));
               },
               child: Container(
                 margin: const EdgeInsets.only(bottom: 15),
@@ -74,7 +86,10 @@ class FirstSplashScreen extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 print("Nhà tuyển dụng");
-                Get.off(const SecondSplashScreen());
+                c.setRule(employerBtText);
+                Get.to(const SecondSplashScreen(),
+                    transition: Transition.leftToRight,
+                    duration: Duration(seconds: 1));
               },
               child: Container(
                 margin: const EdgeInsets.only(bottom: 15),
@@ -104,8 +119,8 @@ class FirstSplashScreen extends StatelessWidget {
                 height: double.infinity,
                 decoration: const BoxDecoration(
                     image: DecorationImage(
-                        image:
-                        AssetImage("images/splash_screen_footer_banner.png"),
+                        image: AssetImage(
+                            "images/splash_screen_footer_banner.png"),
                         fit: BoxFit.contain,
                         alignment: Alignment.bottomCenter)),
               ),
