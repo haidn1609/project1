@@ -35,9 +35,11 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   keyboard_dismisser: ^3.0.0
-#  getx
+  #  getx
   get: ^4.6.5
   get_storage: ^2.0.3
+  #multiselect
+  multiselect: ^0.0.7
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -62,45 +64,48 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - images/icon_add_user.png
+    - images/icon_artish.png
+    - images/icon_calendar.png
+    - images/icon_calendar_outline.png
+    - images/icon_camera.png
+    - images/icon_chat.png
+    - images/icon_check_list.png
+    - images/icon_close_post.png
+    - images/icon_disc.png
+    - images/icon_doc.png
+    - images/icon_download.png
+    - images/icon_education.png
+    - images/icon_favorite.png
+    - images/icon_idea.png
+    - images/icon_image.png
+    - images/icon_iq.png
+    - images/icon_it_job.png
+    - images/icon_job.png
+    - images/icon_logout.png
+    - images/icon_messenger.png
+    - images/icon_next_arrrow.png
+    - images/icon_paper_plane.png
+    - images/icon_pencil.png
+    - images/icon_ping_map.png
+    - images/icon_ping_map_outline.png
+    - images/icon_popup_arrow.png
+    - images/icon_propose.png
+    - images/icon_reverse.png
+    - images/icon_sale_job.png
+    - images/icon_search.png
+    - images/icon_send_mess.png
+    - images/icon_settings.png
+    - images/icon_user.png
+    - images/icon_wallet.png
+    - images/logo_job.png
+    - images/match_banner.png
+    - images/propose_screen_backgroud.jpg
     - images/splash_screen_background.png
     - images/splash_screen_banner.png
     - images/splash_screen_footer_banner.png
     - images/splash_screen_logo.png
-    - images/propose_screen_backgroud.jpg
-    - images/match_banner.png
-    - images/icon_paper_plane.png
-    - images/icon_propose.png
-    - images/icon_job.png
-    - images/icon_messenger.png
-    - images/icon_user.png
-    - images/icon_idea.png
-    - images/icon_add_user.png
-    - images/icon_settings.png
-    - images/icon_favorite.png
-    - images/icon_chat.png
-    - images/icon_download.png
-    - images/icon_ping_map.png
-    - images/icon_ping_map_outline.png
-    - images/icon_reverse.png
-    - images/icon_artish.png
-    - images/icon_sale_job.png
-    - images/icon_it_job.png
-    - images/icon_search.png
-    - images/icon_next_arrrow.png
-    - images/icon_wallet.png
-    - images/icon_calendar.png
-    - images/icon_popup_arrow.png
-    - images/icon_pencil.png
-    - images/icon_check_list.png
-    - images/icon_iq.png
-    - images/icon_education.png
-    - images/icon_disc.png
-    - images/icon_doc.png
-    - images/icon_logout.png
-    - images/icon_send_mess.png
-    - images/icon_image.png
-    - images/icon_camera.png
-    - images/logo_job.png
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

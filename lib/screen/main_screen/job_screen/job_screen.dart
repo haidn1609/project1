@@ -107,7 +107,6 @@ class _JobScreenState extends State<JobScreen> {
                             ),
                           ),
                           showCursor: false,
-                          keyboardType: TextInputType.number,
                         ),
                       ),
                       Positioned(
@@ -182,7 +181,7 @@ class _JobScreenState extends State<JobScreen> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Container(
-                                      margin: EdgeInsets.all(10),
+                                      margin: const EdgeInsets.all(10),
                                       width: 50,
                                       height: 50,
                                       decoration: BoxDecoration(
@@ -191,19 +190,20 @@ class _JobScreenState extends State<JobScreen> {
                                               fit: BoxFit.contain)),
                                     ),
                                     Padding(
-                                      padding:
-                                          EdgeInsets.fromLTRB(10, 10, 0, 15),
+                                      padding: const EdgeInsets.fromLTRB(
+                                          10, 10, 0, 15),
                                       child: Text(
                                         "${item["nameJob"]}",
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontWeight: FontWeight.bold),
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsets.fromLTRB(10, 5, 0, 0),
+                                      padding: const EdgeInsets.fromLTRB(
+                                          10, 5, 0, 0),
                                       child: Text(
                                         "${item["count"]} đơn tuyển",
-                                        style: TextStyle(fontSize: 10),
+                                        style: const TextStyle(fontSize: 10),
                                       ),
                                     )
                                   ],

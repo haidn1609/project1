@@ -89,7 +89,7 @@ class ItemCandidateRequest extends StatelessWidget {
                   height: 20,
                   alignment: Alignment.center,
                   child: Image.asset(
-                    "images/icon_calendar.png",
+                    "images/icon_calendar_outline.png",
                     fit: BoxFit.contain,
                   ),
                 ),

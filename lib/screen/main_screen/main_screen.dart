@@ -2,11 +2,14 @@ import 'package:acs_project_example/screen/main_screen/info_screen/info_screen.d
 import 'package:acs_project_example/screen/main_screen/job_screen/job_screen.dart';
 import 'package:acs_project_example/screen/main_screen/mess_screen/mess_screen.dart';
 import 'package:acs_project_example/screen/main_screen/propose_screen/propose_screen.dart';
+import 'package:acs_project_example/screen/post_new_screen/post_new_by_candidate.dart';
+import 'package:acs_project_example/screen/post_new_screen/post_new_by_employer.dart';
 import 'package:acs_project_example/value/colors.dart';
 import 'package:acs_project_example/value/strings.dart';
 import 'package:acs_project_example/widget/stateless/gradientWidget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -23,6 +26,7 @@ class _MainScreenState extends State<MainScreen> {
     const MessScreen(),
     const InfoScreen()
   ];
+  final box = GetStorage();
 
   setCurrent(int index) {
     setState(() {
@@ -36,7 +40,7 @@ class _MainScreenState extends State<MainScreen> {
       children: [
         Container(
           height: 60,
-          margin: EdgeInsets.only(left: 15, right: 15),
+          margin: const EdgeInsets.only(left: 15, right: 15),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(25),
               gradient: LinearGradient(
@@ -45,7 +49,7 @@ class _MainScreenState extends State<MainScreen> {
                   colors: [blackGradientColorTop, blackGradientColorBot])),
           child: Center(
               child: Container(
-            padding: EdgeInsets.only(top: 5),
+            padding: const EdgeInsets.only(top: 5),
             height: 60,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -96,7 +100,7 @@ class _MainScreenState extends State<MainScreen> {
                 Expanded(
                   flex: 1,
                   child: Container(
-                    margin: EdgeInsets.only(bottom: 10),
+                    margin: const EdgeInsets.only(bottom: 10),
                     alignment: Alignment.bottomCenter,
                     child: Text(
                       btbText3,
@@ -151,23 +155,32 @@ class _MainScreenState extends State<MainScreen> {
           )),
         ),
         InkWell(
-          onTap: () => print("click"),
+          onTap: () {
+            box.read("rule") == candidateBtText
+                ? Get.to(const PostNewCandidate(),
+                    transition: Transition.upToDown,
+                    duration: const Duration(seconds: 1))
+                : Get.to(const PostNewEmployer(),
+                    transition: Transition.upToDown,
+                    duration: const Duration(seconds: 1));
+          },
           child: Container(
             height: 60,
             width: 60,
-            margin: EdgeInsets.only(bottom: 60),
+            margin: const EdgeInsets.only(bottom: 60),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(1000),
                 gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [yellowGradientColorTop, yellowGradientColorBot])),
-            child: Center(
+            child: Container(
+              alignment: Alignment.center,
+              padding: const EdgeInsets.only(right: 5),
               child: Image.asset(
                 "images/icon_paper_plane.png",
                 width: 30,
                 height: 30,
-                fit: BoxFit.contain,
               ),
             ),
           ),
