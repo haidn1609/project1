@@ -1,5 +1,5 @@
 Map<String, dynamic> userNow = {
-  "name": "Nguyen Si Truong",
+  "name": "Nguyen Sy Truong",
   "avatarUrl":
       "https://info-imgs.vgcloud.vn/2020/07/27/15/nu-sinh-truong-y-dep-hut-hon-trong-hoang-hon-bo-bien-cua-lo-9.jpg",
   "phoneNumber": "0393191343",

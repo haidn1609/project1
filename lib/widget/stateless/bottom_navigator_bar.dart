@@ -220,8 +220,8 @@ class BNBCustomPainted extends CustomPainter {
     Paint paint = Paint()
       ..color = Colors.red
       ..style = PaintingStyle.fill;
-    Path path = Path()..moveTo(size.width * 0.07, size.height);
-    path.arcToPoint(Offset(size.width * 0.07, 0),
+    Path path = Path()..moveTo(size.width * 0.1, size.height);
+    path.arcToPoint(Offset(size.width * 0.1, 0),
         radius: const Radius.circular(30));
     path.lineTo(size.width * 0.5 - 70, 0);
     path.quadraticBezierTo(
@@ -229,10 +229,10 @@ class BNBCustomPainted extends CustomPainter {
     path.arcToPoint(Offset(size.width * 0.5 + 30, size.height * 0.25),
         clockwise: false, radius: const Radius.circular(33));
     path.quadraticBezierTo(size.width * 0.5 + 40, 0, size.width * 0.5 + 70, 0);
-    path.lineTo(size.width * 0.93, 0);
-    path.arcToPoint(Offset(size.width * 0.93, size.height),
+    path.lineTo(size.width * 0.9, 0);
+    path.arcToPoint(Offset(size.width * 0.9, size.height),
         radius: const Radius.circular(30));
-    path.lineTo(size.width * 0.07, size.height);
+    path.lineTo(size.width * 0.1, size.height);
     canvas.drawPath(path, paint);
   }
 

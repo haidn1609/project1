@@ -159,7 +159,7 @@ class _JobScreenState extends State<JobScreen> {
                         ],
                       ),
                       Container(
-                        margin: EdgeInsets.only(bottom: 30),
+                        margin: EdgeInsets.only(bottom: 20),
                         height: 160,
                         padding: EdgeInsets.only(top: 15),
                         child: ListView.builder(
@@ -170,8 +170,8 @@ class _JobScreenState extends State<JobScreen> {
                             Map<String, dynamic> item =
                                 listJobLogo.elementAt(index);
                             return SizedBox(
-                              width: 160,
-                              height: 160,
+                              width: 150,
+                              height: 150,
                               child: Card(
                                 elevation: 10,
                                 shape: RoundedRectangleBorder(
@@ -181,7 +181,8 @@ class _JobScreenState extends State<JobScreen> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Container(
-                                      margin: const EdgeInsets.all(10),
+                                      margin: const EdgeInsets.fromLTRB(
+                                          10, 10, 10, 0),
                                       width: 50,
                                       height: 50,
                                       decoration: BoxDecoration(
@@ -189,9 +190,10 @@ class _JobScreenState extends State<JobScreen> {
                                               image: AssetImage(item["patch"]),
                                               fit: BoxFit.contain)),
                                     ),
-                                    Padding(
+                                    Container(
+                                      height: 45,
                                       padding: const EdgeInsets.fromLTRB(
-                                          10, 10, 0, 15),
+                                          10, 10, 0, 0),
                                       child: Text(
                                         "${item["nameJob"]}",
                                         style: const TextStyle(
@@ -225,7 +227,7 @@ class _JobScreenState extends State<JobScreen> {
         ),
       ),
       drawer: Container(
-        margin: EdgeInsets.only(bottom: 150),
+        margin: const EdgeInsets.only(bottom: 150),
         alignment: Alignment.topCenter,
         width: widths * 0.5,
         child: Drawer(

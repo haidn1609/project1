@@ -29,7 +29,7 @@ class ItemShowMess extends StatelessWidget {
     return Container(
       width: widths * 0.9,
       height: 60,
-      margin: const EdgeInsets.fromLTRB(27, 10, 27, 0),
+      margin: const EdgeInsets.fromLTRB(30, 10, 30, 0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -56,13 +56,16 @@ class ItemShowMess extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    width: widths * 0.7,
+                    width: widths <= 420
+                        ? widths * 0.6
+                        : (widths <= 720 ? widths * 0.7 : widths * 0.8),
                     height: 30,
                     child: Row(
                       children: [
                         Expanded(
                           flex: 3,
                           child: Container(
+                            padding: const EdgeInsets.only(right: 5),
                             alignment: Alignment.centerLeft,
                             child: listContent
                                     .where((element) =>
