@@ -1,5 +1,5 @@
 import 'package:acs_project_example/value/colors.dart';
-import 'package:acs_project_example/widget/stateless/gradientWidget.dart';
+import 'package:acs_project_example/widget/stateless/gradient_widget.dart';
 import 'package:flutter/material.dart';
 
 class ProposeScreen extends StatefulWidget {

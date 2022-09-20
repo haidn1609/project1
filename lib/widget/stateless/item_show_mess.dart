@@ -1,0 +1,104 @@
+import 'package:acs_project_example/mock_data.dart';
+import 'package:flutter/material.dart';
+
+class ItemShowMess extends StatelessWidget {
+  const ItemShowMess({Key? key, required this.mess}) : super(key: key);
+  final Map<String, dynamic> mess;
+
+  String calculatePeriod(DateTime now, DateTime input) {
+    return (now.year - input.year) > 0
+        ? "${(now.year - input.year)} năm trước"
+        : ((now.month - input.month) > 0
+            ? "${(now.month - input.month)} tháng trước"
+            : ((now.day - input.day) > 0
+                ? "${(now.day - input.day)} ngày trước"
+                : ((now.hour - input.hour) > 0
+                    ? "${(now.hour - input.hour)} giờ trước"
+                    : ((now.minute - input.minute) > 0
+                        ? "${(now.minute - input.minute)} phút trước"
+                        : "${(now.second - input.second)} giây trước"))));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final widths = MediaQuery.of(context).size.width;
+    Map<String, dynamic> sender = mess["user1"]["name"] == userNow["name"]
+        ? mess["user2"]
+        : mess["user1"];
+    List<Map<String, String>> listContent = mess["mess"];
+    return Container(
+      width: widths * 0.9,
+      height: 60,
+      margin: const EdgeInsets.fromLTRB(27, 10, 27, 0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Image.network(
+            sender["avatar"],
+            height: 50,
+            width: 50,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 10, right: 10),
+            child: SizedBox(
+              height: 60,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Flexible(
+                    flex: 1,
+                    child: Container(
+                      alignment: Alignment.bottomLeft,
+                      child: Text(sender["name"],
+                          style: const TextStyle(fontWeight: FontWeight.bold)),
+                    ),
+                  ),
+                  SizedBox(
+                    width: widths * 0.7,
+                    height: 30,
+                    child: Row(
+                      children: [
+                        Expanded(
+                          flex: 3,
+                          child: Container(
+                            alignment: Alignment.centerLeft,
+                            child: listContent
+                                    .where((element) =>
+                                        element["sender"] == sender["name"] &&
+                                        element["status"] == "unread")
+                                    .isNotEmpty
+                                ? Text(
+                                    "${sender["name"]} đã gửi tin nhắn cho bạn",
+                                    style: const TextStyle(fontSize: 10))
+                                : const Text(""),
+                          ),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: Container(
+                            alignment: Alignment.centerRight,
+                            child: Text(
+                              calculatePeriod(
+                                  DateTime.now(),
+                                  DateTime.parse(listContent
+                                      .where((element) =>
+                                          element["sender"] == sender["name"])
+                                      .last["timeSend"]!)),
+                              style: const TextStyle(fontSize: 10),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}

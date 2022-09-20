@@ -30,3 +30,5 @@ const String applyPositionHideText = "Vị trí ứng tuyển";
 const String locationWorkingHideText = "Địa điểm làm mong muốn";
 const String expHideText = "Năm kinh nghiệm";
 const String postBtText = "Đăng tin";
+const String messTabTitle = "Tin nhắn";
+const String searchMessHideText = "Tìm kiếm tin nhắn";

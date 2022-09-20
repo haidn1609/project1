@@ -110,7 +110,6 @@ class _PostNewCandidateState extends State<PostNewCandidate>
                               )),
                         ),
                         showCursor: false,
-                        keyboardType: TextInputType.number,
                       ),
                     ),
                     Container(

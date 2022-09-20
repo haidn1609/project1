@@ -8,7 +8,7 @@ import '../../screen/post_new_screen/post_new_by_candidate.dart';
 import '../../screen/post_new_screen/post_new_by_employer.dart';
 import '../../value/colors.dart';
 import '../../value/strings.dart';
-import 'gradientWidget.dart';
+import 'gradient_widget.dart';
 
 class BottomNavigatorBarCus extends StatelessWidget {
   BottomNavigatorBarCus({Key? key}) : super(key: key);
