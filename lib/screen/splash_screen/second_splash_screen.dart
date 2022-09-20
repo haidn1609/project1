@@ -1,5 +1,4 @@
 import 'package:acs_project_example/screen/main_screen/main_screen.dart';
-import 'package:acs_project_example/state_manager/controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
@@ -13,7 +12,6 @@ class SecondSplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final widths = MediaQuery.of(context).size.width;
-    final Controller c = Get.put(Controller());
     return KeyboardDismisser(
       child: Scaffold(
         body: Container(

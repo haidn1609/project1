@@ -38,6 +38,8 @@ dependencies:
   #  getx
   get: ^4.6.5
   get_storage: ^2.0.3
+  #provider
+  provider: ^6.0.3
   #multiselect
   multiselect: ^0.0.7
 dev_dependencies:
@@ -64,6 +66,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - images/bnb.PNG
     - images/icon_add_user.png
     - images/icon_artish.png
     - images/icon_calendar.png

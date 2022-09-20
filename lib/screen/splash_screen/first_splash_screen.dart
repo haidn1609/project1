@@ -1,5 +1,4 @@
 import 'package:acs_project_example/screen/splash_screen/second_splash_screen.dart';
-import 'package:acs_project_example/state_manager/controller.dart';
 import 'package:acs_project_example/value/colors.dart';
 import 'package:acs_project_example/value/strings.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +16,6 @@ class FirstSplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final widths = MediaQuery.of(context).size.width;
-    final Controller c = Get.put(Controller());
     setFirstInstall();
     return Scaffold(
       body: Container(
@@ -57,7 +55,7 @@ class FirstSplashScreen extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 print("Ứng viên");
-                c.setRule(candidateBtText);
+                box.write("rule", candidateBtText);
                 Get.to(const SecondSplashScreen(),
                     transition: Transition.leftToRight,
                     duration: Duration(seconds: 1));
@@ -86,7 +84,7 @@ class FirstSplashScreen extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 print("Nhà tuyển dụng");
-                c.setRule(employerBtText);
+                box.write("rule", employerBtText);
                 Get.to(const SecondSplashScreen(),
                     transition: Transition.leftToRight,
                     duration: Duration(seconds: 1));

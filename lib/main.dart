@@ -1,16 +1,21 @@
 import 'package:acs_project_example/screen/main_screen/main_screen.dart';
 import 'package:acs_project_example/screen/splash_screen/first_splash_screen.dart';
+import 'package:acs_project_example/state_manager/provider_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   await GetStorage.init();
-  runApp(MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (context) => ProviderController(),
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatefulWidget {
