@@ -20,11 +20,14 @@ class _InfoScreenState extends State<InfoScreen> {
         body: Container(
           width: double.infinity,
           height: double.infinity,
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [blackGradientColorBot, blackGradientColorTop])),
+          decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("images/background.png"), fit: BoxFit.cover)
+              // gradient: LinearGradient(
+              //     begin: Alignment.topCenter,
+              //     end: Alignment.bottomCenter,
+              //     colors: [blackGradientColorBot, blackGradientColorTop])
+              ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,

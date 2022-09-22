@@ -390,10 +390,7 @@ class _PostNewCandidateState extends State<PostNewCandidate>
                     gradient: LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
-                        colors: [
-                          blackGradientColorTop,
-                          blackGradientColorBot
-                        ])),
+                        colors: blackGradientColor)),
                 child: Center(
                   child: Text(
                     postBtText,

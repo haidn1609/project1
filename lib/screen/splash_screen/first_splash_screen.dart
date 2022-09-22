@@ -69,7 +69,7 @@ class FirstSplashScreen extends StatelessWidget {
                     gradient: LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
-                      colors: [blackGradientColorTop, blackGradientColorBot],
+                      colors: blackGradientColor,
                     )),
                 child: Center(
                   child: Text(candidateBtText,
@@ -98,7 +98,7 @@ class FirstSplashScreen extends StatelessWidget {
                     gradient: LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
-                      colors: [blackGradientColorTop, blackGradientColorBot],
+                      colors: blackGradientColor,
                     )),
                 child: Center(
                   child: Text(employerBtText,

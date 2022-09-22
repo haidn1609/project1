@@ -45,7 +45,8 @@ class _MyAppState extends State<MyApp> {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: checkFistInstall ? MainScreen() : FirstSplashScreen(),
+      home: checkFistInstall ? const MainScreen() : FirstSplashScreen(),
+      //home: SecondSplashScreen(),
     );
   }
 }

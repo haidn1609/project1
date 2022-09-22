@@ -66,9 +66,11 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - images/background.png
     - images/bnb.PNG
     - images/icon_add_user.png
     - images/icon_artish.png
+    - images/icon_back_arrrow.png
     - images/icon_calendar.png
     - images/icon_calendar_outline.png
     - images/icon_camera.png
@@ -99,6 +101,7 @@ flutter:
     - images/icon_search.png
     - images/icon_send_mess.png
     - images/icon_settings.png
+    - images/icon_smile_fill.png
     - images/icon_user.png
     - images/icon_wallet.png
     - images/logo_job.png

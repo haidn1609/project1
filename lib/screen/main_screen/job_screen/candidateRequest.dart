@@ -48,7 +48,7 @@ class CandidateRequest extends StatelessWidget {
                 gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
-                    colors: [blackGradientColorTop, blackGradientColorBot])),
+                    colors: blackGradientColor)),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,

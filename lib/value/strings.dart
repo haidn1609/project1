@@ -38,3 +38,6 @@ const String miText = "MI: ";
 const String discText = "MI: ";
 const String youPostText = "Tin đã đăng";
 const String logOutText = "Đăng xuất";
+const String isOnlineText = "Đang hoạt động";
+const String isOfflineText = "Không hoạt động";
+const String chatHideText = "Viết tin nhắn";

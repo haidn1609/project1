@@ -24,7 +24,7 @@ class BottomNavigatorBarCus extends StatelessWidget {
               color: dontSelectBtBNB,
             )
           : GradientWidget(
-              colors: [yellowGradientColorTop, yellowGradientColorBot],
+              colors: yellowGradientColor,
               child: Image.asset(
                 patch,
                 width: 25,
@@ -53,7 +53,7 @@ class BottomNavigatorBarCus extends StatelessWidget {
               shaderCallback: (bounds) => LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
-                      colors: [blackGradientColorTop, blackGradientColorBot])
+                      colors: blackGradientColor)
                   .createShader(bounds),
               child: CustomPaint(
                 size: Size(size.width * 0.9, 60),
@@ -79,10 +79,7 @@ class BottomNavigatorBarCus extends StatelessWidget {
                     gradient: LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
-                        colors: [
-                          yellowGradientColorTop,
-                          yellowGradientColorBot
-                        ])),
+                        colors: yellowGradientColor)),
                 child: Container(
                   alignment: Alignment.center,
                   padding: const EdgeInsets.only(right: 5),

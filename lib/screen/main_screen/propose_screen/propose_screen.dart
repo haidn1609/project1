@@ -61,14 +61,11 @@ class _ProposeScreenState extends State<ProposeScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           circleIcon(
-                              [yellowGradientColorTop, yellowGradientColorBot],
-                              "images/icon_idea.png"),
+                              yellowGradientColor, "images/icon_idea.png"),
                           circleIcon(
-                              [purpleGradientColorTop, pinkGradientColorBot],
-                              "images/icon_add_user.png"),
+                              purpleGradientColor, "images/icon_add_user.png"),
                           circleIcon(
-                              [pinkGradientColorTop, pinkGradientColorBot],
-                              "images/icon_settings.png"),
+                              pinkGradientColor, "images/icon_settings.png"),
                         ],
                       ),
                     ),
@@ -173,8 +170,7 @@ class _ProposeScreenState extends State<ProposeScreen> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      circleIcon([pinkGradientColorTop, pinkGradientColorBot],
-                          "images/icon_favorite.png"),
+                      circleIcon(pinkGradientColor, "images/icon_favorite.png"),
                       Container(
                         margin: const EdgeInsets.only(bottom: 10),
                         child: Text(
@@ -182,8 +178,7 @@ class _ProposeScreenState extends State<ProposeScreen> {
                           style: TextStyle(fontSize: 10, color: colorTextBt),
                         ),
                       ),
-                      circleIcon([greenGradientColorTop, greenGradientColorBot],
-                          "images/icon_chat.png"),
+                      circleIcon(greenGradientColor, "images/icon_chat.png"),
                       Container(
                         margin: const EdgeInsets.only(bottom: 10),
                         child: Text(
@@ -199,10 +194,7 @@ class _ProposeScreenState extends State<ProposeScreen> {
                             gradient: LinearGradient(
                                 begin: Alignment.topCenter,
                                 end: Alignment.bottomCenter,
-                                colors: [
-                                  yellowGradientColorTop,
-                                  yellowGradientColorBot
-                                ]),
+                                colors: yellowGradientColor),
                             borderRadius: BorderRadius.circular(1000),
                             border: Border.all(width: 2, color: Colors.white)),
                         child: Center(
@@ -226,10 +218,7 @@ class _ProposeScreenState extends State<ProposeScreen> {
                         height: 50,
                         child: Center(
                             child: GradientWidget(
-                                colors: [
-                              blackGradientColorTop,
-                              blackGradientColorBot
-                            ],
+                                colors: blackGradientColor,
                                 child: Image.asset(
                                   "images/icon_download.png",
                                   width: 50,
