@@ -49,37 +49,30 @@ class _ItemContendMessState extends State<ItemContendMess> {
           ? const EdgeInsets.only(left: 10)
           : const EdgeInsets.only(right: 10),
       padding: const EdgeInsets.all(10.0),
-      decoration: isSender
-          ? BoxDecoration(
-              color: senderMessContendColor,
-              borderRadius: const BorderRadius.only(
-                  topRight: Radius.circular(20),
-                  bottomLeft: Radius.circular(20),
-                  bottomRight: Radius.circular(20)),
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.grey.withOpacity(0.4),
-                    spreadRadius: 4,
-                    blurRadius: 7,
-                    offset: const Offset(0, 3)),
-              ],
-            )
-          : BoxDecoration(
-              borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(20),
-                  bottomLeft: Radius.circular(20),
-                  bottomRight: Radius.circular(20)),
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.grey.withOpacity(0.4),
-                    spreadRadius: 4,
-                    blurRadius: 7,
-                    offset: const Offset(0, 3)),
-              ],
-              gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: blackGradientColor)),
+      decoration: BoxDecoration(
+        color: isSender ? senderMessContendColor : null,
+        borderRadius: BorderRadius.only(
+            topRight:
+                isSender ? const Radius.circular(20) : const Radius.circular(0),
+            topLeft: !isSender
+                ? const Radius.circular(20)
+                : const Radius.circular(0),
+            bottomLeft: const Radius.circular(20),
+            bottomRight: const Radius.circular(20)),
+        gradient: !isSender
+            ? LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: blackGradientColor)
+            : null,
+        boxShadow: [
+          BoxShadow(
+              color: Colors.grey.withOpacity(0.4),
+              spreadRadius: 4,
+              blurRadius: 7,
+              offset: const Offset(0, 3)),
+        ],
+      ),
       child: Text(contend["contend"].toString(),
           style: TextStyle(color: isSender ? black : white)),
     ));
@@ -87,42 +80,44 @@ class _ItemContendMessState extends State<ItemContendMess> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<ProviderController>(
-      builder: (context, value, child) => Container(
-        margin: const EdgeInsets.all(10),
-        child: Column(
-          children: [
-            showTime
-                ? Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Center(
-                      child: Text(
-                        "${timeSend.hour}:${timeSend.minute} ngày ${timeSend.day} thg ${timeSend.month} ${timeSend.year < DateTime.now().year ? "năm ${timeSend.year}" : ""}",
-                        style: const TextStyle(fontSize: 10),
-                      ),
-                    ),
-                  )
-                : Container(),
-            contend["sender"].toString().compareTo(userNow["name"]) == 0
-                ? Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      contendText(false),
-                      contendAvatar(),
-                    ],
-                  )
-                : Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      contendAvatar(),
-                      contendText(true),
-                    ],
-                  )
-          ],
-        ),
-      ),
-    );
+    return contend["contend"].toString().isNotEmpty
+        ? Consumer<ProviderController>(
+            builder: (context, value, child) => Container(
+              margin: const EdgeInsets.all(10),
+              child: Column(
+                children: [
+                  showTime
+                      ? Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Center(
+                            child: Text(
+                              "${timeSend.hour}:${timeSend.minute} ngày ${timeSend.day} thg ${timeSend.month} ${timeSend.year < DateTime.now().year ? "năm ${timeSend.year}" : ""}",
+                              style: const TextStyle(fontSize: 10),
+                            ),
+                          ),
+                        )
+                      : Container(),
+                  contend["sender"].toString().compareTo(userNow["name"]) == 0
+                      ? Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            contendText(false),
+                            contendAvatar(),
+                          ],
+                        )
+                      : Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            contendAvatar(),
+                            contendText(true),
+                          ],
+                        )
+                ],
+              ),
+            ),
+          )
+        : Container();
   }
 }

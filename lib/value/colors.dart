@@ -13,6 +13,7 @@ Color black = const Color.fromRGBO(0, 0, 0, 1.0);
 Color isOnlineColor = const Color.fromRGBO(55, 204, 40, 1.0);
 Color isOfflineColor = const Color.fromRGBO(132, 132, 132, 1.0);
 Color senderMessContendColor = const Color.fromRGBO(240, 240, 240, 1.0);
+Color labelTextColor = const Color.fromRGBO(132, 132, 132, 1.0);
 List<Color> blackGradientColor = const [
   Color.fromRGBO(95, 95, 95, 1),
   Color.fromRGBO(5, 5, 5, 1)

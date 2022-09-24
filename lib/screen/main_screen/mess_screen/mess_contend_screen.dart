@@ -159,7 +159,6 @@ class _MessContendScreenState extends State<MessContendScreen> {
                       child: Stack(
                         children: [
                           TextField(
-                            readOnly: true,
                             controller: chatEdit,
                             decoration: InputDecoration(
                               contentPadding:

@@ -8,7 +8,42 @@ Map<String, dynamic> userNow = {
   "mi": 160,
   "disc": "D"
 };
-
+List<Map<String, dynamic>> listFriend = [
+  {
+    "name": "Công ti APG",
+    "avatar":
+        "https://images.glints.com/unsafe/glints-dashboard.s3.amazonaws.com/company-logo/1ccfed7115bf0dff57c32b5820cbd48f.png"
+  },
+  {
+    "name": "Công ti BeeCV",
+    "avatar": "https://img.upanh.tv/2022/09/17/beeCV.png"
+  },
+  {
+    "name": "VinGroup",
+    "avatar":
+        "https://s3-symbol-logo.tradingview.com/vingroup-joint-stock-company--600.png"
+  },
+  {
+    "name": "Công ti EVG",
+    "avatar":
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/EVG_-_Logo.svg/2560px-EVG_-_Logo.svg.png"
+  },
+  {
+    "name": "Công ti ACS",
+    "avatar":
+        "https://cachvaytiennganhang.com/wp-content/uploads/2021/09/so-tai-khoan-ngan-hang-acs.jpg"
+  },
+  {
+    "name": "Quốc Anh",
+    "avatar":
+        "https://image-us.24h.com.vn/upload/4-2020/images/2020-11-20/25-kieu-toc-Mohican-dep-dan-dau-xu-huong-toc-nam-nam-2021-toc-mohican-3-1605844519-867-width600height630.jpg"
+  },
+  {
+    "name": "Thanh Hà",
+    "avatar":
+        "https://vnn-imgs-f.vgcloud.vn/2021/10/09/16/thanh-ha-hon-nhan-lan-dan-tim-thay-ben-do-o-tuoi-52-3.jpg"
+  },
+];
 List<Map<String, dynamic>> listRequest = [
   {
     "company": "Công ty cổ phần BeeCV",

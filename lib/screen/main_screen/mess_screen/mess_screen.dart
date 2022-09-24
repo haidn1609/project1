@@ -22,8 +22,12 @@ class _MessScreenState extends State<MessScreen> {
       (a, b) {
         List<Map<String, String>> messA = a["mess"];
         List<Map<String, String>> messB = b["mess"];
-        return DateTime.parse(messB.last["timeSend"]!)
-            .compareTo(DateTime.parse(messA.last["timeSend"]!));
+        if (messA.isNotEmpty && messB.isNotEmpty) {
+          return DateTime.parse(messB.last["timeSend"]!)
+              .compareTo(DateTime.parse(messA.last["timeSend"]!));
+        } else {
+          return -1;
+        }
       },
     );
   }

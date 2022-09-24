@@ -91,7 +91,9 @@ class _PostNewCandidateState extends State<PostNewCandidate>
                       child: TextField(
                         controller: nameEdit,
                         decoration: InputDecoration(
-                          hintText: nameHideText,
+                          labelText: nameHideText,
+                          labelStyle:
+                              TextStyle(color: labelTextColor, fontSize: 14),
                           filled: true,
                           fillColor: Colors.white.withOpacity(1),
                           focusColor: Colors.white.withOpacity(1),
@@ -125,7 +127,9 @@ class _PostNewCandidateState extends State<PostNewCandidate>
                               decoration: InputDecoration(
                                 contentPadding:
                                     const EdgeInsets.only(left: 12, right: 40),
-                                hintText: dateHideText,
+                                labelText: dateHideText,
+                                labelStyle: TextStyle(
+                                    color: labelTextColor, fontSize: 14),
                                 filled: true,
                                 fillColor: Colors.white.withOpacity(1),
                                 focusColor: Colors.white.withOpacity(1),
@@ -168,7 +172,9 @@ class _PostNewCandidateState extends State<PostNewCandidate>
                       child: TextField(
                         controller: phoneEdit,
                         decoration: InputDecoration(
-                          hintText: phoneHideText,
+                          labelText: phoneHideText,
+                          labelStyle:
+                              TextStyle(color: labelTextColor, fontSize: 14),
                           filled: true,
                           fillColor: Colors.white.withOpacity(1),
                           focusColor: Colors.white.withOpacity(1),
@@ -196,7 +202,9 @@ class _PostNewCandidateState extends State<PostNewCandidate>
                       child: TextField(
                         controller: emailEdit,
                         decoration: InputDecoration(
-                          hintText: emailHideText,
+                          labelText: emailHideText,
+                          labelStyle:
+                              TextStyle(color: labelTextColor, fontSize: 14),
                           filled: true,
                           fillColor: Colors.white.withOpacity(1),
                           focusColor: Colors.white.withOpacity(1),
@@ -223,7 +231,9 @@ class _PostNewCandidateState extends State<PostNewCandidate>
                       child: TextField(
                         controller: skillEdit,
                         decoration: InputDecoration(
-                          hintText: skillHideText,
+                          labelText: skillHideText,
+                          labelStyle:
+                              TextStyle(color: labelTextColor, fontSize: 14),
                           filled: true,
                           fillColor: Colors.white.withOpacity(1),
                           focusColor: Colors.white.withOpacity(1),
@@ -252,10 +262,13 @@ class _PostNewCandidateState extends State<PostNewCandidate>
                           color: white,
                           borderRadius: BorderRadius.circular(30)),
                       child: DropDownMultiSelect(
-                        hint: const Text(languageHideText),
+                        //whenEmpty: languageHideText,
                         icon: Icon(Icons.arrow_drop_down,
                             color: backgroudOpacity1),
                         decoration: InputDecoration(
+                          labelText: languageHideText,
+                          labelStyle:
+                              TextStyle(color: labelTextColor, fontSize: 14),
                           suffixIcon: const Icon(Icons.arrow_drop_down,
                               color: Colors.black, size: 40),
                           focusColor: Colors.white.withOpacity(0),
@@ -287,7 +300,9 @@ class _PostNewCandidateState extends State<PostNewCandidate>
                       child: TextField(
                         controller: applyPositionEdit,
                         decoration: InputDecoration(
-                          hintText: applyPositionHideText,
+                          labelText: applyPositionHideText,
+                          labelStyle:
+                              TextStyle(color: labelTextColor, fontSize: 14),
                           filled: true,
                           fillColor: Colors.white.withOpacity(1),
                           focusColor: Colors.white.withOpacity(1),
@@ -316,10 +331,12 @@ class _PostNewCandidateState extends State<PostNewCandidate>
                           color: white,
                           borderRadius: BorderRadius.circular(30)),
                       child: DropDownMultiSelect(
-                        hint: const Text(locationWorkingHideText),
                         icon: Icon(Icons.arrow_drop_down,
                             color: backgroudOpacity1),
                         decoration: InputDecoration(
+                          labelText: locationWorkingHideText,
+                          labelStyle:
+                              TextStyle(color: labelTextColor, fontSize: 14),
                           suffixIcon: const Icon(Icons.arrow_drop_down,
                               color: Colors.black, size: 40),
                           focusColor: Colors.white.withOpacity(0),
@@ -351,7 +368,9 @@ class _PostNewCandidateState extends State<PostNewCandidate>
                       child: TextField(
                         controller: expEdit,
                         decoration: InputDecoration(
-                          hintText: expHideText,
+                          labelText: expHideText,
+                          labelStyle:
+                              TextStyle(color: labelTextColor, fontSize: 14),
                           filled: true,
                           fillColor: Colors.white.withOpacity(1),
                           focusColor: Colors.white.withOpacity(1),

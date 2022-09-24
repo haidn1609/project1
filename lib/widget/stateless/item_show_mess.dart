@@ -18,7 +18,7 @@ class ItemShowMess extends StatelessWidget {
                     ? "${(now.hour - input.hour)} giờ trước"
                     : ((now.minute - input.minute) > 0
                         ? "${(now.minute - input.minute)} phút trước"
-                        : "${(now.second - input.second)} giây trước"))));
+                        : "vừa mới"))));
   }
 
   @override
@@ -100,10 +100,14 @@ class ItemShowMess extends StatelessWidget {
                               child: Text(
                                 calculatePeriod(
                                     DateTime.now(),
-                                    DateTime.parse(listContent
-                                        .where((element) =>
-                                            element["sender"] == sender["name"])
-                                        .last["timeSend"]!)),
+                                    listContent.length <= 1
+                                        ? DateTime.parse(
+                                            listContent.first["timeSend"]!)
+                                        : DateTime.parse(listContent
+                                            .where((element) =>
+                                                element["sender"] ==
+                                                sender["name"])
+                                            .last["timeSend"]!)),
                                 style: const TextStyle(fontSize: 10),
                               ),
                             ),

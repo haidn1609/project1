@@ -1,6 +1,11 @@
+import 'dart:async';
+
+import 'package:acs_project_example/mock_data.dart';
 import 'package:acs_project_example/value/colors.dart';
 import 'package:acs_project_example/widget/stateless/gradient_widget.dart';
 import 'package:flutter/material.dart';
+
+import '../../../widget/stateless/item_friend_list.dart';
 
 class ProposeScreen extends StatefulWidget {
   const ProposeScreen({Key? key}) : super(key: key);
@@ -33,6 +38,29 @@ class _ProposeScreenState extends State<ProposeScreen> {
     );
   }
 
+  Future openListFriend() async {
+    return showModalBottomSheet(
+      backgroundColor: Colors.transparent,
+      context: context,
+      isScrollControlled: true,
+      builder: (context) => Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height - 120,
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+            color: white,
+            borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(25), topRight: Radius.circular(25))),
+        child: ListView.builder(
+          shrinkWrap: true,
+          itemCount: listFriend.length,
+          itemBuilder: (context, index) =>
+              ItemFriendList(item: listFriend.elementAt(index)),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final widths = MediaQuery.of(context).size.width;
@@ -60,12 +88,28 @@ class _ProposeScreenState extends State<ProposeScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          circleIcon(
-                              yellowGradientColor, "images/icon_idea.png"),
-                          circleIcon(
-                              purpleGradientColor, "images/icon_add_user.png"),
-                          circleIcon(
-                              pinkGradientColor, "images/icon_settings.png"),
+                          InkWell(
+                            onTap: () {
+                              print("idea");
+                            },
+                            child: circleIcon(
+                                yellowGradientColor, "images/icon_idea.png"),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              print("add user");
+                              openListFriend();
+                            },
+                            child: circleIcon(purpleGradientColor,
+                                "images/icon_add_user.png"),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              print("filter");
+                            },
+                            child: circleIcon(
+                                pinkGradientColor, "images/icon_settings.png"),
+                          )
                         ],
                       ),
                     ),

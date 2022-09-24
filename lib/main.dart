@@ -14,7 +14,7 @@ void main() async {
   await GetStorage.init();
   runApp(ChangeNotifierProvider(
     create: (context) => ProviderController(),
-    child: MyApp(),
+    child: const MyApp(),
   ));
 }
 
@@ -31,7 +31,6 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     if (box.read("FistInstall") != null) {
       setState(() {
@@ -45,7 +44,9 @@ class _MyAppState extends State<MyApp> {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: checkFistInstall ? const MainScreen() : FirstSplashScreen(),
+      home: (checkFistInstall && box.read("rule") != null)
+          ? const MainScreen()
+          : FirstSplashScreen(),
       //home: SecondSplashScreen(),
     );
   }
