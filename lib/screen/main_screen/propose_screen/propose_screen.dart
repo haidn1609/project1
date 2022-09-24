@@ -1,9 +1,11 @@
 import 'dart:async';
 
 import 'package:acs_project_example/mock_data.dart';
+import 'package:acs_project_example/screen/filter_screen/filter_screen.dart';
 import 'package:acs_project_example/value/colors.dart';
 import 'package:acs_project_example/widget/stateless/gradient_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../widget/stateless/item_friend_list.dart';
 
@@ -105,7 +107,9 @@ class _ProposeScreenState extends State<ProposeScreen> {
                           ),
                           InkWell(
                             onTap: () {
-                              print("filter");
+                              Get.to(const FilterScreen(),
+                                  duration: const Duration(milliseconds: 800),
+                                  transition: Transition.upToDown);
                             },
                             child: circleIcon(
                                 pinkGradientColor, "images/icon_settings.png"),

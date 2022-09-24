@@ -722,7 +722,13 @@ List<String> listLanguage = [
   "Tiếng Trung",
   "Tiếng Nga"
 ];
-
+List<String> listFieldWorking = [
+  "IT",
+  "Designer",
+  "Artis",
+  "Medical",
+  "Security"
+];
 List<String> listCountry = [
   "An Giang",
   "Bà Rịa-Vũng Tàu",
