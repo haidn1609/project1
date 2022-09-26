@@ -39,26 +39,26 @@ class FirstSplashScreen extends StatelessWidget {
               width: widths * 0.15,
               fit: BoxFit.contain,
             ),
-            Text(bannerText,
+            Text(banner1Text,
                 style: TextStyle(
-                    color: colorText,
+                    fontWeight: FontWeight.bold,
+                    color: bannerColorText,
                     decoration: TextDecoration.none,
                     fontSize: 20)),
             Container(
               margin: const EdgeInsets.only(top: 15, bottom: 15),
               child: Text(youIsText,
                   style: TextStyle(
-                      color: colorText,
+                      color: bannerColorText,
                       decoration: TextDecoration.none,
                       fontSize: 15)),
             ),
             GestureDetector(
               onTap: () {
-                print("Ứng viên");
                 box.write("rule", candidateBtText);
-                Get.to(const SecondSplashScreen(),
+                Get.to(SecondSplashScreen(),
                     transition: Transition.leftToRight,
-                    duration: Duration(seconds: 1));
+                    duration: const Duration(seconds: 1));
               },
               child: Container(
                 margin: const EdgeInsets.only(bottom: 15),
@@ -83,11 +83,10 @@ class FirstSplashScreen extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                print("Nhà tuyển dụng");
                 box.write("rule", employerBtText);
-                Get.to(const SecondSplashScreen(),
+                Get.to(SecondSplashScreen(),
                     transition: Transition.leftToRight,
-                    duration: Duration(seconds: 1));
+                    duration: const Duration(seconds: 1));
               },
               child: Container(
                 margin: const EdgeInsets.only(bottom: 15),

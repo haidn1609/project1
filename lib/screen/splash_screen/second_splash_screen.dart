@@ -1,13 +1,15 @@
 import 'package:acs_project_example/screen/main_screen/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 
 import '../../value/colors.dart';
 import '../../value/strings.dart';
 
 class SecondSplashScreen extends StatelessWidget {
-  const SecondSplashScreen({Key? key}) : super(key: key);
+  SecondSplashScreen({Key? key}) : super(key: key);
+  final box = GetStorage();
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +37,13 @@ class SecondSplashScreen extends StatelessWidget {
                 width: widths * 0.15,
                 fit: BoxFit.contain,
               ),
-              Text(bannerText,
+              Text(
+                  box.read("rule") == candidateBtText
+                      ? banner1Text
+                      : banner2Text,
                   style: TextStyle(
-                      color: colorText,
+                      fontWeight: FontWeight.bold,
+                      color: bannerColorText,
                       decoration: TextDecoration.none,
                       fontSize: 20)),
               Container(
@@ -51,13 +57,13 @@ class SecondSplashScreen extends StatelessWidget {
                     focusColor: Colors.white.withOpacity(1),
                     focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           width: 2,
                           color: Colors.black,
                         )),
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           width: 2,
                           color: Colors.black,
                         )),

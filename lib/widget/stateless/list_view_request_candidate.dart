@@ -11,7 +11,7 @@ class ListViewRequestCandidate extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 200,
-      margin: EdgeInsets.only(top: 25, bottom: 25),
+      margin: const EdgeInsets.only(top: 25, bottom: 25),
       child: ListView.builder(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,

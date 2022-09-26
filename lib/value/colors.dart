@@ -4,6 +4,7 @@ Color backgroudOpacity1 = const Color.fromRGBO(0, 0, 0, 0);
 Color backgroudOpacity2 =
     const Color.fromRGBO(196, 196, 196, 0.6980392156862745);
 Color backgroudBrandItem = const Color.fromRGBO(142, 141, 141, 1.0);
+Color bannerColorText = const Color.fromRGBO(0, 0, 0, 1.0);
 Color colorText = const Color.fromRGBO(97, 97, 97, 0.65);
 Color colorTextBt = const Color.fromRGBO(255, 255, 255, 1);
 Color selectBtBNB = const Color.fromRGBO(194, 75, 8, 1);

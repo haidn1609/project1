@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import '../../../mock_data.dart';
 
 class CandidateRequest extends StatelessWidget {
-  CandidateRequest({Key? key}) : super(key: key);
+  const CandidateRequest({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class CandidateRequest extends StatelessWidget {
       width: double.infinity,
       child: ListView(
         shrinkWrap: true,
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -38,10 +38,10 @@ class CandidateRequest extends StatelessWidget {
             ],
           ),
           ListViewRequestCandidate(
-            listRequest: listRequest,
+            listRequest: listRequestJob,
           ),
           Container(
-            padding: EdgeInsets.all(15),
+            padding: const EdgeInsets.all(15),
             margin: const EdgeInsets.only(bottom: 25),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(25),
@@ -54,7 +54,7 @@ class CandidateRequest extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Image.network(
-                  listRequest.elementAt(0)["logoImg"],
+                  listRequestJob.elementAt(0)["logoImg"],
                   width: 40,
                   height: 40,
                 ),
@@ -66,7 +66,7 @@ class CandidateRequest extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          listRequest.elementAt(0)["nameJob"],
+                          listRequestJob.elementAt(0)["nameJob"],
                           style: TextStyle(
                               color: colorTextBt,
                               fontSize: 15,
@@ -75,7 +75,7 @@ class CandidateRequest extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
                           child: Text(
-                            "Mức lương: ${listRequest.elementAt(0)["minSalary"]} tr",
+                            "Mức lương: ${listRequestJob.elementAt(0)["minSalary"]} tr",
                             style: TextStyle(
                                 color: colorTextBt,
                                 fontSize: 15,
@@ -85,7 +85,7 @@ class CandidateRequest extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(top: 20),
                           child: Text(
-                            listRequest.elementAt(0)["endDate"],
+                            listRequestJob.elementAt(0)["endDate"],
                             style: TextStyle(
                               color: colorTextBt,
                               fontSize: 10,
@@ -128,7 +128,7 @@ class CandidateRequest extends StatelessWidget {
             ],
           ),
           ListViewRequestCandidate(
-            listRequest: listRequest,
+            listRequest: listRequestJob,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -152,7 +152,7 @@ class CandidateRequest extends StatelessWidget {
             ],
           ),
           ListViewRequestCandidate(
-            listRequest: listRequest,
+            listRequest: listRequestJob,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -176,7 +176,7 @@ class CandidateRequest extends StatelessWidget {
             ],
           ),
           ListViewRequestCandidate(
-            listRequest: listRequest,
+            listRequest: listRequestJob,
           ),
           Container(
             height: 110,

@@ -133,11 +133,17 @@ class BottomNavigatorBarCus extends StatelessWidget {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            iconBTB("images/icon_job.png", 1),
+                            iconBTB(
+                                box.read("rule") == candidateBtText
+                                    ? "images/icon_job.png"
+                                    : "images/icon_group.png",
+                                1),
                             Padding(
                               padding: const EdgeInsets.all(5.0),
                               child: Text(
-                                btbText2,
+                                box.read("rule") == candidateBtText
+                                    ? btbText2_1
+                                    : btbText2_2,
                                 style:
                                     TextStyle(color: colorTextBt, fontSize: 10),
                               ),

@@ -44,7 +44,7 @@ List<Map<String, dynamic>> listFriend = [
         "https://vnn-imgs-f.vgcloud.vn/2021/10/09/16/thanh-ha-hon-nhan-lan-dan-tim-thay-ben-do-o-tuoi-52-3.jpg"
   },
 ];
-List<Map<String, dynamic>> listRequest = [
+List<Map<String, dynamic>> listRequestJob = [
   {
     "company": "Công ty cổ phần BeeCV",
     "nameJob": "Nhân viên thiết kế đồ họa tương tác UX/UI",
@@ -77,6 +77,88 @@ List<Map<String, dynamic>> listRequest = [
     "endDate": "20/05/2021",
     "logoImg": "https://img.upanh.tv/2022/09/17/beeCV.png"
   }
+];
+List<Map<String, dynamic>> listRequestCandidate = [
+  {
+    "name": "Nguyễn Lan Anh",
+    "listBranch": ["UI-UX Designer", "ETC"],
+    "location": "Hà Nội",
+    "minSalary": 15,
+    "maxSalary": 20,
+    "exp": "Từ 2 năm đến 3 năm kinh nghiệm",
+    "avatar":
+        "https://anh.24h.com.vn//upload/2-2017/images/2017-06-12/1497233715-149700004270405-hoa-phuong-d.jpg"
+  },
+  {
+    "name": "Ngô Hoàng Dũng",
+    "listBranch": ["UI-UX Designer", "ETC"],
+    "location": "Quận 1, Thành phố Hồ Chí Minh",
+    "minSalary": 20,
+    "maxSalary": 0,
+    "exp": "Từ 4 năm đến 5 năm kinh nghiệm",
+    "avatar":
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFCUvvBw76w0mdfOdV8NbD88MGh31crnEUJQ&usqp=CAU"
+  },
+  {
+    "name": "Nguyễn Lan Anh",
+    "listBranch": ["UI-UX Designer", "ETC"],
+    "location": "Hà Nội",
+    "minSalary": 15,
+    "maxSalary": 20,
+    "exp": "Từ 2 năm đến 3 năm kinh nghiệm",
+    "avatar":
+        "https://anh.24h.com.vn//upload/2-2017/images/2017-06-12/1497233715-149700004270405-hoa-phuong-d.jpg"
+  },
+  {
+    "name": "Ngô Hoàng Dũng",
+    "listBranch": ["UI-UX Designer", "ETC"],
+    "location": "Quận 1, Thành phố Hồ Chí Minh",
+    "minSalary": 20,
+    "maxSalary": 0,
+    "exp": "Từ 4 năm đến 5 năm kinh nghiệm",
+    "avatar":
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFCUvvBw76w0mdfOdV8NbD88MGh31crnEUJQ&usqp=CAU"
+  },
+  {
+    "name": "Nguyễn Lan Anh",
+    "listBranch": ["UI-UX Designer", "ETC"],
+    "location": "Hà Nội",
+    "minSalary": 15,
+    "maxSalary": 20,
+    "exp": "Từ 2 năm đến 3 năm kinh nghiệm",
+    "avatar":
+        "https://anh.24h.com.vn//upload/2-2017/images/2017-06-12/1497233715-149700004270405-hoa-phuong-d.jpg"
+  },
+  {
+    "name": "Ngô Hoàng Dũng",
+    "listBranch": ["UI-UX Designer", "ETC"],
+    "location": "Quận 1, Thành phố Hồ Chí Minh",
+    "minSalary": 20,
+    "maxSalary": 0,
+    "exp": "Từ 4 năm đến 5 năm kinh nghiệm",
+    "avatar":
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFCUvvBw76w0mdfOdV8NbD88MGh31crnEUJQ&usqp=CAU"
+  },
+  {
+    "name": "Nguyễn Lan Anh",
+    "listBranch": ["UI-UX Designer", "ETC"],
+    "location": "Hà Nội",
+    "minSalary": 15,
+    "maxSalary": 20,
+    "exp": "Từ 2 năm đến 3 năm kinh nghiệm",
+    "avatar":
+        "https://anh.24h.com.vn//upload/2-2017/images/2017-06-12/1497233715-149700004270405-hoa-phuong-d.jpg"
+  },
+  {
+    "name": "Ngô Hoàng Dũng",
+    "listBranch": ["UI-UX Designer", "ETC"],
+    "location": "Quận 1, Thành phố Hồ Chí Minh",
+    "minSalary": 20,
+    "maxSalary": 0,
+    "exp": "Từ 4 năm đến 5 năm kinh nghiệm",
+    "avatar":
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFCUvvBw76w0mdfOdV8NbD88MGh31crnEUJQ&usqp=CAU"
+  },
 ];
 List<Map<String, dynamic>> listJobLogo = [
   {
