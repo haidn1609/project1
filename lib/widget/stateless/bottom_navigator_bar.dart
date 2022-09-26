@@ -116,8 +116,8 @@ class BottomNavigatorBarCus extends StatelessWidget {
                               padding: const EdgeInsets.all(5.0),
                               child: Text(
                                 btbText1,
-                                style:
-                                    TextStyle(color: colorTextBt, fontSize: 10),
+                                style: TextStyle(
+                                    color: colorTextWhite, fontSize: 10),
                               ),
                             )
                           ],
@@ -144,8 +144,8 @@ class BottomNavigatorBarCus extends StatelessWidget {
                                 box.read("rule") == candidateBtText
                                     ? btbText2_1
                                     : btbText2_2,
-                                style:
-                                    TextStyle(color: colorTextBt, fontSize: 10),
+                                style: TextStyle(
+                                    color: colorTextWhite, fontSize: 10),
                               ),
                             )
                           ],
@@ -159,7 +159,7 @@ class BottomNavigatorBarCus extends StatelessWidget {
                         alignment: Alignment.bottomCenter,
                         child: Text(
                           btbText3,
-                          style: TextStyle(color: colorTextBt, fontSize: 12),
+                          style: TextStyle(color: colorTextWhite, fontSize: 12),
                         ),
                       ),
                     ),
@@ -177,8 +177,8 @@ class BottomNavigatorBarCus extends StatelessWidget {
                               padding: const EdgeInsets.all(5.0),
                               child: Text(
                                 btbText4,
-                                style:
-                                    TextStyle(color: colorTextBt, fontSize: 10),
+                                style: TextStyle(
+                                    color: colorTextWhite, fontSize: 10),
                               ),
                             )
                           ],
@@ -200,7 +200,7 @@ class BottomNavigatorBarCus extends StatelessWidget {
                                 child: Text(
                                   btbText5,
                                   style: TextStyle(
-                                      color: colorTextBt, fontSize: 10),
+                                      color: colorTextWhite, fontSize: 10),
                                 ),
                               )
                             ],

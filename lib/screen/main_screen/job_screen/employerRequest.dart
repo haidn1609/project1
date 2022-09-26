@@ -75,7 +75,7 @@ class EmployerRequest extends StatelessWidget {
                                       Text(
                                         listRequestJob.elementAt(0)["nameJob"],
                                         style: TextStyle(
-                                            color: colorTextBt,
+                                            color: colorTextWhite,
                                             fontSize: 15,
                                             fontWeight: FontWeight.bold),
                                       ),
@@ -85,7 +85,7 @@ class EmployerRequest extends StatelessWidget {
                                         child: Text(
                                           "Mức lương: ${listRequestJob.elementAt(0)["minSalary"]} tr",
                                           style: TextStyle(
-                                              color: colorTextBt,
+                                              color: colorTextWhite,
                                               fontSize: 15,
                                               fontWeight: FontWeight.bold),
                                         ),
@@ -96,7 +96,7 @@ class EmployerRequest extends StatelessWidget {
                                           listRequestJob
                                               .elementAt(0)["endDate"],
                                           style: TextStyle(
-                                            color: colorTextBt,
+                                            color: colorTextWhite,
                                             fontSize: 10,
                                           ),
                                         ),

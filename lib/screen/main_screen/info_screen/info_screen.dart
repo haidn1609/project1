@@ -52,7 +52,7 @@ class _InfoScreenState extends State<InfoScreen> {
                                   style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
-                                      color: colorTextBt)),
+                                      color: colorTextWhite)),
                             ),
                           ),
                           Padding(
@@ -66,7 +66,7 @@ class _InfoScreenState extends State<InfoScreen> {
                                           (Match m) =>
                                               "${m[1]} - ${m[2]} - ${m[3]}"),
                                   style: TextStyle(
-                                      fontSize: 13, color: colorTextBt)),
+                                      fontSize: 13, color: colorTextWhite)),
                             ),
                           )
                         ],
@@ -93,7 +93,7 @@ class _InfoScreenState extends State<InfoScreen> {
                 width: double.infinity,
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                    color: white,
+                    color: backgroudWhiteItem,
                     borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(25),
                         topRight: Radius.circular(25))),

@@ -75,7 +75,7 @@ class FirstSplashScreen extends StatelessWidget {
                   child: Text(candidateBtText,
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          color: colorTextBt,
+                          color: colorTextWhite,
                           decoration: TextDecoration.none,
                           fontSize: 16)),
                 ),
@@ -103,7 +103,7 @@ class FirstSplashScreen extends StatelessWidget {
                   child: Text(employerBtText,
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          color: colorTextBt,
+                          color: colorTextWhite,
                           decoration: TextDecoration.none,
                           fontSize: 16)),
                 ),

@@ -38,7 +38,7 @@ class _JobScreenState extends State<JobScreen> {
             ),
         child: ScrollConfiguration(
           behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
-          child: Container(
+          child: SizedBox(
             width: double.infinity,
             child: ListView(
               children: [
@@ -61,16 +61,16 @@ class _JobScreenState extends State<JobScreen> {
                               },
                               icon: Icon(
                                 Icons.menu,
-                                color: white,
+                                color: backgroudWhiteItem,
                                 size: 40,
                               )),
                           Container(
-                            padding: EdgeInsets.only(left: 10),
+                            padding: const EdgeInsets.only(left: 10),
                             height: 100,
                             alignment: Alignment.centerLeft,
                             child: Text(findJobText,
                                 style: TextStyle(
-                                  color: white,
+                                  color: colorTextWhite,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 25,
                                   height: 1.5,
@@ -97,7 +97,7 @@ class _JobScreenState extends State<JobScreen> {
                         child: TextField(
                           decoration: InputDecoration(
                             contentPadding:
-                                EdgeInsets.only(left: 25, right: 40),
+                                const EdgeInsets.only(left: 25, right: 40),
                             hintText: searchTextFeldText,
                             filled: true,
                             fillColor: backgroudOpacity2,
@@ -162,9 +162,9 @@ class _JobScreenState extends State<JobScreen> {
                         ],
                       ),
                       Container(
-                        margin: EdgeInsets.only(bottom: 20),
+                        margin: const EdgeInsets.only(bottom: 20),
                         height: 160,
-                        padding: EdgeInsets.only(top: 15),
+                        padding: const EdgeInsets.only(top: 15),
                         child: ListView.builder(
                           shrinkWrap: true,
                           scrollDirection: Axis.horizontal,
@@ -219,8 +219,8 @@ class _JobScreenState extends State<JobScreen> {
                         ),
                       ),
                       box.read("rule") == candidateBtText
-                          ? CandidateRequest()
-                          : EmployerRequest(),
+                          ? const CandidateRequest()
+                          : const EmployerRequest(),
                     ],
                   ),
                 ),

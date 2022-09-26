@@ -74,7 +74,7 @@ class _ItemContendMessState extends State<ItemContendMess> {
         ],
       ),
       child: Text(contend["contend"].toString(),
-          style: TextStyle(color: isSender ? black : white)),
+          style: TextStyle(color: isSender ? colorTextBlack : colorTextWhite)),
     ));
   }
 

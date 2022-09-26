@@ -67,7 +67,7 @@ class _PostNewCandidateState extends State<PostNewCandidate>
                     child: Text(
                       postTitleText,
                       style: TextStyle(
-                          color: black,
+                          color: colorTextBlack,
                           fontWeight: FontWeight.bold,
                           fontSize: 20),
                     ),
@@ -259,7 +259,7 @@ class _PostNewCandidateState extends State<PostNewCandidate>
                       height: 50,
                       margin: const EdgeInsets.only(top: 10, bottom: 10),
                       decoration: BoxDecoration(
-                          color: white,
+                          color: backgroudWhiteItem,
                           borderRadius: BorderRadius.circular(30)),
                       child: DropDownMultiSelect(
                         //whenEmpty: languageHideText,
@@ -328,7 +328,7 @@ class _PostNewCandidateState extends State<PostNewCandidate>
                       height: 50,
                       margin: const EdgeInsets.only(top: 10, bottom: 10),
                       decoration: BoxDecoration(
-                          color: white,
+                          color: backgroudWhiteItem,
                           borderRadius: BorderRadius.circular(30)),
                       child: DropDownMultiSelect(
                         icon: Icon(Icons.arrow_drop_down,
@@ -414,7 +414,7 @@ class _PostNewCandidateState extends State<PostNewCandidate>
                   child: Text(
                     postBtText,
                     style: TextStyle(
-                        color: white,
+                        color: colorTextWhite,
                         fontWeight: FontWeight.bold,
                         fontSize: 15),
                   ),

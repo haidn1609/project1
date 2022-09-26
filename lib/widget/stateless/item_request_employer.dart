@@ -22,7 +22,7 @@ class ItemRequestEmployer extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       margin: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-          color: white,
+          color: backgroudWhiteItem,
           borderRadius: BorderRadius.circular(25),
           boxShadow: [
             BoxShadow(
@@ -72,7 +72,7 @@ class ItemRequestEmployer extends StatelessWidget {
                     borderRadius: BorderRadius.circular(30)),
                 child: Text(
                   item["listBranch"].elementAt(index),
-                  style: TextStyle(color: colorTextBt, fontSize: 10),
+                  style: TextStyle(color: colorTextWhite, fontSize: 10),
                 ),
               ),
             ),

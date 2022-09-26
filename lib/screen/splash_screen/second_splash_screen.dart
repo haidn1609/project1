@@ -102,7 +102,7 @@ class SecondSplashScreen extends StatelessWidget {
                         child: Text(nextBtText,
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                                color: colorTextBt,
+                                color: colorTextWhite,
                                 decoration: TextDecoration.none,
                                 fontSize: 16)),
                       ),

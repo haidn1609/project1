@@ -26,7 +26,7 @@ class _FilterScreenState extends State<FilterScreen> {
       body: Column(
         children: [
           Container(
-            decoration: BoxDecoration(color: white, boxShadow: [
+            decoration: BoxDecoration(color: backgroudWhiteItem, boxShadow: [
               BoxShadow(
                 color: Colors.grey.shade800.withOpacity(0.25),
                 blurRadius: 7,
@@ -51,7 +51,7 @@ class _FilterScreenState extends State<FilterScreen> {
                     child: Text(
                       filterTitleText,
                       style: TextStyle(
-                          color: black,
+                          color: colorTextBlack,
                           fontWeight: FontWeight.bold,
                           fontSize: 20),
                     ),
@@ -74,7 +74,7 @@ class _FilterScreenState extends State<FilterScreen> {
                       height: 50,
                       margin: const EdgeInsets.only(top: 40, bottom: 10),
                       decoration: BoxDecoration(
-                          color: white,
+                          color: backgroudWhiteItem,
                           borderRadius: BorderRadius.circular(30)),
                       child: DropDownMultiSelect(
                         icon: Icon(Icons.arrow_drop_down,
@@ -113,7 +113,7 @@ class _FilterScreenState extends State<FilterScreen> {
                       height: 50,
                       margin: const EdgeInsets.only(top: 15, bottom: 10),
                       decoration: BoxDecoration(
-                          color: white,
+                          color: backgroudWhiteItem,
                           borderRadius: BorderRadius.circular(30)),
                       child: DropDownMultiSelect(
                         icon: Icon(Icons.arrow_drop_down,
@@ -187,7 +187,7 @@ class _FilterScreenState extends State<FilterScreen> {
                           Text(
                             sexText,
                             style: TextStyle(
-                                color: black,
+                                color: colorTextBlack,
                                 fontSize: 15,
                                 fontWeight: FontWeight.bold),
                           ),
@@ -271,7 +271,7 @@ class _FilterScreenState extends State<FilterScreen> {
                   child: Text(
                     applyBtText,
                     style: TextStyle(
-                        color: white,
+                        color: colorTextWhite,
                         fontWeight: FontWeight.bold,
                         fontSize: 15),
                   ),

@@ -52,7 +52,7 @@ class _MessScreenState extends State<MessScreen> {
       builder: (context, value, child) => Container(
         width: double.infinity,
         height: double.infinity,
-        color: white,
+        color: backgroudWhiteItem,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [

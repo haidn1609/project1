@@ -4,13 +4,13 @@ Color backgroudOpacity1 = const Color.fromRGBO(0, 0, 0, 0);
 Color backgroudOpacity2 =
     const Color.fromRGBO(196, 196, 196, 0.6980392156862745);
 Color backgroudBrandItem = const Color.fromRGBO(142, 141, 141, 1.0);
+Color backgroudWhiteItem = const Color.fromRGBO(255, 255, 255, 1.0);
 Color bannerColorText = const Color.fromRGBO(0, 0, 0, 1.0);
-Color colorText = const Color.fromRGBO(97, 97, 97, 0.65);
-Color colorTextBt = const Color.fromRGBO(255, 255, 255, 1);
+Color borderBlackColor = const Color.fromRGBO(0, 0, 0, 1.0);
+Color colorTextBlack = const Color.fromRGBO(0, 0, 0, 1);
+Color colorTextWhite = const Color.fromRGBO(255, 255, 255, 1);
 Color selectBtBNB = const Color.fromRGBO(194, 75, 8, 1);
 Color dontSelectBtBNB = const Color.fromRGBO(196, 196, 196, 1);
-Color white = const Color.fromRGBO(255, 255, 255, 1.0);
-Color black = const Color.fromRGBO(0, 0, 0, 1.0);
 Color isOnlineColor = const Color.fromRGBO(55, 204, 40, 1.0);
 Color isOfflineColor = const Color.fromRGBO(132, 132, 132, 1.0);
 Color senderMessContendColor = const Color.fromRGBO(240, 240, 240, 1.0);

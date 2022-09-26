@@ -53,7 +53,7 @@ class ItemFriendList extends StatelessWidget {
             height: 50,
             decoration: BoxDecoration(
                 color: Colors.white,
-                border: Border.all(color: black, width: 0.5),
+                border: Border.all(color: borderBlackColor, width: 0.5),
                 borderRadius: BorderRadius.circular(100),
                 image: DecorationImage(
                     image: NetworkImage(item["avatar"]),

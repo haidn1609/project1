@@ -50,7 +50,7 @@ class _ProposeScreenState extends State<ProposeScreen> {
         height: MediaQuery.of(context).size.height - 120,
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
-            color: white,
+            color: backgroudWhiteItem,
             borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(25), topRight: Radius.circular(25))),
         child: ListView.builder(
@@ -92,14 +92,12 @@ class _ProposeScreenState extends State<ProposeScreen> {
                         children: [
                           InkWell(
                             onTap: () {
-                              print("idea");
                             },
                             child: circleIcon(
                                 yellowGradientColor, "images/icon_idea.png"),
                           ),
                           InkWell(
                             onTap: () {
-                              print("add user");
                               openListFriend();
                             },
                             child: circleIcon(purpleGradientColor,
@@ -139,7 +137,7 @@ class _ProposeScreenState extends State<ProposeScreen> {
                               Text(
                                 "Cônng ty cổ phần Mama Bé",
                                 style: TextStyle(
-                                    color: colorTextBt,
+                                    color: colorTextWhite,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 15),
                               ),
@@ -148,7 +146,7 @@ class _ProposeScreenState extends State<ProposeScreen> {
                                 child: Text(
                                   "3 giờ trước",
                                   style: TextStyle(
-                                      color: colorTextBt, fontSize: 9),
+                                      color: colorTextWhite, fontSize: 9),
                                 ),
                               ),
                               Container(
@@ -171,7 +169,7 @@ class _ProposeScreenState extends State<ProposeScreen> {
                                     child: Text(
                                       listBranch.elementAt(index),
                                       style: TextStyle(
-                                          color: colorTextBt, fontSize: 12),
+                                          color: colorTextWhite, fontSize: 12),
                                     ),
                                   ),
                                 ),
@@ -188,7 +186,7 @@ class _ProposeScreenState extends State<ProposeScreen> {
                                   ),
                                   Flexible(
                                       child: Padding(
-                                    padding: const EdgeInsets.only(left: 10),
+                                        padding: const EdgeInsets.only(left: 10),
                                     child: RichText(
                                         overflow: TextOverflow.ellipsis,
                                         strutStyle:
@@ -196,8 +194,8 @@ class _ProposeScreenState extends State<ProposeScreen> {
                                         text: TextSpan(
                                             text:
                                                 "26/134 P. Lê Trọng Tấn, Khương Mai, Thanh Xuân, Hà Nội",
-                                            style:
-                                                TextStyle(color: colorTextBt))),
+                                            style: TextStyle(
+                                                color: colorTextWhite))),
                                   ))
                                 ],
                               )
@@ -223,7 +221,7 @@ class _ProposeScreenState extends State<ProposeScreen> {
                         margin: const EdgeInsets.only(bottom: 10),
                         child: Text(
                           "380",
-                          style: TextStyle(fontSize: 10, color: colorTextBt),
+                          style: TextStyle(fontSize: 10, color: colorTextWhite),
                         ),
                       ),
                       circleIcon(greenGradientColor, "images/icon_chat.png"),
@@ -231,7 +229,7 @@ class _ProposeScreenState extends State<ProposeScreen> {
                         margin: const EdgeInsets.only(bottom: 10),
                         child: Text(
                           "550",
-                          style: TextStyle(fontSize: 10, color: colorTextBt),
+                          style: TextStyle(fontSize: 10, color: colorTextWhite),
                         ),
                       ),
                       Container(
@@ -247,21 +245,21 @@ class _ProposeScreenState extends State<ProposeScreen> {
                             border: Border.all(width: 2, color: Colors.white)),
                         child: Center(
                             child: Image.asset(
-                          "images/icon_reverse.png",
+                              "images/icon_reverse.png",
                           width: 25,
                           height: 25,
                           fit: BoxFit.contain,
-                          color: white,
+                          color: backgroudWhiteItem,
                         )),
                       ),
                       Container(
                         margin: const EdgeInsets.only(bottom: 10),
                         child: Text(
                           "80%",
-                          style: TextStyle(fontSize: 10, color: colorTextBt),
+                          style: TextStyle(fontSize: 10, color: colorTextWhite),
                         ),
                       ),
-                      Container(
+                      SizedBox(
                         width: 50,
                         height: 50,
                         child: Center(

@@ -38,7 +38,7 @@ class _MessContendScreenState extends State<MessContendScreen> {
     return Consumer<ProviderController>(
       builder: (context, value, child) => Scaffold(
         appBar: AppBar(
-          backgroundColor: white,
+          backgroundColor: backgroudWhiteItem,
           leading: InkWell(
             onTap: () {
               value.setDifferenceDay(0);
