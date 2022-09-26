@@ -47,7 +47,7 @@ class _MyAppState extends State<MyApp> {
       home: (checkFistInstall && box.read("rule") != null)
           ? const MainScreen()
           : FirstSplashScreen(),
-      //home: SecondSplashScreen(),
+      //home: PostNewEmployer(),
     );
   }
 }

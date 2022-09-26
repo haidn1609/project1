@@ -811,6 +811,14 @@ List<String> listFieldWorking = [
   "Medical",
   "Security"
 ];
+List<String> listExpWorking = [
+  "Dưới 1 năm kinh nghiệm",
+  "Từ 1 năm đến 2 năm kinh nghiệm",
+  "Từ 2 năm đến 3 năm kinh nghiệm",
+  "Từ 3 năm đến 4 năm kinh nghiệm",
+  "Từ 4 năm đến 5 năm kinh nghiệm",
+  "Trên 5 năm kinh nghiệm"
+];
 List<String> listCountry = [
   "An Giang",
   "Bà Rịa-Vũng Tàu",
