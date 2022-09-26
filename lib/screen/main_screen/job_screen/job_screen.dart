@@ -24,6 +24,7 @@ class _JobScreenState extends State<JobScreen> {
     return Scaffold(
       key: _key,
       drawerEnableOpenDragGesture: false,
+      resizeToAvoidBottomInset: false,
       body: Container(
         width: double.infinity,
         height: double.infinity,
@@ -134,9 +135,7 @@ class _JobScreenState extends State<JobScreen> {
                         topRight: Radius.circular(35),
                         topLeft: Radius.circular(35)),
                   ),
-                  child: ListView(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
+                  child: Column(
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,

@@ -42,6 +42,7 @@ class EmployerRequest extends StatelessWidget {
             margin: const EdgeInsets.only(top: 25, bottom: 25),
             child: ListView.builder(
               shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
               itemCount: listRequestCandidate.length,
               itemBuilder: (context, index) => index == 2
                   ? Column(

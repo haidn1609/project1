@@ -36,10 +36,9 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Consumer<ProviderController>(
       builder: (context, value, child) => Scaffold(
-          body: SizedBox(
-        width: double.infinity,
-        height: double.infinity,
-        child: Stack(
+          body: Scaffold(
+        resizeToAvoidBottomInset: false,
+        body: Stack(
           children: [
             listPage.elementAt(value.currentTab),
             Positioned(
