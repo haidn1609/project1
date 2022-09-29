@@ -30,6 +30,7 @@ class ItemShowMess extends StatelessWidget {
     List<Map<String, String>> listContent = mess["mess"];
     return InkWell(
       onTap: () {
+        FocusScope.of(context).unfocus();
         Get.to(
             MessContendScreen(
               mess: mess,

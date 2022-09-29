@@ -2,8 +2,8 @@
     package="com.example.acs_project_example">
     <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="acs_project_example"
-        android:name="${applicationName}"
+        android:label="Acs App"
+       android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

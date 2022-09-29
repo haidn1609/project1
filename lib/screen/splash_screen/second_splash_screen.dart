@@ -2,7 +2,6 @@ import 'package:acs_project_example/screen/main_screen/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 
 import '../../value/colors.dart';
 import '../../value/strings.dart';
@@ -14,7 +13,8 @@ class SecondSplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final widths = MediaQuery.of(context).size.width;
-    return KeyboardDismisser(
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         body: Container(
           width: widths,

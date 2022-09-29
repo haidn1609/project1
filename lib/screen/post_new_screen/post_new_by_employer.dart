@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 import 'package:multiselect/multiselect.dart';
 
 import '../../mock_data.dart';
@@ -45,7 +44,8 @@ class _PostNewEmployerState extends State<PostNewEmployer> {
   @override
   Widget build(BuildContext context) {
     final widths = MediaQuery.of(context).size.width;
-    return KeyboardDismisser(
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
           resizeToAvoidBottomInset: false,
           body: Column(

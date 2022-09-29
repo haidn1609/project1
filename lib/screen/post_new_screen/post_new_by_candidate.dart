@@ -4,7 +4,6 @@ import 'package:acs_project_example/mock_data.dart';
 import 'package:acs_project_example/value/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 import 'package:multiselect/multiselect.dart';
 
 import '../../value/colors.dart';
@@ -44,7 +43,8 @@ class _PostNewCandidateState extends State<PostNewCandidate>
   @override
   Widget build(BuildContext context) {
     final widths = MediaQuery.of(context).size.width;
-    return KeyboardDismisser(
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
           resizeToAvoidBottomInset: false,
           body: Column(
