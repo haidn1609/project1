@@ -8,6 +8,7 @@ Map<String, dynamic> userNow = {
   "mi": 160,
   "disc": "D"
 };
+bool isLogin = true;
 List<Map<String, dynamic>> listFriend = [
   {
     "name": "Công ti APG",

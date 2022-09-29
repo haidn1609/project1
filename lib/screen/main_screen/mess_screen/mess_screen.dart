@@ -110,23 +110,34 @@ class _MessScreenState extends State<MessScreen> {
                   }),
                 ),
               ),
-              Expanded(
-                  child: ListView(
-                shrinkWrap: true,
-                children: [
-                  ListView.builder(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: showList.length,
-                    itemBuilder: (context, index) {
-                      return ItemShowMess(mess: showList.elementAt(index));
-                    },
-                  ),
-                  Container(
-                    height: 110,
-                  )
-                ],
-              ))
+              (isLogin)
+                  ? Expanded(
+                      child: ListView(
+                      shrinkWrap: true,
+                      children: [
+                        ListView.builder(
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemCount: showList.length,
+                          itemBuilder: (context, index) {
+                            return ItemShowMess(
+                                mess: showList.elementAt(index));
+                          },
+                        ),
+                        Container(
+                          height: 110,
+                        )
+                      ],
+                    ))
+                  : Flexible(
+                      child: Container(
+                          padding: const EdgeInsets.all(10),
+                          child: const Center(
+                            child: Text(
+                              messNoLoginText,
+                              textAlign: TextAlign.center,
+                            ),
+                          )))
             ],
           ),
         ),

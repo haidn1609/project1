@@ -46,8 +46,9 @@ const String searchMessHideText = "Tìm kiếm tin nhắn";
 const String mbtiText = "MBTI: ";
 const String iqText = "IQ: ";
 const String miText = "MI: ";
-const String discText = "MI: ";
+const String discText = "DISC: ";
 const String youPostText = "Tin đã đăng";
+const String logInText = "Đăng nhập";
 const String logOutText = "Đăng xuất";
 const String isOnlineText = "Đang hoạt động";
 const String isOfflineText = "Không hoạt động";
@@ -60,3 +61,5 @@ const String femaleText = "Nữ";
 const String applyBtText = "Áp dụng";
 const String pickImageText = "Tải lên";
 const String pickCameraText = "Camera";
+const String messNoLoginText =
+    "Bạn chưa đăng nhập, vui lòng đăng nhập để sử dụng chức năng này.";

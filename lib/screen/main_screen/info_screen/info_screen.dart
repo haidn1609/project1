@@ -22,12 +22,8 @@ class _InfoScreenState extends State<InfoScreen> {
           height: double.infinity,
           decoration: const BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("images/background.png"), fit: BoxFit.cover)
-              // gradient: LinearGradient(
-              //     begin: Alignment.topCenter,
-              //     end: Alignment.bottomCenter,
-              //     colors: [blackGradientColorBot, blackGradientColorTop])
-              ),
+                  image: AssetImage("images/background.png"),
+                  fit: BoxFit.cover)),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -42,33 +38,41 @@ class _InfoScreenState extends State<InfoScreen> {
                       child: Column(
                         children: [
                           CircleAvatar(
-                            backgroundImage: NetworkImage(userNow["avatarUrl"]),
-                            radius: 55,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 8),
-                            child: Center(
-                              child: Text(userNow["name"],
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                      color: colorTextWhite)),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 8),
-                            child: Center(
-                              child: Text(
-                                  userNow["phoneNumber"]
-                                      .toString()
-                                      .replaceAllMapped(
-                                          RegExp(r'(\d+)(\d{3})(\d{3})'),
-                                          (Match m) =>
-                                              "${m[1]} - ${m[2]} - ${m[3]}"),
-                                  style: TextStyle(
-                                      fontSize: 13, color: colorTextWhite)),
-                            ),
-                          )
+                              backgroundImage: isLogin
+                                  ? NetworkImage(userNow["avatarUrl"])
+                                  : const AssetImage("images/icon_user.png")
+                                      as ImageProvider,
+                              radius: 55,
+                              backgroundColor: isLogin ? null : Colors.grey),
+                          isLogin
+                              ? Padding(
+                                  padding: const EdgeInsets.only(top: 8),
+                                  child: Center(
+                                    child: Text(userNow["name"],
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                            color: colorTextWhite)),
+                                  ),
+                                )
+                              : Container(),
+                          isLogin
+                              ? Padding(
+                                  padding: const EdgeInsets.only(top: 8),
+                                  child: Center(
+                                    child: Text(
+                                        userNow["phoneNumber"]
+                                            .toString()
+                                            .replaceAllMapped(
+                                                RegExp(r'(\d+)(\d{3})(\d{3})'),
+                                                (Match m) =>
+                                                    "${m[1]} - ${m[2]} - ${m[3]}"),
+                                        style: TextStyle(
+                                            fontSize: 13,
+                                            color: colorTextWhite)),
+                                  ),
+                                )
+                              : Container()
                         ],
                       ),
                     ),
@@ -117,7 +121,10 @@ class _InfoScreenState extends State<InfoScreen> {
                               Padding(
                                 padding: const EdgeInsets.only(left: 5),
                                 child: Text(
-                                    mbtiText + userNow["mbti"].toString(),
+                                    mbtiText +
+                                        (isLogin
+                                            ? userNow["mbti"].toString()
+                                            : "0"),
                                     style: const TextStyle(fontSize: 12)),
                               )
                             ],
@@ -134,7 +141,11 @@ class _InfoScreenState extends State<InfoScreen> {
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(left: 5.0),
-                                child: Text(iqText + userNow["iq"].toString(),
+                                child: Text(
+                                    iqText +
+                                        (isLogin
+                                            ? userNow["iq"].toString()
+                                            : "0"),
                                     style: const TextStyle(fontSize: 12)),
                               )
                             ],
@@ -151,7 +162,11 @@ class _InfoScreenState extends State<InfoScreen> {
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(left: 5.0),
-                                child: Text(miText + userNow["mi"].toString(),
+                                child: Text(
+                                    miText +
+                                        (isLogin
+                                            ? userNow["mi"].toString()
+                                            : "0"),
                                     style: const TextStyle(fontSize: 12)),
                               )
                             ],
@@ -169,7 +184,10 @@ class _InfoScreenState extends State<InfoScreen> {
                               Padding(
                                 padding: const EdgeInsets.only(left: 5.0),
                                 child: Text(
-                                    discText + userNow["disc"].toString(),
+                                    discText +
+                                        (isLogin
+                                            ? userNow["disc"].toString()
+                                            : "0"),
                                     style: const TextStyle(fontSize: 12)),
                               )
                             ],
@@ -177,28 +195,32 @@ class _InfoScreenState extends State<InfoScreen> {
                         ],
                       ),
                     ),
-                    Container(
-                      width: double.infinity,
-                      height: 60,
-                      margin: const EdgeInsets.only(top: 10),
-                      padding: const EdgeInsets.only(left: 15),
-                      child: Row(
-                        children: [
-                          Image.asset("images/icon_doc.png",
-                              width: 23, height: 23, color: Colors.black87),
-                          Container(
+                    isLogin
+                        ? Container(
+                            width: double.infinity,
                             height: 60,
-                            alignment: Alignment.centerLeft,
-                            padding: const EdgeInsets.only(left: 10),
-                            child: const Text(
-                              youPostText,
-                              style: TextStyle(
-                                  fontSize: 15, color: Colors.black87),
+                            margin: const EdgeInsets.only(top: 10),
+                            padding: const EdgeInsets.only(left: 15),
+                            child: Row(
+                              children: [
+                                Image.asset("images/icon_doc.png",
+                                    width: 23,
+                                    height: 23,
+                                    color: Colors.black87),
+                                Container(
+                                  height: 60,
+                                  alignment: Alignment.centerLeft,
+                                  padding: const EdgeInsets.only(left: 10),
+                                  child: const Text(
+                                    youPostText,
+                                    style: TextStyle(
+                                        fontSize: 15, color: Colors.black87),
+                                  ),
+                                )
+                              ],
                             ),
                           )
-                        ],
-                      ),
-                    ),
+                        : Container(),
                     Container(
                       width: double.infinity,
                       height: 60,
@@ -212,9 +234,9 @@ class _InfoScreenState extends State<InfoScreen> {
                             height: 60,
                             alignment: Alignment.centerLeft,
                             padding: const EdgeInsets.only(left: 10),
-                            child: const Text(
-                              logOutText,
-                              style: TextStyle(
+                            child: Text(
+                              isLogin ? logOutText : logInText,
+                              style: const TextStyle(
                                   fontSize: 15, color: Colors.black87),
                             ),
                           )
