@@ -17,7 +17,15 @@ class ProposeScreen extends StatefulWidget {
 }
 
 class _ProposeScreenState extends State<ProposeScreen> {
-  List<String> listBranch = ["Ui-Ux Designer", "Graphic Designer"];
+  List<String> listBranch = [
+    "Ui-Ux Designer",
+    "Graphic Designer",
+    "Ui-Ux Designer",
+    "Graphic Designer",
+    "Ui-Ux Designer",
+    "Graphic Designer",
+    "Dev"
+  ];
 
   Widget circleIcon(List<Color> colors, String patch) {
     return Container(
@@ -91,8 +99,7 @@ class _ProposeScreenState extends State<ProposeScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           InkWell(
-                            onTap: () {
-                            },
+                            onTap: () {},
                             child: circleIcon(
                                 yellowGradientColor, "images/icon_idea.png"),
                           ),
@@ -115,103 +122,96 @@ class _ProposeScreenState extends State<ProposeScreen> {
                         ],
                       ),
                     ),
-                    Expanded(
-                        flex: 2,
-                        child: Container(
-                          alignment: Alignment.center,
-                          child: Center(
-                            child: Image.asset("images/match_banner.png",
-                                fit: BoxFit.contain, width: widths * 0.65),
+                    const Spacer(),
+                    Container(
+                      width: widths,
+                      height: 300,
+                      margin: const EdgeInsets.only(right: 50),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 15),
+                            child: Text(
+                              "Cônng ty cổ phần Mama Bé",
+                              style: TextStyle(
+                                  color: colorTextWhite,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15),
+                            ),
                           ),
-                        )),
-                    Expanded(
-                        flex: 1,
-                        child: Container(
-                          width: widths,
-                          margin: const EdgeInsets.only(right: 100),
-                          padding: const EdgeInsets.all(15),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                "Cônng ty cổ phần Mama Bé",
-                                style: TextStyle(
-                                    color: colorTextWhite,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 15),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(top: 10),
-                                child: Text(
-                                  "3 giờ trước",
-                                  style: TextStyle(
-                                      color: colorTextWhite, fontSize: 9),
-                                ),
-                              ),
-                              Container(
-                                height: 50,
-                                padding:
-                                    const EdgeInsets.only(top: 10, bottom: 15),
-                                child: ListView.builder(
-                                  shrinkWrap: true,
-                                  scrollDirection: Axis.horizontal,
-                                  itemCount: listBranch.length,
-                                  itemBuilder: (context, index) => Container(
-                                    width: 150,
-                                    height: 50,
-                                    alignment: Alignment.center,
-                                    margin: const EdgeInsets.only(right: 10),
-                                    decoration: BoxDecoration(
-                                        color: backgroudBrandItem,
-                                        borderRadius:
-                                            BorderRadius.circular(30)),
-                                    child: Text(
-                                      listBranch.elementAt(index),
-                                      style: TextStyle(
-                                          color: colorTextWhite, fontSize: 12),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Image.asset(
-                                    "images/icon_ping_map.png",
-                                    width: 15,
-                                    height: 15,
-                                    fit: BoxFit.contain,
-                                    color: dontSelectBtBNB,
-                                  ),
-                                  Flexible(
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(left: 10),
-                                    child: RichText(
-                                        overflow: TextOverflow.ellipsis,
-                                        strutStyle:
-                                            const StrutStyle(fontSize: 12),
-                                        text: TextSpan(
-                                            text:
-                                                "26/134 P. Lê Trọng Tấn, Khương Mai, Thanh Xuân, Hà Nội",
-                                            style: TextStyle(
-                                                color: colorTextWhite))),
-                                  ))
-                                ],
-                              )
-                            ],
+                          Padding(
+                            padding: const EdgeInsets.only(top: 10,left: 15),
+                            child: Text(
+                              "3 giờ trước",
+                              style:
+                                  TextStyle(color: colorTextWhite, fontSize: 9),
+                            ),
                           ),
-                        ))
+                          Container(
+                            width: double.infinity,
+                            padding: const EdgeInsets.all(8.0),
+                            child: Wrap(
+                              direction: Axis.horizontal,
+                              runSpacing: 5,
+                              spacing: 5,
+                              children: listBranch
+                                  .map((e) => Chip(
+                                        label: Text(
+                                          e,
+                                          style: TextStyle(
+                                              color: colorTextWhite,
+                                              fontSize: 8),
+                                        ),
+                                        backgroundColor: backgroudBrandItem,
+                                      ))
+                                  .toList(),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 15),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Image.asset(
+                                  "images/icon_ping_map.png",
+                                  width: 15,
+                                  height: 15,
+                                  fit: BoxFit.contain,
+                                  color: dontSelectBtBNB,
+                                ),
+                                Flexible(
+                                    child: Padding(
+                                  padding: const EdgeInsets.only(left: 10),
+                                  child: RichText(
+                                      overflow: TextOverflow.ellipsis,
+                                      strutStyle: const StrutStyle(fontSize: 12),
+                                      text: TextSpan(
+                                          text:
+                                              "26/134 P. Lê Trọng Tấn, Khương Mai, Thanh Xuân, Hà Nội",
+                                          style:
+                                              TextStyle(color: colorTextWhite))),
+                                ))
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    )
                   ],
                 ),
               ),
               Container(
-                width: double.infinity,
-                alignment: Alignment.bottomRight,
-                child: Container(
-                  padding: const EdgeInsets.all(5),
-                  width: 70,
-                  alignment: Alignment.bottomCenter,
+                alignment: Alignment.center,
+                child: Center(
+                  child: Image.asset("images/match_banner.png",
+                      fit: BoxFit.contain, width: widths * 0.65),
+                ),
+              ),
+              Positioned(
+                  right:10,
+                  bottom: 0,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -245,7 +245,7 @@ class _ProposeScreenState extends State<ProposeScreen> {
                             border: Border.all(width: 2, color: Colors.white)),
                         child: Center(
                             child: Image.asset(
-                              "images/icon_reverse.png",
+                          "images/icon_reverse.png",
                           width: 25,
                           height: 25,
                           fit: BoxFit.contain,
@@ -273,9 +273,7 @@ class _ProposeScreenState extends State<ProposeScreen> {
                                 ))),
                       ),
                     ],
-                  ),
-                ),
-              )
+                  ))
             ],
           ),
         ),

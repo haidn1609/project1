@@ -1,4 +1,5 @@
 import 'package:acs_project_example/screen/main_screen/main_screen.dart';
+import 'package:acs_project_example/screen/splash_screen/first_splash_screen.dart';
 import 'package:acs_project_example/state_manager/provider_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -43,10 +44,10 @@ class _MyAppState extends State<MyApp> {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      // home: (checkFistInstall && box.read("rule") != null)
-      //     ? const MainScreen()
-      //     : FirstSplashScreen(),
-      home: MainScreen(),
+      home: (checkFistInstall && box.read("rule") != null)
+          ? const MainScreen()
+          : FirstSplashScreen(),
+      // home: MainScreen(),
     );
   }
 }
