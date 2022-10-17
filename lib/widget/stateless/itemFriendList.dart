@@ -1,6 +1,6 @@
 import 'package:acs_project_example/mock_data.dart';
-import 'package:acs_project_example/screen/main_screen/mess_screen/mess_contend_screen.dart';
-import 'package:acs_project_example/widget/stateless/gradient_widget.dart';
+import 'package:acs_project_example/screen/main_screen/mess_screen/messContendScreen.dart';
+import 'package:acs_project_example/widget/stateless/gradientWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

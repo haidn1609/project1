@@ -1,14 +1,14 @@
-import 'package:acs_project_example/state_manager/provider_controller.dart';
+import 'package:acs_project_example/state_manager/providerController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:provider/provider.dart';
 
-import '../../screen/post_new_screen/post_new_by_candidate.dart';
-import '../../screen/post_new_screen/post_new_by_employer.dart';
+import '../../screen/post_new_screen/postNewByCandidate.dart';
+import '../../screen/post_new_screen/postNewByEmployer.dart';
 import '../../value/colors.dart';
 import '../../value/strings.dart';
-import 'gradient_widget.dart';
+import 'gradientWidget.dart';
 
 class BottomNavigatorBarCus extends StatelessWidget {
   BottomNavigatorBarCus({Key? key}) : super(key: key);

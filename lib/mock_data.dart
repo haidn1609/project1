@@ -161,24 +161,24 @@ List<Map<String, dynamic>> listRequestCandidate = [
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFCUvvBw76w0mdfOdV8NbD88MGh31crnEUJQ&usqp=CAU"
   },
 ];
-List<Map<String, dynamic>> listJobLogo = [
-  {
-    "patch": "images/icon_artish.png",
-    "nameJob": "Thiết kế đồ họa",
-    "count": 200
-  },
-  {"patch": "images/icon_it_job.png", "nameJob": "Công việc IT", "count": 356},
-  {
-    "patch": "images/icon_sale_job.png",
-    "nameJob": "Nhân viên kinh doanh",
-    "count": 356
-  },
-  {
-    "patch": "images/icon_sale_job.png",
-    "nameJob": "Nhân viên kinh doanh",
-    "count": 356
-  }
-];
+// List<Map<String, dynamic>> listJobLogo = [
+//   {
+//     "patch": "images/icon_artish.png",
+//     "nameJob": "Thiết kế đồ họa",
+//     "count": 200
+//   },
+//   {"patch": "images/icon_it_job.png", "nameJob": "Công việc IT", "count": 356},
+//   {
+//     "patch": "images/icon_sale_job.png",
+//     "nameJob": "Nhân viên kinh doanh",
+//     "count": 356
+//   },
+//   {
+//     "patch": "images/icon_sale_job.png",
+//     "nameJob": "Nhân viên kinh doanh",
+//     "count": 356
+//   }
+// ];
 
 List<Map<String, dynamic>> listMess = [
   {

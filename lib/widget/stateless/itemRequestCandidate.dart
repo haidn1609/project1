@@ -1,13 +1,15 @@
+import 'package:acs_project_example/model/postModel.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class ItemCandidateRequest extends StatelessWidget {
-  ItemCandidateRequest({Key? key, required this.item}) : super(key: key);
-  Map<String, dynamic> item;
+  ItemCandidateRequest({Key? key, this.item}) : super(key: key);
+  PostModel? item;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(right: 15),
+      padding: const EdgeInsets.only(right: 15),
       width: 320,
       height: 200,
       child: Card(
@@ -23,19 +25,19 @@ class ItemCandidateRequest extends StatelessWidget {
                   width: 40,
                   height: 40,
                   child: Image.network(
-                    item["logoImg"],
+                    item!.thumbnailUrl.toString(),
                     fit: BoxFit.contain,
                   ),
                 ),
-                Flexible(child: Text(item["nameJob"]))
+                Flexible(child: Text(item!.title.toString()))
               ],
             ),
             Container(
               alignment: Alignment.centerLeft,
               padding: const EdgeInsets.only(left: 70),
               child: Text(
-                item["company"],
-                style: TextStyle(fontSize: 12),
+                item!.company!.join(','),
+                style: const TextStyle(fontSize: 12),
               ),
             ),
             Row(
@@ -54,8 +56,8 @@ class ItemCandidateRequest extends StatelessWidget {
                 Flexible(
                     child: Container(
                   margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-                  child: Text("Khu vực ${item["location"]}",
-                      style: TextStyle(fontSize: 12)),
+                  child: Text("Khu vực ${item!.location!.join(',')}",
+                      style: const TextStyle(fontSize: 12)),
                 ))
               ],
             ),
@@ -75,8 +77,11 @@ class ItemCandidateRequest extends StatelessWidget {
                 Flexible(
                     child: Container(
                   margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-                  child: Text("Mức lương trên ${item["minSalary"]} triệu",
-                      style: TextStyle(fontSize: 12)),
+                  child: Text(
+                      item!.salary!.isEmpty
+                          ? "Lương thỏa thuận"
+                          : item!.salary!.join(','),
+                      style: const TextStyle(fontSize: 12)),
                 ))
               ],
             ),
@@ -96,8 +101,9 @@ class ItemCandidateRequest extends StatelessWidget {
                 Flexible(
                     child: Container(
                   margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-                  child: Text("Hạn tuyển dụng ${item["endDate"]}",
-                      style: TextStyle(fontSize: 12)),
+                  child: Text(
+                      "Hạn tuyển dụng ${DateFormat('dd-MM-yyyy').format(item!.modified!)}",
+                      style: const TextStyle(fontSize: 12)),
                 ))
               ],
             )

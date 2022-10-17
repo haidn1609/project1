@@ -1,4 +1,4 @@
-import 'package:acs_project_example/screen/splash_screen/second_splash_screen.dart';
+import 'package:acs_project_example/screen/splash_screen/secondSplashScreen.dart';
 import 'package:acs_project_example/value/colors.dart';
 import 'package:acs_project_example/value/strings.dart';
 import 'package:flutter/material.dart';

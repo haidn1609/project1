@@ -1,13 +1,13 @@
 import 'dart:async';
 
 import 'package:acs_project_example/mock_data.dart';
-import 'package:acs_project_example/screen/filter_screen/filter_screen.dart';
+import 'package:acs_project_example/screen/filter_screen/filterScreen.dart';
 import 'package:acs_project_example/value/colors.dart';
-import 'package:acs_project_example/widget/stateless/gradient_widget.dart';
+import 'package:acs_project_example/widget/stateless/gradientWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../widget/stateless/item_friend_list.dart';
+import '../../../widget/stateless/itemFriendList.dart';
 
 class ProposeScreen extends StatefulWidget {
   const ProposeScreen({Key? key}) : super(key: key);

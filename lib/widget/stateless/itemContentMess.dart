@@ -1,5 +1,5 @@
 import 'package:acs_project_example/mock_data.dart';
-import 'package:acs_project_example/state_manager/provider_controller.dart';
+import 'package:acs_project_example/state_manager/providerController.dart';
 import 'package:acs_project_example/value/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

@@ -1,8 +1,8 @@
-import 'package:acs_project_example/state_manager/provider_controller.dart';
+import 'package:acs_project_example/state_manager/providerController.dart';
 import 'package:acs_project_example/value/colors.dart';
 import 'package:acs_project_example/value/strings.dart';
-import 'package:acs_project_example/widget/stateless/gradient_widget.dart';
-import 'package:acs_project_example/widget/stateless/item_content_mess.dart';
+import 'package:acs_project_example/widget/stateless/gradientWidget.dart';
+import 'package:acs_project_example/widget/stateless/itemContentMess.dart';
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

@@ -1,4 +1,4 @@
-import 'package:acs_project_example/screen/main_screen/main_screen.dart';
+import 'package:acs_project_example/screen/main_screen/mainScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
