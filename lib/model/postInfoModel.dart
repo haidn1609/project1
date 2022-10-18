@@ -21,7 +21,10 @@ class PostInfoModel {
         name: jsonData['name'],
         description: jsonData['description'],
         slug: jsonData['slug'],
-        taxonomy: jsonData['taxonomy']);
+        taxonomy: (jsonData['taxonomy'].toString().contains('category') &&
+                jsonData['id'] == 1)
+            ? "categories"
+            : jsonData['taxonomy']);
   }
 
   Map<String, dynamic> toJson() {

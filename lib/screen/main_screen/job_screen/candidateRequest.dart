@@ -1,10 +1,14 @@
 import 'dart:math';
 
+import 'package:acs_project_example/screen/main_screen/job_screen/contentPostScreen.dart';
 import 'package:acs_project_example/state_manager/dataPostProvider.dart';
 import 'package:acs_project_example/value/colors.dart';
 import 'package:acs_project_example/value/strings.dart';
 import 'package:acs_project_example/widget/stateless/listViewRequestCandidate.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
@@ -47,73 +51,97 @@ class CandidateRequest extends StatelessWidget {
             ListViewRequestCandidate(
               listPost: value.listPost,
             ),
-            Container(
-              padding: const EdgeInsets.all(15),
-              margin: const EdgeInsets.only(bottom: 25),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(25),
-                  gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: blackGradientColor)),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Image.network(
-                    randomItem.thumbnailUrl.toString(),
-                    width: 50,
-                    height: 50,
-                  ),
-                  Flexible(
-                    flex: 2,
-                    child: Container(
-                      padding: const EdgeInsets.only(left: 8),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            randomItem.title.toString(),
-                            style: TextStyle(
-                                color: colorTextWhite,
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.only(top: 8.0, bottom: 8.0),
-                            child: Text(
-                              randomItem.salary!.isEmpty
-                                  ? "Lương thỏa thuận"
-                                  : randomItem.salary!.join(','),
-                              style: TextStyle(
-                                color: colorTextWhite,
-                                fontSize: 13,
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 10),
-                            child: Text(
-                              "Hạn tuyển dụng ${DateFormat('dd-MM-yyyy').format(randomItem.modified!)}",
-                              style: TextStyle(
-                                color: colorTextWhite,
-                                fontSize: 10,
-                              ),
-                            ),
+            GestureDetector(
+              onTap: () {
+                Get.to(ContentPostScreen(post: randomItem),
+                    transition: Transition.upToDown,
+                    duration: const Duration(seconds: 1));
+              },
+              child: Container(
+                padding: const EdgeInsets.all(15),
+                margin: const EdgeInsets.only(bottom: 25),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(25),
+                    gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: blackGradientColor)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    kIsWeb
+                        ? Container(
+                            width: 50,
+                            height: 50,
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    fit: BoxFit.contain,
+                                    image: NetworkImage(
+                                        randomItem.thumbnailUrl.toString()))),
                           )
-                        ],
+                        : CachedNetworkImage(
+                            imageUrl: randomItem.thumbnailUrl.toString(),
+                            width: 50,
+                            height: 50,
+                            placeholder: (context, url) =>
+                                const CircularProgressIndicator(),
+                            errorWidget: (context, url, error) => Image.asset(
+                              "images/empty_image.png",
+                              width: 50,
+                              height: 50,
+                            ),
+                          ),
+                    Flexible(
+                      flex: 2,
+                      child: Container(
+                        padding: const EdgeInsets.only(left: 8),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              randomItem.title.toString(),
+                              style: TextStyle(
+                                  color: colorTextWhite,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(top: 8.0, bottom: 8.0),
+                              child: Text(
+                                randomItem.salary!.isEmpty
+                                    ? "Lương thỏa thuận"
+                                    : randomItem.salary!.join(','),
+                                style: TextStyle(
+                                  color: colorTextWhite,
+                                  fontSize: 13,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 10),
+                              child: Text(
+                                "Hạn tuyển dụng ${DateFormat('dd-MM-yyyy').format(randomItem.modified!)}",
+                                style: TextStyle(
+                                  color: colorTextWhite,
+                                  fontSize: 10,
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  Flexible(
-                    flex: 1,
-                    child: Image.asset(
-                      "images/logo_job.png",
-                      height: 130,
-                    ),
-                  )
-                ],
+                    Flexible(
+                      flex: 1,
+                      child: Image.asset(
+                        "images/logo_job.png",
+                        height: 130,
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
             Row(

@@ -11,6 +11,7 @@ class PostModel {
   String? slug;
   String? title;
   String? description;
+  String? link;
   List<PostInfoModel>? category;
   List<PostInfoModel>? location;
   List<PostInfoModel>? career;
@@ -30,6 +31,7 @@ class PostModel {
       this.slug,
       this.title,
       this.description,
+      this.link,
       this.category,
       this.location,
       this.career,
@@ -49,6 +51,7 @@ class PostModel {
         status: jsonData['status'],
         type: jsonData['type'],
         description: jsonData['yoast_head_json']['og_description'],
+        link: jsonData['link'],
         slug: jsonData['slug'],
         title: jsonData['yoast_head_json']['og_title'],
         category: (postInfo['categories'].length > 0 && postInfo['categories'] != null)
@@ -73,11 +76,11 @@ class PostModel {
             ? List<PostInfoModel>.generate(postInfo['company'].length, (index) => PostInfoModel.fromJson(postInfo['company'][index])).toList()
             : [],
         salary: (postInfo['salary'].length > 0 && postInfo['salary'] != null) ? List<PostInfoModel>.generate(postInfo['salary'].length, (index) => PostInfoModel.fromJson(postInfo['salary'][index])).toList() : [],
-        thumbnailUrl: postInfo['thumbnailUrl']);
+        thumbnailUrl: postInfo['thumbnailUrl'].toString().replaceAll("demo.", ""));
   }
 
   @override
   String toString() {
-    return "$id -- $title -- ${career!.join(',')} -- ${workingType!.join(',')}\n";
+    return "$id -- $title -- ${career!.join(',')} -- ${workingType!.join(',')} -- $link\n\n";
   }
 }

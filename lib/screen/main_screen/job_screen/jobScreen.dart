@@ -18,6 +18,7 @@ class JobScreen extends StatefulWidget {
 class _JobScreenState extends State<JobScreen> {
   final box = GetStorage();
   final GlobalKey<ScaffoldState> _key = GlobalKey();
+  ScrollController scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -240,8 +241,13 @@ class _JobScreenState extends State<JobScreen> {
             width: widths * 0.5,
             child: Drawer(
               child: Center(
-                child: Text(
-                    "you is ${box.read("rule")}\n\n have ${value.listPost.length} item \n\n ${value.listPost.toString()}"),
+                child: ListView(
+                  controller: scrollController,
+                  children: [
+                    Text(
+                        "you is ${box.read("rule")}\n\n have ${value.listPost.length} item \n\n ${value.listPost.toString()}")
+                  ],
+                ),
               ),
             ),
           ),

@@ -5,13 +5,14 @@ import 'package:acs_project_example/Model/postInfoModel.dart';
 import 'package:acs_project_example/model/postModel.dart';
 import 'package:http/http.dart' as http;
 
-String baseApi = "https://demo.nganhangnhanluc.com/wp-json/wp/v2";
+String baseApi = "https://nganhangnhanluc.com/wp-json/wp/v2";
 String subApiCareer = "nganh_nghe";
 String subApiLocation = "khu_vuc";
 String subApiCategory = "categories";
 String subApiWorkingType = "hinh_thuc_lam_viec";
 String subApiCompany = "cong_ty";
 String subApiSalary = "muc_luong";
+String subPostTag = "tags";
 
 Future<List<PostInfoModel>> getCategory() async {
   List<PostInfoModel> listCategory = [];
@@ -134,7 +135,9 @@ Future<List<PostInfoModel>> getSalary() async {
 }
 
 Future<List<PostModel>> getApiPostByCategories(
-    {int? idCategories,
+    {int? idSubRequest,
+    int? page,
+    String? subRequest,
     List<PostInfoModel>? listCategory,
     List<PostInfoModel>? listLocation,
     List<PostInfoModel>? listCareer,
@@ -143,9 +146,9 @@ Future<List<PostModel>> getApiPostByCategories(
     List<PostInfoModel>? listSalary}) async {
   List<PostModel> listPost = [];
   try {
-    // print("stat get api: $baseApi/posts?categories=$idCategories");
-    final response =
-        await http.get(Uri.parse("$baseApi/posts?categories=$idCategories"));
+    print("stat get api: $baseApi/posts?$subRequest=$idSubRequest&page=$page");
+    final response = await http
+        .get(Uri.parse("$baseApi/posts?$subRequest=$idSubRequest&page=$page"));
     if (response.statusCode == 200) {
       final jsonData = jsonDecode(response.body);
       Map<String, dynamic> postInfo = <String, dynamic>{};
@@ -190,14 +193,15 @@ Future<List<PostModel>> getApiPostByCategories(
             jsonData[i]['yoast_head_json']['og_image'][0]['url'];
         listPost.add(PostModel.fromJson(jsonData[i], postInfo));
       }
-      // print(
-      //     "get du lieu từ $baseApi/posts?categories=$idCategories thanh cong được ${listPost.length} item");
+      print(
+          "get du lieu từ $baseApi/posts?$subRequest=$idSubRequest&page=$page thanh cong được ${listPost.length} item");
     } else {
-      // print(
-      //     "$baseApi/posts?categories=$idCategories==> ${response.statusCode} :get du lieu post thất bại");
+      print(
+          "$baseApi/posts?$subRequest=$idSubRequest&page=$page ==> ${response.statusCode} :get du lieu post thất bại");
     }
   } catch (err) {
-    // print("$baseApi/posts?categories=$idCategories ==> ${err.toString()}");
+    print(
+        "$baseApi/posts?$subRequest=$idSubRequest&page=$page ==> ${err.toString()}");
   }
   return listPost;
 }

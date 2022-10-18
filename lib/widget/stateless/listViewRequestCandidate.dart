@@ -14,7 +14,7 @@ class ListViewRequestCandidate extends StatelessWidget {
       height: listPost!.isEmpty ? null : 200,
       margin: const EdgeInsets.only(top: 25, bottom: 25),
       child: listPost!.isEmpty
-          ? Text("Không có công việc phù hợp")
+          ? const Text("Không có công việc phù hợp")
           : ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,

@@ -30,6 +30,20 @@ class DataPostProvider extends ChangeNotifier {
   bool get isLoadingData => _isLoadingData;
   bool _isLoadingData = false;
 
+  int get totalPost => _totalPost;
+  int _totalPost = 0;
+
+  int get totalPage => (totalPost / 10).ceil();
+
+  setTotalPost(List<PostInfoModel> listPostInfoModel, String slug) {
+    _totalPost = listPostInfoModel
+        .where((element) => element.slug!.contains(slug))
+        .elementAt(0)
+        .count!
+        .toInt();
+    notifyListeners();
+  }
+
   Future loadCategory() async {
     await getCategory().then((value) => _listCategory = value);
     notifyListeners();
@@ -60,9 +74,11 @@ class DataPostProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future loadPost(int? idCategories) async {
+  Future loadPost(String? subRequest, int? idSubRequest, int page) async {
     await getApiPostByCategories(
-            idCategories: idCategories,
+            subRequest: subRequest,
+            idSubRequest: idSubRequest,
+            page: page,
             listCareer: listCareer,
             listCategory: listCategory,
             listCompany: listCompany,

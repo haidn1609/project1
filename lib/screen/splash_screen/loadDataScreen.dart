@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:acs_project_example/request_api/postRequestApi.dart';
 import 'package:acs_project_example/state_manager/dataPostProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -21,7 +22,7 @@ class LoadDataScreen extends StatefulWidget {
 class _LoadDataScreenState extends State<LoadDataScreen> {
   final box = GetStorage();
   bool checkFistInstall = false;
-  var providerData;
+  late DataPostProvider providerData;
 
   @override
   void initState() {
@@ -31,7 +32,9 @@ class _LoadDataScreenState extends State<LoadDataScreen> {
         checkFistInstall = box.read("FistInstall");
       });
     }
-    callData(context);
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      callData(context);
+    });
     super.initState();
   }
 
@@ -44,7 +47,16 @@ class _LoadDataScreenState extends State<LoadDataScreen> {
     await providerData.loadLocation();
     await providerData.loadSalary();
     await providerData.loadWorkingType();
-    await providerData.loadPost(1);
+    providerData.setTotalPost(providerData.listCategory, "tin-tuyen-dung");
+    for (int i = 1; i <= providerData.totalPage; i++) {
+      await providerData.loadPost(
+          subApiCategory,
+          providerData.listCategory
+              .where((element) => element.slug!.contains("tin-tuyen-dung"))
+              .elementAt(0)
+              .id,
+          i);
+    }
     providerData.setLoading(false);
     if (checkFistInstall && box.read("rule") != null) {
       Get.to(const MainScreen(),
@@ -57,7 +69,7 @@ class _LoadDataScreenState extends State<LoadDataScreen> {
 
   @override
   void dispose() {
-    providerData!.dispose();
+    providerData.dispose();
     super.dispose();
   }
 
@@ -93,8 +105,11 @@ class _LoadDataScreenState extends State<LoadDataScreen> {
                     decoration: TextDecoration.none,
                     fontSize: 20)),
             value.isLoadingData
-                ? CircularProgressIndicator(
-                    color: colorTextBlack,
+                ? Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: CircularProgressIndicator(
+                      color: colorTextBlack,
+                    ),
                   )
                 : Container(),
             Expanded(
