@@ -45,32 +45,33 @@ class DataPostProvider extends ChangeNotifier {
   }
 
   Future loadCategory() async {
-    await getCategory().then((value) => _listCategory = value);
+    await getPostInfo(subApiCategory).then((value) => _listCategory = value);
     notifyListeners();
   }
 
   Future loadLocation() async {
-    await getLocation().then((value) => _listLocation = value);
+    await getPostInfo(subApiLocation).then((value) => _listLocation = value);
     notifyListeners();
   }
 
   Future loadCareer() async {
-    await getCareer().then((value) => _listCareer = value);
+    await getPostInfo(subApiCareer).then((value) => _listCareer = value);
     notifyListeners();
   }
 
   Future loadWorkingType() async {
-    await getWorkingType().then((value) => _listWorkingType = value);
+    await getPostInfo(subApiWorkingType)
+        .then((value) => _listWorkingType = value);
     notifyListeners();
   }
 
   Future loadCompany() async {
-    await getCompany().then((value) => _listCompany = value);
+    await getPostInfo(subApiCompany).then((value) => _listCompany = value);
     notifyListeners();
   }
 
   Future loadSalary() async {
-    await getSalary().then((value) => _listSalary = value);
+    await getPostInfo(subApiSalary).then((value) => _listSalary = value);
     notifyListeners();
   }
 

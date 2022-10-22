@@ -14,124 +14,23 @@ String subApiCompany = "cong_ty";
 String subApiSalary = "muc_luong";
 String subPostTag = "tags";
 
-Future<List<PostInfoModel>> getCategory() async {
-  List<PostInfoModel> listCategory = [];
+Future<List<PostInfoModel>> getPostInfo(String subApi) async {
+  List<PostInfoModel> listInfo = [];
   try {
-    final response = await http.get(Uri.parse("$baseApi/$subApiCategory"));
+    final response = await http.get(Uri.parse("$baseApi/$subApi"));
     if (response.statusCode == 200) {
       final jsonData = jsonDecode(response.body);
       for (var data in jsonData) {
-        listCategory.add(PostInfoModel.fromJson(data));
+        listInfo.add(PostInfoModel.fromJson(data));
       }
+    } else {
+      print(
+          "$baseApi/$subApi ==> ${response.statusCode} :get du lieu category thất bại");
     }
-    // else {
-    //   print(
-    //       "$baseApi/$subApiCategory ==> ${response.statusCode} :get du lieu category thất bại");
-    // }
   } catch (err) {
-    //print("$baseApi/$subApiCategory ==> ${err.toString()}");
+    print("$baseApi/$subApi ==> ${err.toString()}");
   }
-  return listCategory;
-}
-
-Future<List<PostInfoModel>> getLocation() async {
-  List<PostInfoModel> listLocation = [];
-  try {
-    final response = await http.get(Uri.parse("$baseApi/$subApiLocation"));
-    if (response.statusCode == 200) {
-      final jsonData = jsonDecode(response.body);
-      for (var data in jsonData) {
-        listLocation.add(PostInfoModel.fromJson(data));
-      }
-    }
-    // else {
-    //   print(
-    //       "$baseApi/$subApiLocation ==> ${response.statusCode} :get du lieu location thất bại");
-    // }
-  } catch (err) {
-    //print("$baseApi/$subApiLocation ==> ${err.toString()}");
-  }
-  return listLocation;
-}
-
-Future<List<PostInfoModel>> getCareer() async {
-  List<PostInfoModel> listCareer = [];
-  try {
-    final response = await http.get(Uri.parse("$baseApi/$subApiCareer"));
-    if (response.statusCode == 200) {
-      final jsonData = jsonDecode(response.body);
-      for (var data in jsonData) {
-        listCareer.add(PostInfoModel.fromJson(data));
-      }
-    }
-    // else {
-    //   print(
-    //       "$baseApi/$subApiCareer ==> ${response.statusCode} :get du lieu career thất bại");
-    // }
-  } catch (err) {
-    //print("$baseApi/$subApiCareer ==> ${err.toString()}");
-  }
-  return listCareer;
-}
-
-Future<List<PostInfoModel>> getWorkingType() async {
-  List<PostInfoModel> listWorkingType = [];
-  try {
-    final response = await http.get(Uri.parse("$baseApi/$subApiWorkingType"));
-    if (response.statusCode == 200) {
-      final jsonData = jsonDecode(response.body);
-      for (var data in jsonData) {
-        listWorkingType.add(PostInfoModel.fromJson(data));
-      }
-    }
-    // else {
-    //   print(
-    //       "$baseApi/$subApiWorkingType ==> ${response.statusCode} :get du lieu working type thất bại");
-    // }
-  } catch (err) {
-    //print("$baseApi/$subApiWorkingType ==> ${err.toString()}");
-  }
-  return listWorkingType;
-}
-
-Future<List<PostInfoModel>> getCompany() async {
-  List<PostInfoModel> listCompany = [];
-  try {
-    final response = await http.get(Uri.parse("$baseApi/$subApiCompany"));
-    if (response.statusCode == 200) {
-      final jsonData = jsonDecode(response.body);
-      for (var data in jsonData) {
-        listCompany.add(PostInfoModel.fromJson(data));
-      }
-    }
-    // else {
-    //   print(
-    //       "$baseApi/$subApiCompany ==> ${response.statusCode} :get du lieu company thất bại");
-    // }
-  } catch (err) {
-    //print("$baseApi/$subApiCompany ==> ${err.toString()}");
-  }
-  return listCompany;
-}
-
-Future<List<PostInfoModel>> getSalary() async {
-  List<PostInfoModel> listSalary = [];
-  try {
-    final response = await http.get(Uri.parse("$baseApi/$subApiSalary"));
-    if (response.statusCode == 200) {
-      final jsonData = jsonDecode(response.body);
-      for (var data in jsonData) {
-        listSalary.add(PostInfoModel.fromJson(data));
-      }
-    }
-    // else {
-    //   print(
-    //       "$baseApi/$subApiSalary ==> ${response.statusCode} :get du lieu salary thất bại");
-    // }
-  } catch (err) {
-    //print("$baseApi/$subApiSalary ==> ${err.toString()}");
-  }
-  return listSalary;
+  return listInfo;
 }
 
 Future<List<PostModel>> getApiPostByCategories(
@@ -151,47 +50,48 @@ Future<List<PostModel>> getApiPostByCategories(
         .get(Uri.parse("$baseApi/posts?$subRequest=$idSubRequest&page=$page"));
     if (response.statusCode == 200) {
       final jsonData = jsonDecode(response.body);
-      Map<String, dynamic> postInfo = <String, dynamic>{};
       for (var i = 0; i < [...jsonData].length; i++) {
-        postInfo['categories'] = listCategory
+        List<PostInfoModel>? _listCategory = listCategory
             ?.where((element1) => [...jsonData[i]['categories']]
                 .where((element2) => element2 == element1.id)
                 .isNotEmpty)
-            .map((PostInfoModel e) => e.toJson())
             .toList();
-        postInfo['location'] = listLocation
+        List<PostInfoModel>? _listLocation = listLocation
             ?.where((element1) => [...jsonData[i]['khu_vuc']]
                 .where((element2) => element2 == element1.id)
                 .isNotEmpty)
-            .map((e) => e.toJson())
             .toList();
-        postInfo['career'] = listCareer
+        List<PostInfoModel>? _listCareer = listCareer
             ?.where((element1) => [...jsonData[i]['nganh_nghe']]
                 .where((element2) => element2 == element1.id)
                 .isNotEmpty)
-            .map((e) => e.toJson())
             .toList();
-        postInfo['workingType'] = listWorkingType
+        List<PostInfoModel>? _listWorkingType = listWorkingType
             ?.where((element1) => [...jsonData[i]['hinh_thuc_lam_viec']]
                 .where((element2) => element2 == element1.id)
                 .isNotEmpty)
-            .map((e) => e.toJson())
             .toList();
-        postInfo['company'] = listCompany
+        List<PostInfoModel>? _listCompany = listCompany
             ?.where((element1) => [...jsonData[i]['cong_ty']]
                 .where((element2) => element2 == element1.id)
                 .isNotEmpty)
-            .map((e) => e.toJson())
             .toList();
-        postInfo['salary'] = listSalary
+        List<PostInfoModel>? _listSalary = listSalary
             ?.where((element1) => [...jsonData[i]['muc_luong']]
                 .where((element2) => element2 == element1.id)
                 .isNotEmpty)
-            .map((e) => e.toJson())
             .toList();
-        postInfo['thumbnailUrl'] =
+        String thumbnailUrl =
             jsonData[i]['yoast_head_json']['og_image'][0]['url'];
-        listPost.add(PostModel.fromJson(jsonData[i], postInfo));
+        listPost.add(PostModel.fromJson(
+            jsonData[i],
+            _listCategory!,
+            _listLocation!,
+            _listCareer!,
+            _listWorkingType!,
+            _listCompany!,
+            _listSalary!,
+            thumbnailUrl));
       }
       print(
           "get du lieu từ $baseApi/posts?$subRequest=$idSubRequest&page=$page thanh cong được ${listPost.length} item");

@@ -5,6 +5,8 @@ class PostInfoModel {
   String? description;
   String? slug;
   String? taxonomy;
+  String? link;
+  String? links;
 
   PostInfoModel(
       {this.id,
@@ -12,30 +14,24 @@ class PostInfoModel {
       this.name,
       this.description,
       this.slug,
-      this.taxonomy});
+      this.taxonomy,
+      this.link,
+      this.links});
 
   factory PostInfoModel.fromJson(Map<String, dynamic> jsonData) {
     return PostInfoModel(
-        id: jsonData['id'],
-        count: jsonData['count'],
-        name: jsonData['name'],
-        description: jsonData['description'],
-        slug: jsonData['slug'],
-        taxonomy: (jsonData['taxonomy'].toString().contains('category') &&
-                jsonData['id'] == 1)
-            ? "categories"
-            : jsonData['taxonomy']);
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
-    data['count'] = count;
-    data['name'] = name;
-    data['description'] = description;
-    data['slug'] = slug;
-    data['taxonomy'] = taxonomy;
-    return data;
+      id: jsonData['id'],
+      count: jsonData['count'],
+      name: jsonData['name'],
+      description: jsonData['description'],
+      slug: jsonData['slug'],
+      taxonomy: (jsonData['taxonomy'].toString().contains('category') &&
+              jsonData['id'] == 1)
+          ? "categories"
+          : jsonData['taxonomy'],
+      link: jsonData['link'],
+      links: jsonData['_links']['wp:post_type'][0]['href'],
+    );
   }
 
   @override

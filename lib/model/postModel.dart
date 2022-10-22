@@ -41,7 +41,16 @@ class PostModel {
       this.thumbnailUrl});
 
   factory PostModel.fromJson(
-      Map<String, dynamic> jsonData, Map<String, dynamic> postInfo) {
+    Map<String, dynamic> jsonData,
+    //Map<String, dynamic> postInfo,
+    List<PostInfoModel> categorys,
+    List<PostInfoModel> locations,
+    List<PostInfoModel> careers,
+    List<PostInfoModel> workingTypes,
+    List<PostInfoModel> companys,
+    List<PostInfoModel> salarys,
+    String _thumbnailUrl,
+  ) {
     return PostModel(
         id: jsonData['id'],
         date: DateTime.parse(jsonData['date']),
@@ -54,29 +63,13 @@ class PostModel {
         link: jsonData['link'],
         slug: jsonData['slug'],
         title: jsonData['yoast_head_json']['og_title'],
-        category: (postInfo['categories'].length > 0 && postInfo['categories'] != null)
-            ? List<PostInfoModel>.generate(postInfo['categories'].length, (index) => PostInfoModel.fromJson(postInfo['categories'][index]))
-                .toList()
-            : [],
-        location: (postInfo['location'].length > 0 && postInfo['location'] != null)
-            ? List<PostInfoModel>.generate(postInfo['location'].length, (index) => PostInfoModel.fromJson(postInfo['location'][index]))
-                .toList()
-            : [],
-        career: (postInfo['career'].length > 0 && postInfo['career'] != null)
-            ? List<PostInfoModel>.generate(postInfo['career'].length, (index) => PostInfoModel.fromJson(postInfo['career'][index]))
-                .toList()
-            : [],
-        workingType:
-            (postInfo['workingType'].length > 0 && postInfo['workingType'] != null)
-                ? List<PostInfoModel>.generate(
-                        postInfo['workingType'].length, (index) => PostInfoModel.fromJson(postInfo['workingType'][index]))
-                    .toList()
-                : [],
-        company: (postInfo['company'].length > 0 && postInfo['company'] != null)
-            ? List<PostInfoModel>.generate(postInfo['company'].length, (index) => PostInfoModel.fromJson(postInfo['company'][index])).toList()
-            : [],
-        salary: (postInfo['salary'].length > 0 && postInfo['salary'] != null) ? List<PostInfoModel>.generate(postInfo['salary'].length, (index) => PostInfoModel.fromJson(postInfo['salary'][index])).toList() : [],
-        thumbnailUrl: postInfo['thumbnailUrl'].toString().replaceAll("demo.", ""));
+        category: categorys.isNotEmpty ? categorys : [],
+        location: locations.isNotEmpty ? locations : [],
+        career: careers.isNotEmpty ? careers : [],
+        workingType: workingTypes.isNotEmpty ? workingTypes : [],
+        company: companys.isNotEmpty ? companys : [],
+        salary: salarys.isNotEmpty ? salarys : [],
+        thumbnailUrl: _thumbnailUrl.replaceAll("demo.", ""));
   }
 
   @override

@@ -1,4 +1,4 @@
-import 'package:acs_project_example/screen/splash_screen/loadDataScreen.dart';
+import 'package:acs_project_example/screen/main_screen/mainScreen.dart';
 import 'package:acs_project_example/state_manager/dataPostProvider.dart';
 import 'package:acs_project_example/state_manager/providerController.dart';
 import 'package:flutter/material.dart';
@@ -31,8 +31,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        home: LoadDataScreen());
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      // home: LoadDataScreen(),
+      home: MainScreen(),
+    );
   }
 }

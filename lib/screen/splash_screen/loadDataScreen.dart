@@ -23,6 +23,7 @@ class _LoadDataScreenState extends State<LoadDataScreen> {
   final box = GetStorage();
   bool checkFistInstall = false;
   late DataPostProvider providerData;
+  int countLoad = 0;
 
   @override
   void initState() {
@@ -41,12 +42,16 @@ class _LoadDataScreenState extends State<LoadDataScreen> {
   Future callData(BuildContext context) async {
     providerData.setLoading(true);
     providerData.clearPost();
-    await providerData.loadCategory();
-    await providerData.loadCareer();
-    await providerData.loadCompany();
-    await providerData.loadLocation();
-    await providerData.loadSalary();
-    await providerData.loadWorkingType();
+    await Future.wait([
+      providerData.loadCategory().then((value) => setState(() => countLoad++)),
+      providerData.loadCareer().then((value) => setState(() => countLoad++)),
+      providerData.loadCompany().then((value) => setState(() => countLoad++)),
+      providerData.loadLocation().then((value) => setState(() => countLoad++)),
+      providerData.loadSalary().then((value) => setState(() => countLoad++)),
+      providerData
+          .loadWorkingType()
+          .then((value) => setState(() => countLoad++)),
+    ]);
     providerData.setTotalPost(providerData.listCategory, "tin-tuyen-dung");
     for (int i = 1; i <= providerData.totalPage; i++) {
       await providerData.loadPost(
@@ -57,8 +62,10 @@ class _LoadDataScreenState extends State<LoadDataScreen> {
               .id,
           i);
     }
-    providerData.setLoading(false);
+    setState(() => countLoad++);
     if (checkFistInstall && box.read("rule") != null) {
+      await Future.delayed(const Duration(milliseconds: 500));
+      providerData.setLoading(false);
       Get.to(const MainScreen(),
           transition: Transition.leftToRight,
           duration: const Duration(seconds: 1));
@@ -112,6 +119,19 @@ class _LoadDataScreenState extends State<LoadDataScreen> {
                     ),
                   )
                 : Container(),
+            Padding(
+              padding: const EdgeInsets.all(15),
+              child: Center(
+                child: Text(
+                  "Loading $countLoad/7",
+                  style: TextStyle(
+                    color: colorTextBlack,
+                    fontSize: 20,
+                    decoration: TextDecoration.none,
+                  ),
+                ),
+              ),
+            ),
             Expanded(
               child: Container(
                 margin: const EdgeInsets.only(top: 20, bottom: 20),
