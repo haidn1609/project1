@@ -29,10 +29,11 @@ class _PostNewCandidateState extends State<PostNewCandidate>
 
   Future _pickDate() async {
     DateTime? picked = await showDatePicker(
-        context: context,
-        initialDate: DateTime.now(),
-        firstDate: DateTime(1975),
-        lastDate: DateTime(2050));
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(1975),
+      lastDate: DateTime(2050),
+    );
     if (picked != null) {
       setState(() {
         dateEdit.text = "${picked.day}/${picked.month}/${picked.year}";
@@ -46,39 +47,39 @@ class _PostNewCandidateState extends State<PostNewCandidate>
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
-          resizeToAvoidBottomInset: false,
-          body: Column(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(10),
-                child: Row(
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        Get.back();
-                      },
-                      child: Image.asset(
-                        "images/icon_close_post.png",
-                        width: 20,
-                        height: 20,
+        resizeToAvoidBottomInset: false,
+        body: Column(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: Row(
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Get.back();
+                    },
+                    child: Image.asset(
+                      "images/icon_close_post.png",
+                      width: 20,
+                      height: 20,
+                    ),
+                  ),
+                  Flexible(
+                    child: Center(
+                      child: Text(
+                        postTitleText,
+                        style: TextStyle(
+                            color: colorTextBlack,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20),
                       ),
                     ),
-                    Flexible(
-                      child: Center(
-                        child: Text(
-                          postTitleText,
-                          style: TextStyle(
-                              color: colorTextBlack,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
+                  )
+                ],
               ),
-              Expanded(
-                  child: ScrollConfiguration(
+            ),
+            Expanded(
+              child: ScrollConfiguration(
                 behavior:
                     ScrollConfiguration.of(context).copyWith(scrollbars: false),
                 child: ListView(
@@ -100,17 +101,19 @@ class _PostNewCandidateState extends State<PostNewCandidate>
                               focusColor: Colors.white.withOpacity(1),
                               hoverColor: Colors.white.withOpacity(1),
                               focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                  borderSide: const BorderSide(
-                                    width: 2,
-                                    color: Colors.grey,
-                                  )),
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: const BorderSide(
+                                  width: 2,
+                                  color: Colors.grey,
+                                ),
+                              ),
                               enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                  borderSide: const BorderSide(
-                                    width: 2,
-                                    color: Colors.grey,
-                                  )),
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: const BorderSide(
+                                  width: 2,
+                                  color: Colors.grey,
+                                ),
+                              ),
                             ),
                             showCursor: false,
                           ),
@@ -136,17 +139,19 @@ class _PostNewCandidateState extends State<PostNewCandidate>
                                     focusColor: Colors.white.withOpacity(1),
                                     hoverColor: Colors.white.withOpacity(1),
                                     focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(30),
-                                        borderSide: const BorderSide(
-                                          width: 2,
-                                          color: Colors.grey,
-                                        )),
+                                      borderRadius: BorderRadius.circular(30),
+                                      borderSide: const BorderSide(
+                                        width: 2,
+                                        color: Colors.grey,
+                                      ),
+                                    ),
                                     enabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(30),
-                                        borderSide: const BorderSide(
-                                          width: 2,
-                                          color: Colors.grey,
-                                        )),
+                                      borderRadius: BorderRadius.circular(30),
+                                      borderSide: const BorderSide(
+                                        width: 2,
+                                        color: Colors.grey,
+                                      ),
+                                    ),
                                   ),
                                   showCursor: false,
                                 ),
@@ -181,17 +186,19 @@ class _PostNewCandidateState extends State<PostNewCandidate>
                               focusColor: Colors.white.withOpacity(1),
                               hoverColor: Colors.white.withOpacity(1),
                               focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                  borderSide: const BorderSide(
-                                    width: 2,
-                                    color: Colors.grey,
-                                  )),
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: const BorderSide(
+                                  width: 2,
+                                  color: Colors.grey,
+                                ),
+                              ),
                               enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                  borderSide: const BorderSide(
-                                    width: 2,
-                                    color: Colors.grey,
-                                  )),
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: const BorderSide(
+                                  width: 2,
+                                  color: Colors.grey,
+                                ),
+                              ),
                             ),
                             showCursor: false,
                             keyboardType: TextInputType.number,
@@ -211,17 +218,19 @@ class _PostNewCandidateState extends State<PostNewCandidate>
                               focusColor: Colors.white.withOpacity(1),
                               hoverColor: Colors.white.withOpacity(1),
                               focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                  borderSide: const BorderSide(
-                                    width: 2,
-                                    color: Colors.grey,
-                                  )),
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: const BorderSide(
+                                  width: 2,
+                                  color: Colors.grey,
+                                ),
+                              ),
                               enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                  borderSide: const BorderSide(
-                                    width: 2,
-                                    color: Colors.grey,
-                                  )),
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: const BorderSide(
+                                  width: 2,
+                                  color: Colors.grey,
+                                ),
+                              ),
                             ),
                             showCursor: false,
                           ),
@@ -240,17 +249,19 @@ class _PostNewCandidateState extends State<PostNewCandidate>
                               focusColor: Colors.white.withOpacity(1),
                               hoverColor: Colors.white.withOpacity(1),
                               focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                  borderSide: const BorderSide(
-                                    width: 2,
-                                    color: Colors.grey,
-                                  )),
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: const BorderSide(
+                                  width: 2,
+                                  color: Colors.grey,
+                                ),
+                              ),
                               enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                  borderSide: const BorderSide(
-                                    width: 2,
-                                    color: Colors.grey,
-                                  )),
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: const BorderSide(
+                                  width: 2,
+                                  color: Colors.grey,
+                                ),
+                              ),
                             ),
                             showCursor: false,
                           ),
@@ -260,8 +271,9 @@ class _PostNewCandidateState extends State<PostNewCandidate>
                           height: 50,
                           margin: const EdgeInsets.only(top: 10, bottom: 10),
                           decoration: BoxDecoration(
-                              color: backgroudWhiteItem,
-                              borderRadius: BorderRadius.circular(30)),
+                            color: backgroudWhiteItem,
+                            borderRadius: BorderRadius.circular(30),
+                          ),
                           child: DropDownMultiSelect(
                             //whenEmpty: languageHideText,
                             icon: Icon(Icons.arrow_drop_down,
@@ -274,17 +286,19 @@ class _PostNewCandidateState extends State<PostNewCandidate>
                                   color: Colors.black, size: 40),
                               focusColor: Colors.white.withOpacity(0),
                               focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                  borderSide: const BorderSide(
-                                    width: 2,
-                                    color: Colors.grey,
-                                  )),
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: const BorderSide(
+                                  width: 2,
+                                  color: Colors.grey,
+                                ),
+                              ),
                               enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                  borderSide: const BorderSide(
-                                    width: 2,
-                                    color: Colors.grey,
-                                  )),
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: const BorderSide(
+                                  width: 2,
+                                  color: Colors.grey,
+                                ),
+                              ),
                             ),
                             onChanged: (List<String> x) {
                               setState(() {
@@ -309,17 +323,19 @@ class _PostNewCandidateState extends State<PostNewCandidate>
                               focusColor: Colors.white.withOpacity(1),
                               hoverColor: Colors.white.withOpacity(1),
                               focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                  borderSide: const BorderSide(
-                                    width: 2,
-                                    color: Colors.grey,
-                                  )),
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: const BorderSide(
+                                  width: 2,
+                                  color: Colors.grey,
+                                ),
+                              ),
                               enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                  borderSide: const BorderSide(
-                                    width: 2,
-                                    color: Colors.grey,
-                                  )),
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: const BorderSide(
+                                  width: 2,
+                                  color: Colors.grey,
+                                ),
+                              ),
                             ),
                             showCursor: false,
                           ),
@@ -329,8 +345,9 @@ class _PostNewCandidateState extends State<PostNewCandidate>
                           height: 50,
                           margin: const EdgeInsets.only(top: 10, bottom: 10),
                           decoration: BoxDecoration(
-                              color: backgroudWhiteItem,
-                              borderRadius: BorderRadius.circular(30)),
+                            color: backgroudWhiteItem,
+                            borderRadius: BorderRadius.circular(30),
+                          ),
                           child: DropDownMultiSelect(
                             icon: Icon(Icons.arrow_drop_down,
                                 color: backgroudOpacity1),
@@ -342,17 +359,19 @@ class _PostNewCandidateState extends State<PostNewCandidate>
                                   color: Colors.black, size: 40),
                               focusColor: Colors.white.withOpacity(0),
                               focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                  borderSide: const BorderSide(
-                                    width: 2,
-                                    color: Colors.grey,
-                                  )),
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: const BorderSide(
+                                  width: 2,
+                                  color: Colors.grey,
+                                ),
+                              ),
                               enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                  borderSide: const BorderSide(
-                                    width: 2,
-                                    color: Colors.grey,
-                                  )),
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: const BorderSide(
+                                  width: 2,
+                                  color: Colors.grey,
+                                ),
+                              ),
                             ),
                             onChanged: (List<String> x) {
                               setState(() {
@@ -377,17 +396,19 @@ class _PostNewCandidateState extends State<PostNewCandidate>
                               focusColor: Colors.white.withOpacity(1),
                               hoverColor: Colors.white.withOpacity(1),
                               focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                  borderSide: const BorderSide(
-                                    width: 2,
-                                    color: Colors.grey,
-                                  )),
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: const BorderSide(
+                                  width: 2,
+                                  color: Colors.grey,
+                                ),
+                              ),
                               enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                  borderSide: const BorderSide(
-                                    width: 2,
-                                    color: Colors.grey,
-                                  )),
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: const BorderSide(
+                                  width: 2,
+                                  color: Colors.grey,
+                                ),
+                              ),
                             ),
                             showCursor: false,
                           ),
@@ -396,35 +417,38 @@ class _PostNewCandidateState extends State<PostNewCandidate>
                     )
                   ],
                 ),
-              )),
-              Container(
-                width: double.infinity,
-                height: 100,
-                padding: const EdgeInsets.all(15),
-                alignment: Alignment.center,
-                child: GestureDetector(
-                  onTap: () {},
-                  child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: blackGradientColor)),
-                    child: Center(
-                      child: Text(
-                        postBtText,
-                        style: TextStyle(
-                            color: colorTextWhite,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15),
-                      ),
+              ),
+            ),
+            Container(
+              width: double.infinity,
+              height: 100,
+              padding: const EdgeInsets.all(15),
+              alignment: Alignment.center,
+              child: GestureDetector(
+                onTap: () {},
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: blackGradientColor),
+                  ),
+                  child: Center(
+                    child: Text(
+                      postBtText,
+                      style: TextStyle(
+                          color: colorTextWhite,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15),
                     ),
                   ),
                 ),
-              )
-            ],
-          )),
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }

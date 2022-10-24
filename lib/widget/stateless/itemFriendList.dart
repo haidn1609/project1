@@ -7,8 +7,8 @@ import 'package:get/get.dart';
 import '../../value/colors.dart';
 
 class ItemFriendList extends StatelessWidget {
-  ItemFriendList({Key? key, required this.item}) : super(key: key);
-  Map<String, dynamic> item;
+  const ItemFriendList({Key? key, required this.item}) : super(key: key);
+  final Map<String, dynamic> item;
 
   void openMess() {
     List<Map<String, dynamic>> searchList = listMess
@@ -19,7 +19,9 @@ class ItemFriendList extends StatelessWidget {
         )
         .toList();
     if (searchList.isNotEmpty) {
-      Get.to(MessContendScreen(mess: searchList.first));
+      Get.to(
+        MessContendScreen(mess: searchList.first),
+      );
     } else {
       Map<String, dynamic> newMess = {
         "user1": {"name": item["name"], "avatar": item["avatar"]},
@@ -35,7 +37,9 @@ class ItemFriendList extends StatelessWidget {
         ]
       };
       listMess.add(newMess);
-      Get.to(MessContendScreen(mess: listMess.last));
+      Get.to(
+        MessContendScreen(mess: listMess.last),
+      );
     }
   }
 
@@ -52,30 +56,33 @@ class ItemFriendList extends StatelessWidget {
             width: 50,
             height: 50,
             decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border.all(color: borderBlackColor, width: 0.5),
-                borderRadius: BorderRadius.circular(100),
-                image: DecorationImage(
-                    image: NetworkImage(item["avatar"]),
-                    alignment: Alignment.center)),
+              color: Colors.white,
+              border: Border.all(color: borderBlackColor, width: 0.5),
+              borderRadius: BorderRadius.circular(100),
+              image: DecorationImage(
+                  image: NetworkImage(item["avatar"]),
+                  alignment: Alignment.center),
+            ),
           ),
           Expanded(
-              child: Container(
-            padding: const EdgeInsets.only(left: 15),
-            alignment: Alignment.centerLeft,
-            child: Text(item["name"]),
-          )),
+            child: Container(
+              padding: const EdgeInsets.only(left: 15),
+              alignment: Alignment.centerLeft,
+              child: Text(item["name"]),
+            ),
+          ),
           SizedBox(
             width: 30,
             height: 30,
             child: InkWell(
               onTap: () => openMess(),
               child: GradientWidget(
-                  colors: greenGradientColor,
-                  child: Image.asset(
-                    "images/icon_chat.png",
-                    fit: BoxFit.contain,
-                  )),
+                colors: greenGradientColor,
+                child: Image.asset(
+                  "images/icon_chat.png",
+                  fit: BoxFit.contain,
+                ),
+              ),
             ),
           )
         ],

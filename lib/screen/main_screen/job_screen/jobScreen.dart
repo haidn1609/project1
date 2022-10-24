@@ -34,9 +34,10 @@ class _JobScreenState extends State<JobScreen> {
             width: double.infinity,
             height: double.infinity,
             decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage("images/background.png"),
-                    fit: BoxFit.cover)),
+              image: DecorationImage(
+                  image: AssetImage("images/background.png"),
+                  fit: BoxFit.cover),
+            ),
             child: ScrollConfiguration(
               behavior:
                   ScrollConfiguration.of(context).copyWith(scrollbars: false),
@@ -54,11 +55,11 @@ class _JobScreenState extends State<JobScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Expanded(
-                              child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              IconButton(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                IconButton(
                                   onPressed: () {
                                     _key.currentState!.openDrawer();
                                   },
@@ -66,28 +67,33 @@ class _JobScreenState extends State<JobScreen> {
                                     Icons.menu,
                                     color: backgroudWhiteItem,
                                     size: 40,
-                                  )),
-                              Container(
-                                padding: const EdgeInsets.only(left: 10),
-                                height: 100,
-                                alignment: Alignment.centerLeft,
-                                child: Text(findJobText,
+                                  ),
+                                ),
+                                Container(
+                                  padding: const EdgeInsets.only(left: 10),
+                                  height: 100,
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    findJobText,
                                     style: TextStyle(
                                       color: colorTextWhite,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 25,
                                       height: 1.5,
-                                    )),
-                              )
-                            ],
-                          )),
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
                           Expanded(
-                              child: Container(
-                            height: 250,
-                            alignment: Alignment.centerRight,
-                            child: Image.asset("images/logo_job.png",
-                                fit: BoxFit.contain),
-                          )),
+                            child: Container(
+                              height: 250,
+                              alignment: Alignment.centerRight,
+                              child: Image.asset("images/logo_job.png",
+                                  fit: BoxFit.contain),
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -135,8 +141,9 @@ class _JobScreenState extends State<JobScreen> {
                       decoration: const BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(35),
-                            topLeft: Radius.circular(35)),
+                          topRight: Radius.circular(35),
+                          topLeft: Radius.circular(35),
+                        ),
                       ),
                       child: Column(
                         children: [
@@ -144,23 +151,27 @@ class _JobScreenState extends State<JobScreen> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Expanded(
-                                  child: Container(
-                                      alignment: Alignment.centerLeft,
-                                      child: const Text(
-                                        careerText,
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 17),
-                                      ))),
+                                child: Container(
+                                  alignment: Alignment.centerLeft,
+                                  child: const Text(
+                                    careerText,
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 17),
+                                  ),
+                                ),
+                              ),
                               Expanded(
-                                  child: Container(
-                                      alignment: Alignment.centerRight,
-                                      child: Image.asset(
-                                        "images/icon_settings.png",
-                                        width: 25,
-                                        height: 25,
-                                        fit: BoxFit.contain,
-                                      )))
+                                child: Container(
+                                  alignment: Alignment.centerRight,
+                                  child: Image.asset(
+                                    "images/icon_settings.png",
+                                    width: 25,
+                                    height: 25,
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              )
                             ],
                           ),
                           Container(
@@ -179,8 +190,8 @@ class _JobScreenState extends State<JobScreen> {
                                   child: Card(
                                     elevation: 10,
                                     shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(25)),
+                                      borderRadius: BorderRadius.circular(25),
+                                    ),
                                     child: Column(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
@@ -193,10 +204,11 @@ class _JobScreenState extends State<JobScreen> {
                                           width: 50,
                                           height: 50,
                                           decoration: const BoxDecoration(
-                                              image: DecorationImage(
-                                                  image: AssetImage(
-                                                      "images/empty_image.png"),
-                                                  fit: BoxFit.contain)),
+                                            image: DecorationImage(
+                                                image: AssetImage(
+                                                    "images/empty_image.png"),
+                                                fit: BoxFit.contain),
+                                          ),
                                         ),
                                         Container(
                                           height: 45,

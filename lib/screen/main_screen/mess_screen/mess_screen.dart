@@ -24,8 +24,9 @@ class _MessScreenState extends State<MessScreen> {
         List<Map<String, String>> messA = a["mess"];
         List<Map<String, String>> messB = b["mess"];
         if (messA.isNotEmpty && messB.isNotEmpty) {
-          return DateTime.parse(messB.last["timeSend"]!)
-              .compareTo(DateTime.parse(messA.last["timeSend"]!));
+          return DateTime.parse(messB.last["timeSend"]!).compareTo(
+            DateTime.parse(messA.last["timeSend"]!),
+          );
         } else {
           return -1;
         }
@@ -50,11 +51,11 @@ class _MessScreenState extends State<MessScreen> {
             element["user1"]["name"] == userNow["name"]
                 ? element["user2"]
                 : element["user1"];
-        return TiengViet.parse(sender["name"].toString())
-            .toLowerCase()
-            .replaceAll(" ", "")
-            .contains(
-                TiengViet.parse(searchText).toLowerCase().replaceAll(" ", ""));
+        return TiengViet.parse(
+          sender["name"].toString(),
+        ).toLowerCase().replaceAll(" ", "").contains(
+              TiengViet.parse(searchText).toLowerCase().replaceAll(" ", ""),
+            );
       },
     );
     return Consumer<ProviderController>(
@@ -73,11 +74,13 @@ class _MessScreenState extends State<MessScreen> {
                 height: 60,
                 margin: const EdgeInsets.only(bottom: 15),
                 child: const Center(
-                  child: Text(messTabTitle,
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20)),
+                  child: Text(
+                    messTabTitle,
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20),
+                  ),
                 ),
               ),
               Container(
@@ -92,17 +95,19 @@ class _MessScreenState extends State<MessScreen> {
                     focusColor: Colors.white.withOpacity(1),
                     hoverColor: Colors.white.withOpacity(1),
                     focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30),
-                        borderSide: const BorderSide(
-                          width: 2,
-                          color: Colors.grey,
-                        )),
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: const BorderSide(
+                        width: 2,
+                        color: Colors.grey,
+                      ),
+                    ),
                     enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30),
-                        borderSide: const BorderSide(
-                          width: 2,
-                          color: Colors.grey,
-                        )),
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: const BorderSide(
+                        width: 2,
+                        color: Colors.grey,
+                      ),
+                    ),
                   ),
                   showCursor: false,
                   onChanged: (value) => setState(() {
@@ -113,31 +118,35 @@ class _MessScreenState extends State<MessScreen> {
               (isLogin)
                   ? Expanded(
                       child: ListView(
-                      shrinkWrap: true,
-                      children: [
-                        ListView.builder(
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemCount: showList.length,
-                          itemBuilder: (context, index) {
-                            return ItemShowMess(
-                                mess: showList.elementAt(index));
-                          },
-                        ),
-                        Container(
-                          height: 110,
-                        )
-                      ],
-                    ))
+                        shrinkWrap: true,
+                        children: [
+                          ListView.builder(
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: showList.length,
+                            itemBuilder: (context, index) {
+                              return ItemShowMess(
+                                mess: showList.elementAt(index),
+                              );
+                            },
+                          ),
+                          Container(
+                            height: 110,
+                          )
+                        ],
+                      ),
+                    )
                   : Flexible(
                       child: Container(
-                          padding: const EdgeInsets.all(10),
-                          child: const Center(
-                            child: Text(
-                              messNoLoginText,
-                              textAlign: TextAlign.center,
-                            ),
-                          )))
+                        padding: const EdgeInsets.all(10),
+                        child: const Center(
+                          child: Text(
+                            messNoLoginText,
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ),
+                    )
             ],
           ),
         ),

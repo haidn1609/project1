@@ -32,11 +32,12 @@ class ItemShowMess extends StatelessWidget {
       onTap: () {
         FocusScope.of(context).unfocus();
         Get.to(
-            MessContendScreen(
-              mess: mess,
-            ),
-            transition: Transition.downToUp,
-            duration: const Duration(milliseconds: 500));
+          MessContendScreen(
+            mess: mess,
+          ),
+          transition: Transition.downToUp,
+          duration: const Duration(milliseconds: 500),
+        );
       },
       child: Container(
         width: widths * 0.9,
@@ -50,9 +51,11 @@ class ItemShowMess extends StatelessWidget {
               width: 50,
               height: 50,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  image:
-                      DecorationImage(image: NetworkImage(sender["avatar"]))),
+                borderRadius: BorderRadius.circular(15),
+                image: DecorationImage(
+                  image: NetworkImage(sender["avatar"]),
+                ),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 10, right: 10),
@@ -66,9 +69,10 @@ class ItemShowMess extends StatelessWidget {
                       flex: 1,
                       child: Container(
                         alignment: Alignment.bottomLeft,
-                        child: Text(sender["name"],
-                            style:
-                                const TextStyle(fontWeight: FontWeight.bold)),
+                        child: Text(
+                          sender["name"],
+                          style: const TextStyle(fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -90,7 +94,8 @@ class ItemShowMess extends StatelessWidget {
                                       .isNotEmpty
                                   ? Text(
                                       "${sender["name"]} đã gửi tin nhắn cho bạn",
-                                      style: const TextStyle(fontSize: 10))
+                                      style: const TextStyle(fontSize: 10),
+                                    )
                                   : const Text(""),
                             ),
                           ),
@@ -100,15 +105,16 @@ class ItemShowMess extends StatelessWidget {
                               alignment: Alignment.centerRight,
                               child: Text(
                                 calculatePeriod(
-                                    DateTime.now(),
-                                    listContent.length <= 1
-                                        ? DateTime.parse(
-                                            listContent.first["timeSend"]!)
-                                        : DateTime.parse(listContent
-                                            .where((element) =>
-                                                element["sender"] ==
-                                                sender["name"])
-                                            .last["timeSend"]!)),
+                                  DateTime.now(),
+                                  listContent.length <= 1
+                                      ? DateTime.parse(
+                                          listContent.first["timeSend"]!)
+                                      : DateTime.parse(listContent
+                                          .where((element) =>
+                                              element["sender"] ==
+                                              sender["name"])
+                                          .last["timeSend"]!),
+                                ),
                                 style: const TextStyle(fontSize: 10),
                               ),
                             ),

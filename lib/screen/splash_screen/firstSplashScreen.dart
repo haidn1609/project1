@@ -21,10 +21,11 @@ class FirstSplashScreen extends StatelessWidget {
       body: Container(
         width: widths,
         decoration: const BoxDecoration(
-            image: DecorationImage(
-          image: AssetImage("images/splash_screen_background.png"),
-          fit: BoxFit.fill,
-        )),
+          image: DecorationImage(
+            image: AssetImage("images/splash_screen_background.png"),
+            fit: BoxFit.fill,
+          ),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
@@ -39,73 +40,87 @@ class FirstSplashScreen extends StatelessWidget {
               width: widths * 0.15,
               fit: BoxFit.contain,
             ),
-            Text(banner1Text,
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: bannerColorText,
-                    decoration: TextDecoration.none,
-                    fontSize: 20)),
+            Text(
+              banner1Text,
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: bannerColorText,
+                  decoration: TextDecoration.none,
+                  fontSize: 20),
+            ),
             Container(
               margin: const EdgeInsets.only(top: 15, bottom: 15),
-              child: Text(youIsText,
-                  style: TextStyle(
-                      color: bannerColorText,
-                      decoration: TextDecoration.none,
-                      fontSize: 15)),
+              child: Text(
+                youIsText,
+                style: TextStyle(
+                    color: bannerColorText,
+                    decoration: TextDecoration.none,
+                    fontSize: 15),
+              ),
             ),
             GestureDetector(
               onTap: () {
                 box.write("rule", candidateBtText);
-                Get.to(SecondSplashScreen(),
-                    transition: Transition.leftToRight,
-                    duration: const Duration(seconds: 1));
+                Get.to(
+                  SecondSplashScreen(),
+                  transition: Transition.leftToRight,
+                  duration: const Duration(seconds: 1),
+                );
               },
               child: Container(
                 margin: const EdgeInsets.only(bottom: 15),
                 width: 200,
                 height: 40,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: blackGradientColor,
-                    )),
+                  borderRadius: BorderRadius.circular(50),
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: blackGradientColor,
+                  ),
+                ),
                 child: Center(
-                  child: Text(candidateBtText,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          color: colorTextWhite,
-                          decoration: TextDecoration.none,
-                          fontSize: 16)),
+                  child: Text(
+                    candidateBtText,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: colorTextWhite,
+                        decoration: TextDecoration.none,
+                        fontSize: 16),
+                  ),
                 ),
               ),
             ),
             GestureDetector(
               onTap: () {
                 box.write("rule", employerBtText);
-                Get.to(SecondSplashScreen(),
-                    transition: Transition.leftToRight,
-                    duration: const Duration(seconds: 1));
+                Get.to(
+                  SecondSplashScreen(),
+                  transition: Transition.leftToRight,
+                  duration: const Duration(seconds: 1),
+                );
               },
               child: Container(
                 margin: const EdgeInsets.only(bottom: 15),
                 width: 200,
                 height: 40,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: blackGradientColor,
-                    )),
+                  borderRadius: BorderRadius.circular(50),
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: blackGradientColor,
+                  ),
+                ),
                 child: Center(
-                  child: Text(employerBtText,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          color: colorTextWhite,
-                          decoration: TextDecoration.none,
-                          fontSize: 16)),
+                  child: Text(
+                    employerBtText,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: colorTextWhite,
+                        decoration: TextDecoration.none,
+                        fontSize: 16),
+                  ),
                 ),
               ),
             ),
@@ -115,11 +130,12 @@ class FirstSplashScreen extends StatelessWidget {
                 width: widths * 0.75,
                 height: double.infinity,
                 decoration: const BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage(
-                            "images/splash_screen_footer_banner.png"),
-                        fit: BoxFit.contain,
-                        alignment: Alignment.bottomCenter)),
+                  image: DecorationImage(
+                      image:
+                          AssetImage("images/splash_screen_footer_banner.png"),
+                      fit: BoxFit.contain,
+                      alignment: Alignment.bottomCenter),
+                ),
               ),
             )
           ],

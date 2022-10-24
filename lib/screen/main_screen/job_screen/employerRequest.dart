@@ -20,21 +20,24 @@ class EmployerRequest extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Expanded(
-                  child: Container(
-                alignment: Alignment.centerLeft,
-                child: const Text(requestJobEmployerText,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 17)),
-              )),
-              Expanded(
-                  child: Container(
-                alignment: Alignment.centerRight,
-                child: Image.asset(
-                  "images/icon_next_arrrow.png",
-                  width: 17,
-                  height: 17,
+                child: Container(
+                  alignment: Alignment.centerLeft,
+                  child: const Text(
+                    requestJobEmployerText,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+                  ),
                 ),
-              ))
+              ),
+              Expanded(
+                child: Container(
+                  alignment: Alignment.centerRight,
+                  child: Image.asset(
+                    "images/icon_next_arrrow.png",
+                    width: 17,
+                    height: 17,
+                  ),
+                ),
+              )
             ],
           ),
           Container(
@@ -51,11 +54,12 @@ class EmployerRequest extends StatelessWidget {
                           padding: const EdgeInsets.all(15),
                           margin: const EdgeInsets.all(5),
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(25),
-                              gradient: LinearGradient(
-                                  begin: Alignment.topCenter,
-                                  end: Alignment.bottomCenter,
-                                  colors: blackGradientColor)),
+                            borderRadius: BorderRadius.circular(25),
+                            gradient: LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: blackGradientColor),
+                          ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -117,11 +121,13 @@ class EmployerRequest extends StatelessWidget {
                           ),
                         ),
                         ItemRequestEmployer(
-                            item: listRequestCandidate.elementAt(index))
+                          item: listRequestCandidate.elementAt(index),
+                        )
                       ],
                     )
                   : ItemRequestEmployer(
-                      item: listRequestCandidate.elementAt(index)),
+                      item: listRequestCandidate.elementAt(index),
+                    ),
             ),
           ),
           Container(

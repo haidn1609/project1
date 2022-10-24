@@ -1,4 +1,3 @@
-import 'package:acs_project_example/state_manager/providerController.dart';
 import 'package:acs_project_example/value/colors.dart';
 import 'package:acs_project_example/value/strings.dart';
 import 'package:acs_project_example/widget/stateless/gradientWidget.dart';
@@ -9,10 +8,11 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 import '../../../mock_data.dart';
+import '../../../state_manager/providerController.dart';
 
 class MessContendScreen extends StatefulWidget {
-  MessContendScreen({Key? key, required this.mess}) : super(key: key);
-  Map<String, dynamic> mess;
+  const MessContendScreen({Key? key, required this.mess}) : super(key: key);
+  final Map<String, dynamic> mess;
 
   @override
   State<MessContendScreen> createState() => _MessContendScreenState();
@@ -44,31 +44,32 @@ class _MessContendScreenState extends State<MessContendScreen> {
       child: SizedBox(
         height: 300,
         child: EmojiPicker(
-            textEditingController: chatEdit,
-            config: Config(
-                columns: 7,
-                emojiSizeMax: 32,
-                gridPadding: EdgeInsets.zero,
-                initCategory: Category.RECENT,
-                bgColor: backgroudWhiteItem,
-                indicatorColor: Colors.blue,
-                iconColor: dontSelectBtBNB,
-                iconColorSelected: Colors.blue,
-                backspaceColor: Colors.blue,
-                skinToneDialogBgColor: Colors.white,
-                skinToneIndicatorColor: backgroudWhiteItem,
-                enableSkinTones: true,
-                showRecentsTab: true,
-                recentsLimit: 28,
-                replaceEmojiOnLimitExceed: false,
-                noRecents: const Text(
-                  'No Recents',
-                  style: TextStyle(fontSize: 20, color: Colors.black26),
-                  textAlign: TextAlign.center,
-                ),
-                tabIndicatorAnimDuration: kTabScrollDuration,
-                categoryIcons: const CategoryIcons(),
-                buttonMode: ButtonMode.MATERIAL)),
+          textEditingController: chatEdit,
+          config: Config(
+              columns: 7,
+              emojiSizeMax: 32,
+              gridPadding: EdgeInsets.zero,
+              initCategory: Category.RECENT,
+              bgColor: backgroudWhiteItem,
+              indicatorColor: Colors.blue,
+              iconColor: dontSelectBtBNB,
+              iconColorSelected: Colors.blue,
+              backspaceColor: Colors.blue,
+              skinToneDialogBgColor: Colors.white,
+              skinToneIndicatorColor: backgroudWhiteItem,
+              enableSkinTones: true,
+              showRecentsTab: true,
+              recentsLimit: 28,
+              replaceEmojiOnLimitExceed: false,
+              noRecents: const Text(
+                'No Recents',
+                style: TextStyle(fontSize: 20, color: Colors.black26),
+                textAlign: TextAlign.center,
+              ),
+              tabIndicatorAnimDuration: kTabScrollDuration,
+              categoryIcons: const CategoryIcons(),
+              buttonMode: ButtonMode.MATERIAL),
+        ),
       ),
     );
   }
@@ -124,31 +125,32 @@ class _MessContendScreenState extends State<MessContendScreen> {
                     width: 60,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: NetworkImage(sender["avatar"]),
-                            fit: BoxFit.contain),
-                        borderRadius: BorderRadius.circular(25)),
+                      image: DecorationImage(
+                          image: NetworkImage(sender["avatar"]),
+                          fit: BoxFit.contain),
+                      borderRadius: BorderRadius.circular(25),
+                    ),
                   ),
                   Expanded(
-                      child: Container(
-                    padding: const EdgeInsets.only(left: 10),
-                    height: 60,
-                    child: Column(
-                      children: [
-                        Flexible(
-                          flex: 3,
-                          child: Container(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              sender["name"],
-                              style: const TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold),
+                    child: Container(
+                      padding: const EdgeInsets.only(left: 10),
+                      height: 60,
+                      child: Column(
+                        children: [
+                          Flexible(
+                            flex: 3,
+                            child: Container(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                sender["name"],
+                                style: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold),
+                              ),
                             ),
                           ),
-                        ),
-                        Flexible(
+                          Flexible(
                             flex: 2,
                             child: Container(
                               alignment: Alignment.topLeft,
@@ -175,10 +177,12 @@ class _MessContendScreenState extends State<MessContendScreen> {
                                   )
                                 ],
                               ),
-                            ))
-                      ],
+                            ),
+                          )
+                        ],
+                      ),
                     ),
-                  )),
+                  ),
                 ],
               ),
             ),
@@ -206,71 +210,75 @@ class _MessContendScreenState extends State<MessContendScreen> {
                     InkWell(
                       onTap: () {},
                       child: GradientWidget(
-                          colors: blackGradientColor,
-                          child: Image.asset(
-                            "images/icon_image.png",
-                            width: 30,
-                            height: 30,
-                          )),
+                        colors: blackGradientColor,
+                        child: Image.asset(
+                          "images/icon_image.png",
+                          width: 30,
+                          height: 30,
+                        ),
+                      ),
                     ),
                     Expanded(
-                        child: Container(
-                          padding: const EdgeInsets.only(left: 15, right: 15),
-                      color: backgroudWhiteItem,
-                      child: Stack(
-                        children: [
-                          TextField(
-                            focusNode: focusNode,
-                            controller: chatEdit,
-                            decoration: InputDecoration(
-                              contentPadding:
-                                  const EdgeInsets.only(left: 12, right: 40),
-                              hintText: chatHideText,
-                              filled: true,
-                              fillColor: Colors.white.withOpacity(1),
-                              focusColor: Colors.white.withOpacity(1),
-                              hoverColor: Colors.white.withOpacity(1),
-                              focusedBorder: OutlineInputBorder(
+                      child: Container(
+                        padding: const EdgeInsets.only(left: 15, right: 15),
+                        color: backgroudWhiteItem,
+                        child: Stack(
+                          children: [
+                            TextField(
+                              focusNode: focusNode,
+                              controller: chatEdit,
+                              decoration: InputDecoration(
+                                contentPadding:
+                                    const EdgeInsets.only(left: 12, right: 40),
+                                hintText: chatHideText,
+                                filled: true,
+                                fillColor: Colors.white.withOpacity(1),
+                                focusColor: Colors.white.withOpacity(1),
+                                hoverColor: Colors.white.withOpacity(1),
+                                focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30),
                                   borderSide: const BorderSide(
                                     width: 2,
                                     color: Colors.grey,
-                                  )),
-                              enabledBorder: OutlineInputBorder(
+                                  ),
+                                ),
+                                enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30),
                                   borderSide: const BorderSide(
                                     width: 2,
                                     color: Colors.grey,
-                                  )),
+                                  ),
+                                ),
+                              ),
+                              showCursor: false,
                             ),
-                            showCursor: false,
-                          ),
-                          Positioned(
-                            top: 10,
-                            right: 15,
-                            child: InkWell(
-                              onTap: () {
-                                focusNode.unfocus();
-                                focusNode.canRequestFocus = false;
-                                setState(() {
-                                  emojiShowing = !emojiShowing;
-                                });
-                              },
-                              child: GradientWidget(
+                            Positioned(
+                              top: 10,
+                              right: 15,
+                              child: InkWell(
+                                onTap: () {
+                                  focusNode.unfocus();
+                                  focusNode.canRequestFocus = false;
+                                  setState(() {
+                                    emojiShowing = !emojiShowing;
+                                  });
+                                },
+                                child: GradientWidget(
                                   colors: blackGradientColor,
                                   child: Image.asset(
                                     "images/icon_smile_fill.png",
                                     width: 20,
                                     height: 20,
-                                  )),
-                            ),
-                          )
-                        ],
+                                  ),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
-                    )),
+                    ),
                     InkWell(
                       onTap: () {
-                        print(chatEdit.text);
                         chatEdit.clear();
                         focusNode.unfocus();
                         focusNode.canRequestFocus = false;
@@ -279,12 +287,13 @@ class _MessContendScreenState extends State<MessContendScreen> {
                         });
                       },
                       child: GradientWidget(
-                          colors: blackGradientColor,
-                          child: Image.asset(
-                            "images/icon_send_mess.png",
-                            width: 25,
-                            height: 25,
-                          )),
+                        colors: blackGradientColor,
+                        child: Image.asset(
+                          "images/icon_send_mess.png",
+                          width: 25,
+                          height: 25,
+                        ),
+                      ),
                     ),
                   ],
                 ),

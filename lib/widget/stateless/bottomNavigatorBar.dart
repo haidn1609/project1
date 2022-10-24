@@ -63,23 +63,28 @@ class BottomNavigatorBarCus extends StatelessWidget {
             InkWell(
               onTap: () {
                 box.read("rule") == candidateBtText
-                    ? Get.to(const PostNewCandidate(),
+                    ? Get.to(
+                        const PostNewCandidate(),
                         transition: Transition.upToDown,
-                        duration: const Duration(seconds: 1))
-                    : Get.to(const PostNewEmployer(),
+                        duration: const Duration(seconds: 1),
+                      )
+                    : Get.to(
+                        const PostNewEmployer(),
                         transition: Transition.upToDown,
-                        duration: const Duration(seconds: 1));
+                        duration: const Duration(seconds: 1),
+                      );
               },
               child: Container(
                 height: 60,
                 width: 60,
                 margin: const EdgeInsets.only(bottom: 60),
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(1000),
-                    gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: yellowGradientColor)),
+                  borderRadius: BorderRadius.circular(1000),
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: yellowGradientColor),
+                ),
                 child: Container(
                   alignment: Alignment.center,
                   padding: const EdgeInsets.only(right: 5),
@@ -95,97 +100,98 @@ class BottomNavigatorBarCus extends StatelessWidget {
               width: size.width * 0.9,
               height: 60,
               child: Center(
-                  child: Container(
-                padding: const EdgeInsets.only(top: 5),
-                height: 60,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      flex: 1,
-                      child: GestureDetector(
-                        onTap: () {
-                          value.setCurrentTab(0);
-                        },
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            iconBTB("images/icon_propose.png", 0),
-                            Padding(
-                              padding: const EdgeInsets.all(5.0),
-                              child: Text(
-                                btbText1,
-                                style: TextStyle(
-                                    color: colorTextWhite, fontSize: 10),
-                              ),
-                            )
-                          ],
+                child: Container(
+                  padding: const EdgeInsets.only(top: 5),
+                  height: 60,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        flex: 1,
+                        child: GestureDetector(
+                          onTap: () {
+                            value.setCurrentTab(0);
+                          },
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              iconBTB("images/icon_propose.png", 0),
+                              Padding(
+                                padding: const EdgeInsets.all(5.0),
+                                child: Text(
+                                  btbText1,
+                                  style: TextStyle(
+                                      color: colorTextWhite, fontSize: 10),
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: GestureDetector(
-                        onTap: () {
-                          value.setCurrentTab(1);
-                        },
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            iconBTB(
-                                box.read("rule") == candidateBtText
-                                    ? "images/icon_job.png"
-                                    : "images/icon_group.png",
-                                1),
-                            Padding(
-                              padding: const EdgeInsets.all(5.0),
-                              child: Text(
-                                box.read("rule") == candidateBtText
-                                    ? btbText2_1
-                                    : btbText2_2,
-                                style: TextStyle(
-                                    color: colorTextWhite, fontSize: 10),
-                              ),
-                            )
-                          ],
+                      Expanded(
+                        flex: 1,
+                        child: GestureDetector(
+                          onTap: () {
+                            value.setCurrentTab(1);
+                          },
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              iconBTB(
+                                  box.read("rule") == candidateBtText
+                                      ? "images/icon_job.png"
+                                      : "images/icon_group.png",
+                                  1),
+                              Padding(
+                                padding: const EdgeInsets.all(5.0),
+                                child: Text(
+                                  box.read("rule") == candidateBtText
+                                      ? btbText2_1
+                                      : btbText2_2,
+                                  style: TextStyle(
+                                      color: colorTextWhite, fontSize: 10),
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: Container(
-                        margin: const EdgeInsets.only(bottom: 10),
-                        alignment: Alignment.bottomCenter,
-                        child: Text(
-                          btbText3,
-                          style: TextStyle(color: colorTextWhite, fontSize: 12),
+                      Expanded(
+                        flex: 1,
+                        child: Container(
+                          margin: const EdgeInsets.only(bottom: 10),
+                          alignment: Alignment.bottomCenter,
+                          child: Text(
+                            btbText3,
+                            style:
+                                TextStyle(color: colorTextWhite, fontSize: 12),
+                          ),
                         ),
                       ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: GestureDetector(
-                        onTap: () {
-                          value.setCurrentTab(2);
-                        },
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            iconBTB("images/icon_messenger.png", 2),
-                            Padding(
-                              padding: const EdgeInsets.all(5.0),
-                              child: Text(
-                                btbText4,
-                                style: TextStyle(
-                                    color: colorTextWhite, fontSize: 10),
-                              ),
-                            )
-                          ],
+                      Expanded(
+                        flex: 1,
+                        child: GestureDetector(
+                          onTap: () {
+                            value.setCurrentTab(2);
+                          },
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              iconBTB("images/icon_messenger.png", 2),
+                              Padding(
+                                padding: const EdgeInsets.all(5.0),
+                                child: Text(
+                                  btbText4,
+                                  style: TextStyle(
+                                      color: colorTextWhite, fontSize: 10),
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                    Expanded(
+                      Expanded(
                         flex: 1,
                         child: GestureDetector(
                           onTap: () {
@@ -205,10 +211,12 @@ class BottomNavigatorBarCus extends StatelessWidget {
                               )
                             ],
                           ),
-                        ))
-                  ],
+                        ),
+                      )
+                    ],
+                  ),
                 ),
-              )),
+              ),
             )
           ],
         ),
@@ -224,17 +232,24 @@ class BNBCustomPainted extends CustomPainter {
       ..color = Colors.red
       ..style = PaintingStyle.fill;
     Path path = Path()..moveTo(size.width * 0.1, size.height);
-    path.arcToPoint(Offset(size.width * 0.1, 0),
-        radius: const Radius.circular(30));
+    path.arcToPoint(
+      Offset(size.width * 0.1, 0),
+      radius: const Radius.circular(30),
+    );
     path.lineTo(size.width * 0.5 - 70, 0);
     path.quadraticBezierTo(
         size.width * 0.5 - 40, 0, size.width * 0.5 - 30, size.height * 0.25);
-    path.arcToPoint(Offset(size.width * 0.5 + 30, size.height * 0.25),
-        clockwise: false, radius: const Radius.circular(33));
+    path.arcToPoint(
+      Offset(size.width * 0.5 + 30, size.height * 0.25),
+      clockwise: false,
+      radius: const Radius.circular(33),
+    );
     path.quadraticBezierTo(size.width * 0.5 + 40, 0, size.width * 0.5 + 70, 0);
     path.lineTo(size.width * 0.9, 0);
-    path.arcToPoint(Offset(size.width * 0.9, size.height),
-        radius: const Radius.circular(30));
+    path.arcToPoint(
+      Offset(size.width * 0.9, size.height),
+      radius: const Radius.circular(30),
+    );
     path.lineTo(size.width * 0.1, size.height);
     canvas.drawPath(path, paint);
   }

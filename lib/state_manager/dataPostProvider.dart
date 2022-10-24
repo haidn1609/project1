@@ -25,7 +25,7 @@ class DataPostProvider extends ChangeNotifier {
   List<PostInfoModel> _listSalary = [];
 
   List<PostModel> get listPost => _listPost;
-  List<PostModel> _listPost = [];
+  final List<PostModel> _listPost = [];
 
   bool get isLoadingData => _isLoadingData;
   bool _isLoadingData = false;
@@ -37,7 +37,9 @@ class DataPostProvider extends ChangeNotifier {
 
   setTotalPost(List<PostInfoModel> listPostInfoModel, String slug) {
     _totalPost = listPostInfoModel
-        .where((element) => element.slug!.contains(slug))
+        .where(
+          (element) => element.slug!.contains(slug),
+        )
         .elementAt(0)
         .count!
         .toInt();
@@ -86,7 +88,9 @@ class DataPostProvider extends ChangeNotifier {
             listLocation: listLocation,
             listSalary: listSalary,
             listWorkingType: listWorkingType)
-        .then((value) => _listPost.addAll(value));
+        .then(
+      (value) => _listPost.addAll(value),
+    );
     notifyListeners();
   }
 

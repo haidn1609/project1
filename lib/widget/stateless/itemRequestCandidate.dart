@@ -9,16 +9,18 @@ import 'package:intl/intl.dart';
 import '../../screen/main_screen/job_screen/contentPostScreen.dart';
 
 class ItemCandidateRequest extends StatelessWidget {
-  ItemCandidateRequest({Key? key, this.item}) : super(key: key);
-  PostModel? item;
+  const ItemCandidateRequest({Key? key, this.item}) : super(key: key);
+  final PostModel? item;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.to(ContentPostScreen(post: item!),
-            transition: Transition.upToDown,
-            duration: const Duration(seconds: 1));
+        Get.to(
+          ContentPostScreen(post: item!),
+          transition: Transition.upToDown,
+          duration: const Duration(seconds: 1),
+        );
       },
       child: Container(
         padding: const EdgeInsets.only(right: 15),
@@ -26,8 +28,9 @@ class ItemCandidateRequest extends StatelessWidget {
         height: 200,
         child: Card(
           elevation: 10,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(25),
+          ),
           child: Column(
             children: [
               Row(
@@ -39,13 +42,16 @@ class ItemCandidateRequest extends StatelessWidget {
                     height: 40,
                     child: kIsWeb
                         ? Container(
-                            width: 40,
+                      width: 40,
                             height: 40,
                             decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    fit: BoxFit.contain,
-                                    image: NetworkImage(
-                                        item!.thumbnailUrl.toString()))),
+                              image: DecorationImage(
+                                fit: BoxFit.contain,
+                                image: NetworkImage(
+                                  item!.thumbnailUrl.toString(),
+                                ),
+                              ),
+                            ),
                           )
                         : CachedNetworkImage(
                             imageUrl: item!.thumbnailUrl.toString(),
@@ -61,7 +67,11 @@ class ItemCandidateRequest extends StatelessWidget {
                             ),
                           ),
                   ),
-                  Flexible(child: Text(item!.title.toString()))
+                  Flexible(
+                    child: Text(
+                      item!.title.toString(),
+                    ),
+                  )
                 ],
               ),
               Container(
@@ -86,11 +96,14 @@ class ItemCandidateRequest extends StatelessWidget {
                     ),
                   ),
                   Flexible(
-                      child: Container(
-                    margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-                    child: Text("Khu vực ${item!.location!.join(',')}",
-                        style: const TextStyle(fontSize: 12)),
-                  ))
+                    child: Container(
+                      margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                      child: Text(
+                        "Khu vực ${item!.location!.join(',')}",
+                        style: const TextStyle(fontSize: 12),
+                      ),
+                    ),
+                  )
                 ],
               ),
               Row(
@@ -107,14 +120,16 @@ class ItemCandidateRequest extends StatelessWidget {
                     ),
                   ),
                   Flexible(
-                      child: Container(
-                    margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-                    child: Text(
+                    child: Container(
+                      margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                      child: Text(
                         item!.salary!.isEmpty
                             ? "Lương thỏa thuận"
                             : item!.salary!.join(','),
-                        style: const TextStyle(fontSize: 12)),
-                  ))
+                        style: const TextStyle(fontSize: 12),
+                      ),
+                    ),
+                  )
                 ],
               ),
               Row(
@@ -131,12 +146,14 @@ class ItemCandidateRequest extends StatelessWidget {
                     ),
                   ),
                   Flexible(
-                      child: Container(
-                    margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-                    child: Text(
+                    child: Container(
+                      margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                      child: Text(
                         "Hạn tuyển dụng ${DateFormat('dd-MM-yyyy').format(item!.modified!)}",
-                        style: const TextStyle(fontSize: 12)),
-                  ))
+                        style: const TextStyle(fontSize: 12),
+                      ),
+                    ),
+                  )
                 ],
               )
             ],

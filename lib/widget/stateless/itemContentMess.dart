@@ -1,12 +1,13 @@
-import 'package:acs_project_example/mock_data.dart';
 import 'package:acs_project_example/state_manager/providerController.dart';
 import 'package:acs_project_example/value/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../mock_data.dart';
+
 class ItemContendMess extends StatefulWidget {
-  ItemContendMess({Key? key, required this.contend}) : super(key: key);
-  Map<String, String> contend;
+  const ItemContendMess({Key? key, required this.contend}) : super(key: key);
+  final Map<String, String> contend;
 
   @override
   State<ItemContendMess> createState() => _ItemContendMessState();
@@ -36,46 +37,55 @@ class _ItemContendMessState extends State<ItemContendMess> {
       width: 50,
       height: 50,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          image: DecorationImage(
-              image: NetworkImage(contend["avatar"].toString()))),
+        borderRadius: BorderRadius.circular(15),
+        image: DecorationImage(
+          image: NetworkImage(
+            contend["avatar"].toString(),
+          ),
+        ),
+      ),
     );
   }
 
   Widget contendText(bool isSender) {
     return Flexible(
-        child: Container(
-      margin: isSender
-          ? const EdgeInsets.only(left: 10)
-          : const EdgeInsets.only(right: 10),
-      padding: const EdgeInsets.all(10.0),
-      decoration: BoxDecoration(
-        color: isSender ? senderMessContendColor : null,
-        borderRadius: BorderRadius.only(
+      child: Container(
+        margin: isSender
+            ? const EdgeInsets.only(left: 10)
+            : const EdgeInsets.only(right: 10),
+        padding: const EdgeInsets.all(10.0),
+        decoration: BoxDecoration(
+          color: isSender ? senderMessContendColor : null,
+          borderRadius: BorderRadius.only(
             topRight:
                 isSender ? const Radius.circular(20) : const Radius.circular(0),
             topLeft: !isSender
                 ? const Radius.circular(20)
                 : const Radius.circular(0),
             bottomLeft: const Radius.circular(20),
-            bottomRight: const Radius.circular(20)),
-        gradient: !isSender
-            ? LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: blackGradientColor)
-            : null,
-        boxShadow: [
-          BoxShadow(
+            bottomRight: const Radius.circular(20),
+          ),
+          gradient: !isSender
+              ? LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: blackGradientColor)
+              : null,
+          boxShadow: [
+            BoxShadow(
               color: Colors.grey.withOpacity(0.4),
               spreadRadius: 4,
               blurRadius: 7,
-              offset: const Offset(0, 3)),
-        ],
+              offset: const Offset(0, 3),
+            ),
+          ],
+        ),
+        child: Text(
+          contend["contend"].toString(),
+          style: TextStyle(color: isSender ? colorTextBlack : colorTextWhite),
+        ),
       ),
-      child: Text(contend["contend"].toString(),
-          style: TextStyle(color: isSender ? colorTextBlack : colorTextWhite)),
-    ));
+    );
   }
 
   @override

@@ -43,34 +43,52 @@ class _LoadDataScreenState extends State<LoadDataScreen> {
     providerData.setLoading(true);
     providerData.clearPost();
     await Future.wait([
-      providerData.loadCategory().then((value) => setState(() => countLoad++)),
-      providerData.loadCareer().then((value) => setState(() => countLoad++)),
-      providerData.loadCompany().then((value) => setState(() => countLoad++)),
-      providerData.loadLocation().then((value) => setState(() => countLoad++)),
-      providerData.loadSalary().then((value) => setState(() => countLoad++)),
-      providerData
-          .loadWorkingType()
-          .then((value) => setState(() => countLoad++)),
+      providerData.loadCategory().then(
+            (value) => setState(() => countLoad++),
+          ),
+      providerData.loadCareer().then(
+            (value) => setState(() => countLoad++),
+          ),
+      providerData.loadCompany().then(
+            (value) => setState(() => countLoad++),
+          ),
+      providerData.loadLocation().then(
+            (value) => setState(() => countLoad++),
+          ),
+      providerData.loadSalary().then(
+            (value) => setState(() => countLoad++),
+          ),
+      providerData.loadWorkingType().then(
+            (value) => setState(() => countLoad++),
+          ),
     ]);
     providerData.setTotalPost(providerData.listCategory, "tin-tuyen-dung");
     for (int i = 1; i <= providerData.totalPage; i++) {
       await providerData.loadPost(
           subApiCategory,
           providerData.listCategory
-              .where((element) => element.slug!.contains("tin-tuyen-dung"))
+              .where(
+                (element) => element.slug!.contains("tin-tuyen-dung"),
+              )
               .elementAt(0)
               .id,
           i);
     }
     setState(() => countLoad++);
     if (checkFistInstall && box.read("rule") != null) {
-      await Future.delayed(const Duration(milliseconds: 500));
+      await Future.delayed(
+        const Duration(milliseconds: 500),
+      );
       providerData.setLoading(false);
-      Get.to(const MainScreen(),
-          transition: Transition.leftToRight,
-          duration: const Duration(seconds: 1));
+      Get.to(
+        const MainScreen(),
+        transition: Transition.leftToRight,
+        duration: const Duration(seconds: 1),
+      );
     } else {
-      Get.to(FirstSplashScreen());
+      Get.to(
+        FirstSplashScreen(),
+      );
     }
   }
 
@@ -87,10 +105,11 @@ class _LoadDataScreenState extends State<LoadDataScreen> {
       builder: (context, value, child) => Container(
         width: widths,
         decoration: const BoxDecoration(
-            image: DecorationImage(
-          image: AssetImage("images/splash_screen_background.png"),
-          fit: BoxFit.fill,
-        )),
+          image: DecorationImage(
+            image: AssetImage("images/splash_screen_background.png"),
+            fit: BoxFit.fill,
+          ),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
@@ -105,12 +124,14 @@ class _LoadDataScreenState extends State<LoadDataScreen> {
               width: widths * 0.15,
               fit: BoxFit.contain,
             ),
-            Text(banner1Text,
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: bannerColorText,
-                    decoration: TextDecoration.none,
-                    fontSize: 20)),
+            Text(
+              banner1Text,
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: bannerColorText,
+                  decoration: TextDecoration.none,
+                  fontSize: 20),
+            ),
             value.isLoadingData
                 ? Padding(
                     padding: const EdgeInsets.all(10.0),
@@ -138,11 +159,12 @@ class _LoadDataScreenState extends State<LoadDataScreen> {
                 width: widths * 0.75,
                 height: double.infinity,
                 decoration: const BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage(
-                            "images/splash_screen_footer_banner.png"),
-                        fit: BoxFit.contain,
-                        alignment: Alignment.bottomCenter)),
+                  image: DecorationImage(
+                      image:
+                          AssetImage("images/splash_screen_footer_banner.png"),
+                      fit: BoxFit.contain,
+                      alignment: Alignment.bottomCenter),
+                ),
               ),
             )
           ],

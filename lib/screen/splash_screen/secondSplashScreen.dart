@@ -19,10 +19,11 @@ class SecondSplashScreen extends StatelessWidget {
         body: Container(
           width: widths,
           decoration: const BoxDecoration(
-              image: DecorationImage(
-            image: AssetImage("images/splash_screen_background.png"),
-            fit: BoxFit.fill,
-          )),
+            image: DecorationImage(
+              image: AssetImage("images/splash_screen_background.png"),
+              fit: BoxFit.fill,
+            ),
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -38,14 +39,13 @@ class SecondSplashScreen extends StatelessWidget {
                 fit: BoxFit.contain,
               ),
               Text(
-                  box.read("rule") == candidateBtText
-                      ? banner1Text
-                      : banner2Text,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: bannerColorText,
-                      decoration: TextDecoration.none,
-                      fontSize: 20)),
+                box.read("rule") == candidateBtText ? banner1Text : banner2Text,
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: bannerColorText,
+                    decoration: TextDecoration.none,
+                    fontSize: 20),
+              ),
               Container(
                 width: widths * 0.80,
                 margin: const EdgeInsets.only(top: 40, bottom: 40),
@@ -56,25 +56,29 @@ class SecondSplashScreen extends StatelessWidget {
                     fillColor: Colors.white.withOpacity(1),
                     focusColor: Colors.white.withOpacity(1),
                     focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30),
-                        borderSide: const BorderSide(
-                          width: 2,
-                          color: Colors.black,
-                        )),
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: const BorderSide(
+                        width: 2,
+                        color: Colors.black,
+                      ),
+                    ),
                     enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30),
-                        borderSide: const BorderSide(
-                          width: 2,
-                          color: Colors.black,
-                        )),
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: const BorderSide(
+                        width: 2,
+                        color: Colors.black,
+                      ),
+                    ),
                   ),
                   showCursor: false,
                   keyboardType: TextInputType.number,
                 ),
               ),
-              const Text(descriptionSplashText,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 15, height: 2)),
+              const Text(
+                descriptionSplashText,
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 15, height: 2),
+              ),
               Expanded(
                 child: Container(
                   margin: const EdgeInsets.only(top: 20, bottom: 20),
@@ -82,29 +86,33 @@ class SecondSplashScreen extends StatelessWidget {
                   alignment: Alignment.bottomCenter,
                   child: GestureDetector(
                     onTap: () {
-                      print("Next");
-                      Get.off(const MainScreen(),
-                          transition: Transition.leftToRight,
-                          duration: const Duration(seconds: 2));
+                      Get.off(
+                        const MainScreen(),
+                        transition: Transition.leftToRight,
+                        duration: const Duration(seconds: 2),
+                      );
                     },
                     child: Container(
                       margin: const EdgeInsets.all(20),
                       width: double.infinity,
                       height: 50,
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: blackGradientColor,
-                          )),
+                        borderRadius: BorderRadius.circular(50),
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: blackGradientColor,
+                        ),
+                      ),
                       child: Center(
-                        child: Text(nextBtText,
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: colorTextWhite,
-                                decoration: TextDecoration.none,
-                                fontSize: 16)),
+                        child: Text(
+                          nextBtText,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: colorTextWhite,
+                              decoration: TextDecoration.none,
+                              fontSize: 16),
+                        ),
                       ),
                     ),
                   ),

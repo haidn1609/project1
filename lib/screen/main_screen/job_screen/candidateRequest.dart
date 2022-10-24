@@ -18,8 +18,9 @@ class CandidateRequest extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var dataProvider = Provider.of<DataPostProvider>(context, listen: false);
-    var randomItem = dataProvider.listPost
-        .elementAt(Random().nextInt(dataProvider.listPost.length));
+    var randomItem = dataProvider.listPost.elementAt(
+      Random().nextInt(dataProvider.listPost.length),
+    );
     return Consumer<DataPostProvider>(
       builder: (context, value, child) => SizedBox(
         width: double.infinity,
@@ -31,21 +32,25 @@ class CandidateRequest extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Expanded(
-                    child: Container(
-                  alignment: Alignment.centerLeft,
-                  child: const Text(requestJobCandidateText,
+                  child: Container(
+                    alignment: Alignment.centerLeft,
+                    child: const Text(
+                      requestJobCandidateText,
                       style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 17)),
-                )),
-                Expanded(
-                    child: Container(
-                  alignment: Alignment.centerRight,
-                  child: Image.asset(
-                    "images/icon_next_arrrow.png",
-                    width: 17,
-                    height: 17,
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+                    ),
                   ),
-                ))
+                ),
+                Expanded(
+                  child: Container(
+                    alignment: Alignment.centerRight,
+                    child: Image.asset(
+                      "images/icon_next_arrrow.png",
+                      width: 17,
+                      height: 17,
+                    ),
+                  ),
+                )
               ],
             ),
             ListViewRequestCandidate(
@@ -53,19 +58,22 @@ class CandidateRequest extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                Get.to(ContentPostScreen(post: randomItem),
-                    transition: Transition.upToDown,
-                    duration: const Duration(seconds: 1));
+                Get.to(
+                  ContentPostScreen(post: randomItem),
+                  transition: Transition.upToDown,
+                  duration: const Duration(seconds: 1),
+                );
               },
               child: Container(
                 padding: const EdgeInsets.all(15),
                 margin: const EdgeInsets.only(bottom: 25),
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(25),
-                    gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: blackGradientColor)),
+                  borderRadius: BorderRadius.circular(25),
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: blackGradientColor),
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,10 +83,13 @@ class CandidateRequest extends StatelessWidget {
                             width: 50,
                             height: 50,
                             decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    fit: BoxFit.contain,
-                                    image: NetworkImage(
-                                        randomItem.thumbnailUrl.toString()))),
+                              image: DecorationImage(
+                                fit: BoxFit.contain,
+                                image: NetworkImage(
+                                  randomItem.thumbnailUrl.toString(),
+                                ),
+                              ),
+                            ),
                           )
                         : CachedNetworkImage(
                             imageUrl: randomItem.thumbnailUrl.toString(),
@@ -148,21 +159,25 @@ class CandidateRequest extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Expanded(
-                    child: Container(
-                  alignment: Alignment.centerLeft,
-                  child: const Text(bestJobCandidateText,
+                  child: Container(
+                    alignment: Alignment.centerLeft,
+                    child: const Text(
+                      bestJobCandidateText,
                       style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 17)),
-                )),
-                Expanded(
-                    child: Container(
-                  alignment: Alignment.centerRight,
-                  child: Image.asset(
-                    "images/icon_next_arrrow.png",
-                    width: 17,
-                    height: 17,
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+                    ),
                   ),
-                ))
+                ),
+                Expanded(
+                  child: Container(
+                    alignment: Alignment.centerRight,
+                    child: Image.asset(
+                      "images/icon_next_arrrow.png",
+                      width: 17,
+                      height: 17,
+                    ),
+                  ),
+                )
               ],
             ),
             ListViewRequestCandidate(
@@ -180,21 +195,25 @@ class CandidateRequest extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Expanded(
-                            child: Container(
-                          alignment: Alignment.centerLeft,
-                          child: Text("Việc ${item.toString()}",
+                          child: Container(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              "Việc ${item.toString()}",
                               style: const TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 15)),
-                        )),
-                        Expanded(
-                            child: Container(
-                          alignment: Alignment.centerRight,
-                          child: Image.asset(
-                            "images/icon_next_arrrow.png",
-                            width: 17,
-                            height: 17,
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                            ),
                           ),
-                        ))
+                        ),
+                        Expanded(
+                          child: Container(
+                            alignment: Alignment.centerRight,
+                            child: Image.asset(
+                              "images/icon_next_arrrow.png",
+                              width: 17,
+                              height: 17,
+                            ),
+                          ),
+                        )
                       ],
                     ),
                     ListViewRequestCandidate(

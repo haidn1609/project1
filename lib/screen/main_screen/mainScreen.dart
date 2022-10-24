@@ -25,22 +25,23 @@ class _MainScreenState extends State<MainScreen> {
   ];
   final box = GetStorage();
 
-
   @override
   Widget build(BuildContext context) {
     return Consumer<ProviderController>(
       builder: (context, value, child) => Scaffold(
-          body: Scaffold(
-              resizeToAvoidBottomInset: false,
-              body: Stack(
-                children: [
-                  listPage.elementAt(value.currentTab),
-                  Positioned(
-                    bottom: -15,
-                    child: BottomNavigatorBarCus(),
-                  )
-                ],
-              ))),
+        body: Scaffold(
+          resizeToAvoidBottomInset: false,
+          body: Stack(
+            children: [
+              listPage.elementAt(value.currentTab),
+              Positioned(
+                bottom: -15,
+                child: BottomNavigatorBarCus(),
+              )
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

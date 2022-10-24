@@ -1,11 +1,11 @@
-import 'package:acs_project_example/widget/stateless/itemRequestCandidate.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 import '../../model/postModel.dart';
+import 'itemRequestCandidate.dart';
 
 class ListViewRequestCandidate extends StatelessWidget {
-  ListViewRequestCandidate({Key? key, this.listPost}) : super(key: key);
-  List<PostModel>? listPost;
+  const ListViewRequestCandidate({Key? key, this.listPost}) : super(key: key);
+  final List<PostModel>? listPost;
 
   @override
   Widget build(BuildContext context) {
