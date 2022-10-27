@@ -1,7 +1,7 @@
 import 'package:acs_project_example/value/colors.dart';
 import 'package:acs_project_example/value/strings.dart';
+import 'package:acs_project_example/widget/stateful/itemContentMess.dart';
 import 'package:acs_project_example/widget/stateless/gradientWidget.dart';
-import 'package:acs_project_example/widget/stateless/itemContentMess.dart';
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

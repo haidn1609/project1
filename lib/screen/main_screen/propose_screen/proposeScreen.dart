@@ -11,7 +11,9 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 import '../../../Model/postInfoModel.dart';
+import '../../../request_api/postRequestApi.dart';
 import '../../../widget/stateless/itemFriendList.dart';
+import '../../show_content_screen/ShowListPost.dart';
 
 class ProposeScreen extends StatefulWidget {
   const ProposeScreen({Key? key}) : super(key: key);
@@ -21,7 +23,6 @@ class ProposeScreen extends StatefulWidget {
 }
 
 class _ProposeScreenState extends State<ProposeScreen> {
-
   Future openListFriend() async {
     return showModalBottomSheet(
       backgroundColor: Colors.transparent,
@@ -48,6 +49,7 @@ class _ProposeScreenState extends State<ProposeScreen> {
       ),
     );
   }
+
   @override
   Widget build(BuildContext context) {
     return Consumer<DataPostProvider>(
@@ -58,7 +60,30 @@ class _ProposeScreenState extends State<ProposeScreen> {
               scrollDirection: Axis.horizontal,
               children: value.listCompany
                   .map(
-                    (e) => ShowContent(item: e),
+                    (e) => GestureDetector(
+                      onTap: () async {
+                        value.setLoading(true);
+                        await getApiPost(
+                                subRequest: subApiCompany,
+                                idSubRequest: e.id,
+                                page: 1,
+                                listCareer: value.listCareer,
+                                listCategory: value.listCategory,
+                                listCompany: value.listCompany,
+                                listLocation: value.listLocation,
+                                listSalary: value.listSalary,
+                                listWorkingType: value.listWorkingType)
+                            .then(
+                          (value) => Get.to(
+                            ShowListPost(listPost: value, title: e.name!),
+                            duration: const Duration(seconds: 1),
+                            transition: Transition.upToDown,
+                          ),
+                        );
+                        value.setLoading(false);
+                      },
+                      child: ShowContent(item: e),
+                    ),
                   )
                   .toList(),
               //children: listViews,

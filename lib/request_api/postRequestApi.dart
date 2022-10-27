@@ -33,7 +33,7 @@ Future<List<PostInfoModel>> getPostInfo(String subApi) async {
   return listInfo;
 }
 
-Future<List<PostModel>> getApiPostByCategories(
+Future<List<PostModel>> getApiPost(
     {int? idSubRequest,
     int? page,
     String? subRequest,

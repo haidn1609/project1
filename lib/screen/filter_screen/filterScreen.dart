@@ -1,7 +1,8 @@
-import 'package:acs_project_example/mock_data.dart';
+import 'package:acs_project_example/state_manager/dataPostProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:multiselect/multiselect.dart';
+import 'package:provider/provider.dart';
 
 import '../../value/colors.dart';
 import '../../value/strings.dart';
@@ -16,291 +17,321 @@ class FilterScreen extends StatefulWidget {
 class _FilterScreenState extends State<FilterScreen> {
   List<String> locationWorkingSelect = [];
   List<String> fieldWorkingSelect = [];
+  List<String> salarySelect = [];
   TextEditingController salaryControler = TextEditingController();
   bool isMale = true;
 
   @override
   Widget build(BuildContext context) {
     final widths = MediaQuery.of(context).size.width;
-    return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: SizedBox(
-          width: double.infinity,
-          height: double.infinity,
-          child: Column(
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  color: backgroudWhiteItem,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.shade800.withOpacity(0.25),
-                      blurRadius: 7,
-                      spreadRadius: 4,
-                    )
-                  ],
-                ),
-                padding: const EdgeInsets.all(10),
-                child: Row(
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        Get.back();
-                      },
-                      child: Container(
-                        width: 40,
-                        height: 40,
-                        alignment: Alignment.center,
-                        child: Image.asset(
-                          "images/icon_close_post.png",
-                          width: 20,
-                          height: 20,
+    return Consumer<DataPostProvider>(
+      builder: (context, value, child) => GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: Scaffold(
+          resizeToAvoidBottomInset: false,
+          body: SizedBox(
+            width: double.infinity,
+            height: double.infinity,
+            child: Column(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    color: backgroudWhiteItem,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.shade800.withOpacity(0.25),
+                        blurRadius: 7,
+                        spreadRadius: 4,
+                      )
+                    ],
+                  ),
+                  padding: const EdgeInsets.all(10),
+                  child: Row(
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          Get.back();
+                        },
+                        child: Container(
+                          width: 40,
+                          height: 40,
+                          alignment: Alignment.center,
+                          child: Image.asset(
+                            "images/icon_close_post.png",
+                            width: 20,
+                            height: 20,
+                          ),
                         ),
                       ),
-                    ),
-                    Flexible(
-                      child: Center(
-                        child: Text(
-                          filterTitleText,
-                          style: TextStyle(
+                      Flexible(
+                        child: Center(
+                          child: Text(
+                            filterTitleText,
+                            style: TextStyle(
                               color: colorTextBlack,
                               fontWeight: FontWeight.bold,
-                              fontSize: 20),
+                              fontSize: 20,
+                            ),
+                          ),
                         ),
-                      ),
-                    )
-                  ],
+                      )
+                    ],
+                  ),
                 ),
-              ),
-              Expanded(
-                child: Container(
-                  padding: const EdgeInsets.only(left: 10, right: 10),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: widths * 0.85,
-                        height: 50,
-                        margin: const EdgeInsets.only(top: 20, bottom: 10),
-                        decoration: BoxDecoration(
-                          color: backgroudWhiteItem,
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        child: DropDownMultiSelect(
-                          icon: Icon(Icons.arrow_drop_down,
-                              color: backgroudOpacity1),
-                          decoration: InputDecoration(
-                            labelText: locationWorkingHideText,
-                            labelStyle:
-                                TextStyle(color: labelTextColor, fontSize: 14),
-                            suffixIcon: const Icon(Icons.arrow_drop_down,
-                                color: Colors.black, size: 40),
-                            focusColor: Colors.white.withOpacity(0),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
-                              borderSide: const BorderSide(
-                                width: 2,
-                                color: Colors.grey,
-                              ),
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
-                              borderSide: const BorderSide(
-                                width: 2,
-                                color: Colors.grey,
-                              ),
-                            ),
+                Expanded(
+                  child: Container(
+                    padding: const EdgeInsets.only(left: 10, right: 10),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: widths * 0.85,
+                          height: 50,
+                          margin: const EdgeInsets.only(top: 20, bottom: 10),
+                          decoration: BoxDecoration(
+                            color: backgroudWhiteItem,
+                            borderRadius: BorderRadius.circular(30),
                           ),
-                          onChanged: (List<String> x) {
-                            setState(() {
-                              locationWorkingSelect = x;
-                            });
-                          },
-                          options: listCountry,
-                          selectedValues: locationWorkingSelect,
-                        ),
-                      ),
-                      Container(
-                        width: widths * 0.85,
-                        height: 50,
-                        margin: const EdgeInsets.only(top: 15, bottom: 10),
-                        decoration: BoxDecoration(
-                          color: backgroudWhiteItem,
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        child: DropDownMultiSelect(
-                          icon: Icon(Icons.arrow_drop_down,
-                              color: backgroudOpacity1),
-                          decoration: InputDecoration(
-                            labelText: fieldWorkingHideText,
-                            labelStyle:
-                                TextStyle(color: labelTextColor, fontSize: 14),
-                            suffixIcon: const Icon(Icons.arrow_drop_down,
-                                color: Colors.black, size: 40),
-                            focusColor: Colors.white.withOpacity(0),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
-                              borderSide: const BorderSide(
-                                width: 2,
-                                color: Colors.grey,
+                          child: DropDownMultiSelect(
+                            icon: Icon(Icons.arrow_drop_down,
+                                color: backgroudOpacity1),
+                            decoration: InputDecoration(
+                              labelText: locationWorkingHideText,
+                              labelStyle: TextStyle(
+                                  color: labelTextColor, fontSize: 14),
+                              suffixIcon: const Icon(Icons.arrow_drop_down,
+                                  color: Colors.black, size: 40),
+                              focusColor: Colors.white.withOpacity(0),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: const BorderSide(
+                                  width: 2,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: const BorderSide(
+                                  width: 2,
+                                  color: Colors.grey,
+                                ),
                               ),
                             ),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
-                              borderSide: const BorderSide(
-                                width: 2,
-                                color: Colors.grey,
-                              ),
-                            ),
+                            onChanged: (List<String> x) {
+                              setState(() {
+                                locationWorkingSelect = x;
+                              });
+                            },
+                            options: value.listLocation
+                                .map((e) => e.toString())
+                                .toList(),
+                            selectedValues: locationWorkingSelect,
                           ),
-                          onChanged: (List<String> x) {
-                            setState(() {
-                              fieldWorkingSelect = x;
-                            });
-                          },
-                          options: listFieldWorking,
-                          selectedValues: fieldWorkingSelect,
                         ),
-                      ),
-                      Container(
-                        width: widths * 0.85,
-                        height: 50,
-                        margin: const EdgeInsets.only(top: 15, bottom: 10),
-                        child: TextField(
-                          controller: salaryControler,
-                          decoration: InputDecoration(
-                            labelText: salaryHideText,
-                            labelStyle:
-                                TextStyle(color: labelTextColor, fontSize: 14),
-                            filled: true,
-                            fillColor: Colors.white.withOpacity(1),
-                            focusColor: Colors.white.withOpacity(1),
-                            hoverColor: Colors.white.withOpacity(1),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
-                              borderSide: const BorderSide(
-                                width: 2,
-                                color: Colors.grey,
-                              ),
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
-                              borderSide: const BorderSide(
-                                width: 2,
-                                color: Colors.grey,
-                              ),
-                            ),
+                        Container(
+                          width: widths * 0.85,
+                          height: 50,
+                          margin: const EdgeInsets.only(top: 15, bottom: 10),
+                          decoration: BoxDecoration(
+                            color: backgroudWhiteItem,
+                            borderRadius: BorderRadius.circular(30),
                           ),
-                          showCursor: false,
-                          keyboardType: TextInputType.number,
+                          child: DropDownMultiSelect(
+                            icon: Icon(Icons.arrow_drop_down,
+                                color: backgroudOpacity1),
+                            decoration: InputDecoration(
+                              labelText: fieldWorkingHideText,
+                              labelStyle: TextStyle(
+                                  color: labelTextColor, fontSize: 14),
+                              suffixIcon: const Icon(Icons.arrow_drop_down,
+                                  color: Colors.black, size: 40),
+                              focusColor: Colors.white.withOpacity(0),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: const BorderSide(
+                                  width: 2,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: const BorderSide(
+                                  width: 2,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            ),
+                            onChanged: (List<String> x) {
+                              setState(() {
+                                fieldWorkingSelect = x;
+                              });
+                            },
+                            options: value.listCareer
+                                .map((e) => e.toString())
+                                .toList(),
+                            selectedValues: fieldWorkingSelect,
+                          ),
                         ),
-                      ),
-                      Container(
-                        width: widths * 0.87,
-                        height: 60,
-                        alignment: Alignment.centerLeft,
-                        child: Row(
-                          children: [
-                            Text(
-                              sexText,
-                              style: TextStyle(
+                        Container(
+                          width: widths * 0.85,
+                          height: 50,
+                          margin: const EdgeInsets.only(top: 15, bottom: 10),
+                          decoration: BoxDecoration(
+                            color: backgroudWhiteItem,
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          child: DropDownMultiSelect(
+                            icon: Icon(Icons.arrow_drop_down,
+                                color: backgroudOpacity1),
+                            decoration: InputDecoration(
+                              labelText: salaryHideText,
+                              labelStyle: TextStyle(
+                                  color: labelTextColor, fontSize: 14),
+                              suffixIcon: const Icon(Icons.arrow_drop_down,
+                                  color: Colors.black, size: 40),
+                              focusColor: Colors.white.withOpacity(0),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: const BorderSide(
+                                  width: 2,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: const BorderSide(
+                                  width: 2,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            ),
+                            onChanged: (List<String> x) {
+                              setState(() {
+                                salarySelect = x;
+                              });
+                            },
+                            options: value.listSalary
+                                .map((e) => e.toString())
+                                .toList(),
+                            selectedValues: salarySelect,
+                          ),
+                        ),
+                        Container(
+                          width: widths * 0.87,
+                          height: 60,
+                          alignment: Alignment.centerLeft,
+                          child: Row(
+                            children: [
+                              Text(
+                                sexText,
+                                style: TextStyle(
                                   color: colorTextBlack,
                                   fontSize: 15,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            Expanded(
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    width: 20,
-                                    height: 20,
-                                    margin: const EdgeInsets.only(right: 10),
-                                    decoration: BoxDecoration(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Expanded(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      width: 20,
+                                      height: 20,
+                                      margin: const EdgeInsets.only(
+                                        right: 10,
+                                      ),
+                                      decoration: BoxDecoration(
                                         gradient: isMale
                                             ? LinearGradient(
                                                 begin: Alignment.topLeft,
                                                 end: Alignment.bottomCenter,
                                                 colors: blackGradientColor,
                                               )
-                                            : null),
-                                    child: Checkbox(
-                                      value: isMale,
-                                      onChanged: (value) {
-                                        setState(() {
-                                          isMale = !isMale;
-                                        });
-                                      },
-                                      activeColor: Colors.transparent,
+                                            : null,
+                                      ),
+                                      child: Checkbox(
+                                        value: isMale,
+                                        onChanged: (value) {
+                                          setState(() {
+                                            isMale = !isMale;
+                                          });
+                                        },
+                                        activeColor: Colors.transparent,
+                                      ),
                                     ),
-                                  ),
-                                  const Text(maleText),
-                                  Container(
-                                    width: 20,
-                                    height: 20,
-                                    margin: const EdgeInsets.only(
-                                        right: 10, left: 10),
-                                    decoration: BoxDecoration(
+                                    const Text(maleText),
+                                    Container(
+                                      width: 20,
+                                      height: 20,
+                                      margin: const EdgeInsets.only(
+                                        right: 10,
+                                        left: 10,
+                                      ),
+                                      decoration: BoxDecoration(
                                         gradient: !isMale
                                             ? LinearGradient(
                                                 begin: Alignment.topLeft,
                                                 end: Alignment.bottomCenter,
                                                 colors: blackGradientColor,
                                               )
-                                            : null),
-                                    child: Checkbox(
-                                      value: !isMale,
-                                      onChanged: (value) {
-                                        setState(() {
-                                          isMale = !isMale;
-                                        });
-                                      },
-                                      activeColor: Colors.transparent,
+                                            : null,
+                                      ),
+                                      child: Checkbox(
+                                        value: !isMale,
+                                        onChanged: (value) {
+                                          setState(
+                                            () {
+                                              isMale = !isMale;
+                                            },
+                                          );
+                                        },
+                                        activeColor: Colors.transparent,
+                                      ),
                                     ),
-                                  ),
-                                  const Text(femaleText),
-                                ],
+                                    const Text(femaleText),
+                                  ],
+                                ),
                               ),
-                            )
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                width: double.infinity,
-                height: 80,
-                padding: const EdgeInsets.all(15),
-                alignment: Alignment.center,
-                child: GestureDetector(
-                  onTap: () {},
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      gradient: LinearGradient(
+                Container(
+                  width: double.infinity,
+                  height: 80,
+                  padding: const EdgeInsets.all(15),
+                  alignment: Alignment.center,
+                  child: GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        gradient: LinearGradient(
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
-                          colors: blackGradientColor),
-                    ),
-                    child: Center(
-                      child: Text(
-                        applyBtText,
-                        style: TextStyle(
+                          colors: blackGradientColor,
+                        ),
+                      ),
+                      child: Center(
+                        child: Text(
+                          applyBtText,
+                          style: TextStyle(
                             color: colorTextWhite,
                             fontWeight: FontWeight.bold,
-                            fontSize: 15),
+                            fontSize: 15,
+                          ),
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

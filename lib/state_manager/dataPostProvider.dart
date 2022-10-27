@@ -78,7 +78,7 @@ class DataPostProvider extends ChangeNotifier {
   }
 
   Future loadPost(String? subRequest, int? idSubRequest, int page) async {
-    await getApiPostByCategories(
+    await getApiPost(
             subRequest: subRequest,
             idSubRequest: idSubRequest,
             page: page,

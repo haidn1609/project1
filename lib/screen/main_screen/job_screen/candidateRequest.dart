@@ -12,6 +12,9 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
+import '../../../request_api/postRequestApi.dart';
+import '../../show_content_screen/ShowListPost.dart';
+
 class CandidateRequest extends StatelessWidget {
   const CandidateRequest({Key? key}) : super(key: key);
 
@@ -42,12 +45,23 @@ class CandidateRequest extends StatelessWidget {
                   ),
                 ),
                 Expanded(
-                  child: Container(
-                    alignment: Alignment.centerRight,
-                    child: Image.asset(
-                      "images/icon_next_arrrow.png",
-                      width: 17,
-                      height: 17,
+                  child: GestureDetector(
+                    onTap: () {
+                      Get.to(
+                        ShowListPost(
+                            listPost: value.listPost,
+                            title: requestJobCandidateText),
+                        duration: const Duration(seconds: 1),
+                        transition: Transition.upToDown,
+                      );
+                    },
+                    child: Container(
+                      alignment: Alignment.centerRight,
+                      child: Image.asset(
+                        "images/icon_next_arrrow.png",
+                        width: 17,
+                        height: 17,
+                      ),
                     ),
                   ),
                 )
@@ -169,12 +183,23 @@ class CandidateRequest extends StatelessWidget {
                   ),
                 ),
                 Expanded(
-                  child: Container(
-                    alignment: Alignment.centerRight,
-                    child: Image.asset(
-                      "images/icon_next_arrrow.png",
-                      width: 17,
-                      height: 17,
+                  child: GestureDetector(
+                    onTap: () {
+                      Get.to(
+                        ShowListPost(
+                            listPost: value.listPost,
+                            title: bestJobCandidateText),
+                        duration: const Duration(seconds: 1),
+                        transition: Transition.upToDown,
+                      );
+                    },
+                    child: Container(
+                      alignment: Alignment.centerRight,
+                      child: Image.asset(
+                        "images/icon_next_arrrow.png",
+                        width: 17,
+                        height: 17,
+                      ),
                     ),
                   ),
                 )
@@ -205,12 +230,36 @@ class CandidateRequest extends StatelessWidget {
                           ),
                         ),
                         Expanded(
-                          child: Container(
-                            alignment: Alignment.centerRight,
-                            child: Image.asset(
-                              "images/icon_next_arrrow.png",
-                              width: 17,
-                              height: 17,
+                          child: GestureDetector(
+                            onTap: () async {
+                              value.setLoading(true);
+                              await getApiPost(
+                                      subRequest: subApiWorkingType,
+                                      idSubRequest: item.id,
+                                      page: 1,
+                                      listCareer: value.listCareer,
+                                      listCategory: value.listCategory,
+                                      listCompany: value.listCompany,
+                                      listLocation: value.listLocation,
+                                      listSalary: value.listSalary,
+                                      listWorkingType: value.listWorkingType)
+                                  .then(
+                                (value) => Get.to(
+                                  ShowListPost(
+                                      listPost: value, title: item.toString()),
+                                  duration: const Duration(seconds: 1),
+                                  transition: Transition.upToDown,
+                                ),
+                              );
+                              value.setLoading(false);
+                            },
+                            child: Container(
+                              alignment: Alignment.centerRight,
+                              child: Image.asset(
+                                "images/icon_next_arrrow.png",
+                                width: 17,
+                                height: 17,
+                              ),
                             ),
                           ),
                         )

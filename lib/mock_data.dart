@@ -8,10 +8,6 @@ Map<String, dynamic> userNow = {
   "mi": 160,
   "disc": "D"
 };
-String demoDescription =
-    'Chính thức thành lập từ năm 2011, sau gần 1 thập kỷ đi vào hoạt động, Bệnh viện Đa khoa Quốc tế Thu Cúc hiện đang là địa chỉ được đông đảo khách hàng tin chọn. Bệnh viện được đánh giá cao về cả chất lượng khám chữa bệnh và dịch vụ khách hàng với cơ sở vật chất hiện đại vượt trội, hệ thống trang thiết bị y tế tiên tiến, và đội ngũ bác sĩ giỏi chuyên môn, giàu y đức.\n' +
-        'Chất lượng khám chữa bệnh là tiêu chí luôn được khẳng định tại Bệnh viện Thu Cúc với sự đánh giá cao từ Sở Y Tế và từ khách hàng. Không chỉ luôn nằm trong “Top đầu” các bệnh viện có điểm chất lượng cao nhất với 83 tiêu chí khắt khe của Sở Y tế, Bệnh viện Thu Cúc còn được tin chọn là “cánh tay nối dài” của các bệnh viện trung ương với sứ mệnh mang đến dịch vụ y tế tin cậy cho người dân, góp phần giảm tải y tế công. Khách hàng lựa chọn khám chữa bệnh tại đây không chỉ vì tin tưởng mà còn vì yêu thích phong cách phục vụ tận tình, chu đáo. Tỷ lệ hài lòng khi khách hàng khám chữa bệnh lên tới 99.9%\n' +
-        'Bệnh viện Thu Cúc cũng là đơn vị tiên phong trong hợp tác quốc tế với các bệnh viện nổi tiếng tại những nước có nền y học phát triển, như Singapore, Cuba…vv đặc biệt là trong lĩnh vực điều trị ung thư và sản khoa. Đối với ngành ung bướu, nhờ có phác đồ điều trị chuẩn 100% Singapore và chế độ chăm sóc toàn diện tại Bệnh viện Thu Cúc, hàng ngàn bệnh nhân ung thư đã tìm thấy cơ hội sống cho chính mình. Còn với ngành sản khoa, những yếu tố “cảm xúc” trong quá trình vượt cạn để giúp mẹ bầu có cuộc sinh nở tốt nhất đã được chắt lọc từ nhiều nước phát triển và áp dụng một cách tuyệt vời tại đây. Lựa chọn thai sản trọn gói ở Thu Cúc là bố mẹ đã lựa chọn một hành trình của sự an tâm và hạnh phúc để gặp thiên thần bé bỏng của mình.';
 bool isLogin = true;
 List<Map<String, dynamic>> listFriend = [
   {
@@ -49,40 +45,7 @@ List<Map<String, dynamic>> listFriend = [
         "https://vnn-imgs-f.vgcloud.vn/2021/10/09/16/thanh-ha-hon-nhan-lan-dan-tim-thay-ben-do-o-tuoi-52-3.jpg"
   },
 ];
-List<Map<String, dynamic>> listRequestJob = [
-  {
-    "company": "Công ty cổ phần BeeCV",
-    "nameJob": "Nhân viên thiết kế đồ họa tương tác UX/UI",
-    "location": "Hà Nội",
-    "minSalary": 10,
-    "endDate": "20/05/2021",
-    "logoImg": "https://img.upanh.tv/2022/09/17/beeCV.png"
-  },
-  {
-    "company": "Công ty cổ phần BeeCV",
-    "nameJob": "Nhân viên thiết kế đồ họa tương tác UX/UI",
-    "location": "Hà Nội",
-    "minSalary": 10,
-    "endDate": "20/05/2021",
-    "logoImg": "https://img.upanh.tv/2022/09/17/beeCV.png"
-  },
-  {
-    "company": "Công ty cổ phần BeeCV",
-    "nameJob": "Nhân viên thiết kế đồ họa tương tác UX/UI",
-    "location": "Hà Nội",
-    "minSalary": 10,
-    "endDate": "20/05/2021",
-    "logoImg": "https://img.upanh.tv/2022/09/17/beeCV.png"
-  },
-  {
-    "company": "Công ty cổ phần BeeCV",
-    "nameJob": "Nhân viên thiết kế đồ họa tương tác UX/UI",
-    "location": "Hà Nội",
-    "minSalary": 10,
-    "endDate": "20/05/2021",
-    "logoImg": "https://img.upanh.tv/2022/09/17/beeCV.png"
-  }
-];
+
 List<Map<String, dynamic>> listRequestCandidate = [
   {
     "name": "Nguyễn Lan Anh",
@@ -165,24 +128,6 @@ List<Map<String, dynamic>> listRequestCandidate = [
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFCUvvBw76w0mdfOdV8NbD88MGh31crnEUJQ&usqp=CAU"
   },
 ];
-// List<Map<String, dynamic>> listJobLogo = [
-//   {
-//     "patch": "images/icon_artish.png",
-//     "nameJob": "Thiết kế đồ họa",
-//     "count": 200
-//   },
-//   {"patch": "images/icon_it_job.png", "nameJob": "Công việc IT", "count": 356},
-//   {
-//     "patch": "images/icon_sale_job.png",
-//     "nameJob": "Nhân viên kinh doanh",
-//     "count": 356
-//   },
-//   {
-//     "patch": "images/icon_sale_job.png",
-//     "nameJob": "Nhân viên kinh doanh",
-//     "count": 356
-//   }
-// ];
 
 List<Map<String, dynamic>> listMess = [
   {
