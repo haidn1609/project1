@@ -1,11 +1,14 @@
+import 'package:acs_project_example/Model/postInfoModel.dart';
 import 'package:acs_project_example/state_manager/dataPostProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:multiselect/multiselect.dart';
 import 'package:provider/provider.dart';
 
+import '../../request_api/postRequestApi.dart';
 import '../../value/colors.dart';
 import '../../value/strings.dart';
+import '../show_content_screen/ShowListPost.dart';
 
 class FilterScreen extends StatefulWidget {
   const FilterScreen({Key? key}) : super(key: key);
@@ -20,6 +23,19 @@ class _FilterScreenState extends State<FilterScreen> {
   List<String> salarySelect = [];
   TextEditingController salaryControler = TextEditingController();
   bool isMale = true;
+
+  String getSubRequest(List<String> toLists, List<PostInfoModel> fromList) {
+    String subRequest = "";
+    List<PostInfoModel> lists = toLists
+        .map((e1) => fromList.firstWhere((e2) => e2.name == e1))
+        .toList();
+    if (lists.isNotEmpty) {
+      for (var e in lists) {
+        subRequest += "${e.taxonomy}=${e.id} ";
+      }
+    }
+    return subRequest;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -307,7 +323,35 @@ class _FilterScreenState extends State<FilterScreen> {
                   padding: const EdgeInsets.all(15),
                   alignment: Alignment.center,
                   child: GestureDetector(
-                    onTap: () {},
+                    onTap: () async {
+                      String subRequest = '';
+                      subRequest = (getSubRequest(
+                                  locationWorkingSelect, value.listLocation) +
+                              getSubRequest(
+                                  fieldWorkingSelect, value.listCareer) +
+                              getSubRequest(salarySelect, value.listSalary))
+                          .trim()
+                          .replaceAll(" ", "&");
+                      value.setLoading(true);
+                      await getApiPost(
+                              subRequest: "$subApiCategory=1&$subRequest",
+                              page: 1,
+                              listCareer: value.listCareer,
+                              listCategory: value.listCategory,
+                              listCompany: value.listCompany,
+                              listLocation: value.listLocation,
+                              listSalary: value.listSalary,
+                              listWorkingType: value.listWorkingType)
+                          .then(
+                        (value) => Get.to(
+                          ShowListPost(
+                              listPost: value, title: "Công việc phù hợp"),
+                          duration: const Duration(seconds: 1),
+                          transition: Transition.upToDown,
+                        ),
+                      );
+                      value.setLoading(false);
+                    },
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),

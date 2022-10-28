@@ -234,8 +234,8 @@ class CandidateRequest extends StatelessWidget {
                             onTap: () async {
                               value.setLoading(true);
                               await getApiPost(
-                                      subRequest: subApiWorkingType,
-                                      idSubRequest: item.id,
+                                      subRequest:
+                                          "$subApiCategory=1&$subApiWorkingType=${item.id}",
                                       page: 1,
                                       listCareer: value.listCareer,
                                       listCategory: value.listCategory,

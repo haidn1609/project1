@@ -64,8 +64,8 @@ class _ProposeScreenState extends State<ProposeScreen> {
                       onTap: () async {
                         value.setLoading(true);
                         await getApiPost(
-                                subRequest: subApiCompany,
-                                idSubRequest: e.id,
+                                subRequest:
+                                    "$subApiCategory=1&$subApiCompany=${e.id}",
                                 page: 1,
                                 listCareer: value.listCareer,
                                 listCategory: value.listCategory,

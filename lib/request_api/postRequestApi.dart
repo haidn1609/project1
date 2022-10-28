@@ -14,10 +14,10 @@ String subApiCompany = "cong_ty";
 String subApiSalary = "muc_luong";
 String subPostTag = "tags";
 
-Future<List<PostInfoModel>> getPostInfo(String subApi) async {
+Future<List<PostInfoModel>> getPostInfo(String subApi, int page) async {
   List<PostInfoModel> listInfo = [];
   try {
-    final response = await http.get(Uri.parse("$baseApi/$subApi"));
+    final response = await http.get(Uri.parse("$baseApi/$subApi?page=$page"));
     if (response.statusCode == 200) {
       final jsonData = jsonDecode(response.body);
       for (var data in jsonData) {
@@ -25,17 +25,16 @@ Future<List<PostInfoModel>> getPostInfo(String subApi) async {
       }
     } else {
       print(
-          "$baseApi/$subApi ==> ${response.statusCode} :get du lieu category thất bại");
+          "$baseApi/$subApi?page=$page ==> ${response.statusCode} :get du lieu category thất bại");
     }
   } catch (err) {
-    print("$baseApi/$subApi ==> ${err.toString()}");
+    print("$baseApi/$subApi?page=$page ==> ${err.toString()}");
   }
   return listInfo;
 }
 
 Future<List<PostModel>> getApiPost(
-    {int? idSubRequest,
-    int? page,
+    {int? page,
     String? subRequest,
     List<PostInfoModel>? listCategory,
     List<PostInfoModel>? listLocation,
@@ -45,9 +44,9 @@ Future<List<PostModel>> getApiPost(
     List<PostInfoModel>? listSalary}) async {
   List<PostModel> listPost = [];
   try {
-    print("stat get api: $baseApi/posts?$subRequest=$idSubRequest&page=$page");
-    final response = await http
-        .get(Uri.parse("$baseApi/posts?$subRequest=$idSubRequest&page=$page"));
+    print("stat get api: $baseApi/posts?$subRequest&page=$page");
+    final response =
+        await http.get(Uri.parse("$baseApi/posts?$subRequest&page=$page"));
     if (response.statusCode == 200) {
       final jsonData = jsonDecode(response.body);
       for (var i = 0; i < [...jsonData].length; i++) {
@@ -94,14 +93,13 @@ Future<List<PostModel>> getApiPost(
             thumbnailUrl));
       }
       print(
-          "get du lieu từ $baseApi/posts?$subRequest=$idSubRequest&page=$page thanh cong được ${listPost.length} item");
+          "get du lieu từ $baseApi/posts?$subRequest&page=$page thanh cong được ${listPost.length} item");
     } else {
       print(
-          "$baseApi/posts?$subRequest=$idSubRequest&page=$page ==> ${response.statusCode} :get du lieu post thất bại");
+          "$baseApi/posts?$subRequest&page=$page ==> ${response.statusCode} :get du lieu post thất bại");
     }
   } catch (err) {
-    print(
-        "$baseApi/posts?$subRequest=$idSubRequest&page=$page ==> ${err.toString()}");
+    print("$baseApi/posts?$subRequest&page=$page ==> ${err.toString()}");
   }
   return listPost;
 }

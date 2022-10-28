@@ -46,41 +46,45 @@ class DataPostProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future loadCategory() async {
-    await getPostInfo(subApiCategory).then((value) => _listCategory = value);
+  Future loadCategory(int page) async {
+    await getPostInfo(subApiCategory, page)
+        .then((value) => _listCategory.addAll(value));
     notifyListeners();
   }
 
-  Future loadLocation() async {
-    await getPostInfo(subApiLocation).then((value) => _listLocation = value);
+  Future loadLocation(int page) async {
+    await getPostInfo(subApiLocation, page)
+        .then((value) => _listLocation.addAll(value));
     notifyListeners();
   }
 
-  Future loadCareer() async {
-    await getPostInfo(subApiCareer).then((value) => _listCareer = value);
+  Future loadCareer(int page) async {
+    await getPostInfo(subApiCareer, page)
+        .then((value) => _listCareer.addAll(value));
     notifyListeners();
   }
 
-  Future loadWorkingType() async {
-    await getPostInfo(subApiWorkingType)
-        .then((value) => _listWorkingType = value);
+  Future loadWorkingType(int page) async {
+    await getPostInfo(subApiWorkingType, page)
+        .then((value) => _listWorkingType.addAll(value));
     notifyListeners();
   }
 
-  Future loadCompany() async {
-    await getPostInfo(subApiCompany).then((value) => _listCompany = value);
+  Future loadCompany(int page) async {
+    await getPostInfo(subApiCompany, page)
+        .then((value) => _listCompany.addAll(value));
     notifyListeners();
   }
 
-  Future loadSalary() async {
-    await getPostInfo(subApiSalary).then((value) => _listSalary = value);
+  Future loadSalary(int page) async {
+    await getPostInfo(subApiSalary, page)
+        .then((value) => _listSalary.addAll(value));
     notifyListeners();
   }
 
-  Future loadPost(String? subRequest, int? idSubRequest, int page) async {
+  Future loadPost(String? subRequest, int page) async {
     await getApiPost(
             subRequest: subRequest,
-            idSubRequest: idSubRequest,
             page: page,
             listCareer: listCareer,
             listCategory: listCategory,
@@ -103,6 +107,12 @@ class DataPostProvider extends ChangeNotifier {
   }
 
   clearPost() {
+    _listCategory.clear();
+    _listCareer.clear();
+    _listLocation.clear();
+    _listCompany.clear();
+    _listWorkingType.clear();
+    _listSalary.clear();
     _listPost.clear();
     notifyListeners();
   }

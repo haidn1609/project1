@@ -43,36 +43,34 @@ class _LoadDataScreenState extends State<LoadDataScreen> {
     providerData.setLoading(true);
     providerData.clearPost();
     await Future.wait([
-      providerData.loadCategory().then(
+      providerData.loadCategory(1).then(
             (value) => setState(() => countLoad++),
           ),
-      providerData.loadCareer().then(
+      providerData.loadCareer(1).then(
             (value) => setState(() => countLoad++),
           ),
-      providerData.loadCompany().then(
+      providerData.loadCareer(2).then(
             (value) => setState(() => countLoad++),
           ),
-      providerData.loadLocation().then(
+      providerData.loadCompany(1).then(
             (value) => setState(() => countLoad++),
           ),
-      providerData.loadSalary().then(
+      providerData.loadLocation(1).then(
             (value) => setState(() => countLoad++),
           ),
-      providerData.loadWorkingType().then(
+      providerData.loadSalary(1).then(
+            (value) => setState(() => countLoad++),
+          ),
+      providerData.loadSalary(2).then(
+            (value) => setState(() => countLoad++),
+          ),
+      providerData.loadWorkingType(1).then(
             (value) => setState(() => countLoad++),
           ),
     ]);
     providerData.setTotalPost(providerData.listCategory, "tin-tuyen-dung");
     for (int i = 1; i <= providerData.totalPage; i++) {
-      await providerData.loadPost(
-          subApiCategory,
-          providerData.listCategory
-              .where(
-                (element) => element.slug!.contains("tin-tuyen-dung"),
-              )
-              .elementAt(0)
-              .id,
-          i);
+      await providerData.loadPost("$subApiCategory=1", i);
     }
     setState(() => countLoad++);
     if (checkFistInstall && box.read("rule") != null) {
@@ -144,7 +142,7 @@ class _LoadDataScreenState extends State<LoadDataScreen> {
               padding: const EdgeInsets.all(15),
               child: Center(
                 child: Text(
-                  "Loading $countLoad/7",
+                  "Loading $countLoad/9",
                   style: TextStyle(
                     color: colorTextBlack,
                     fontSize: 20,
